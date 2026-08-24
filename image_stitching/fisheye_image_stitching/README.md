@@ -5,20 +5,20 @@
 ## 功能简介
 
 - 鱼眼相机标定：内参、畸变系数求解
-- 去畸变与投影变换：将鱼眼图像映射到统一的鸟瞰或柱面坐标系
-- 多路图像配准：外参标定，确定各相机之间的相对位姿
-- 拼接融合：重叠区域的接缝处理与亮度/色彩一致性调整
-- 全景输出：生成实时可用的拼接结果
+- 去畸变与投影变换：将鱼眼图像映射到统一的2D鸟瞰图以及3D图
+- 车模文件渲染：加载车模3D文件，采用GPU虚拟视点渲染出车模
+- 拼接融合：重叠区域的拼接缝平滑过渡处理
+- 全景输出：采用GPU渲染的方式生成拼接结果，支持两种渲染模式：离屏渲染，直接渲染到屏幕
 
 ## 目录结构
 
 ```
 fisheye_image_stitching/
-├── include/          # 头文件
-├── src/              # 源码实现
+├── include/          # 测试程序头文件
+├── src/              # 测试程序源码
 ├── config/           # 相机参数与标定配置
 ├── data/             # 测试图像与标定板样例
-├── test/             # 单元测试与示例程序
+├── lib/              # 算法库文件
 └── CMakeLists.txt    # 构建脚本
 ```
 
@@ -40,23 +40,12 @@ make -j$(nproc)
 
 ## 使用方式
 
-### 1. 相机标定
+### 1. 加载相机标定参数文件以及测试图像
 
-采集标定板图像后运行标定程序，生成内参文件：
+标定参数为_aParam.xml
+测试图像为
 
-```bash
-./fisheye_calibrate --input data/calib_images --output config/intrinsics.yaml
-```
-
-### 2. 外参标定
-
-标定各相机之间的相对位姿：
-
-```bash
-./fisheye_extrinsic --config config/intrinsics.yaml --output config/extrinsics.yaml
-```
-
-### 3. 图像拼接
+### 2. 图像拼接
 
 ```bash
 ./fisheye_stitching --config config/ --input data/frames --output result/
@@ -66,18 +55,16 @@ make -j$(nproc)
 
 主要配置项位于 `config/` 目录：
 
-- `intrinsics.yaml`：各相机内参与畸变系数
-- `extrinsics.yaml`：相机外参（旋转、平移）
-- `stitching.yaml`：拼接参数（输出分辨率、投影模型、融合方式）
+- `_aParam.xml`：各相机内参，畸变系数以及外参
+
 
 ## 注意事项
 
-- 鱼眼相机 FOV 较大时，建议使用 `cv::fisheye` 模型而非普通针孔模型
-- 标定图像需覆盖画面各个区域，尤其是边缘畸变较大的部分
-- 重叠区域应保证至少 15% 以上，以获得稳定的配准结果
+- 保证各个apritag在相机重叠区域都能完整的被拍摄到
+- 每个相机画面需要拍摄到两个apritag
+- 每个相机的水平fov在180度左右
 
-## TODO
 
-- [ ] 支持 GPU 加速重映射
-- [ ] 在线动态标定
-- [ ] 多分辨率金字塔融合
+## 性能指标
+
+
