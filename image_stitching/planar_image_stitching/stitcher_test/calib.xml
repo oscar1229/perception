@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<opencv_storage>
+<RightToLeft type_id="opencv-matrix">
+  <rows>3</rows>
+  <cols>3</cols>
+  <dt>d</dt>
+  <data>
+    1.0002327610396107 0.00011227706794382543 1228.4171801917496
+    -0.00011227706794382543 1.0002327610396107 -0.12259799877925528 0.
+    0. 1.</data></RightToLeft>
+</opencv_storage>
