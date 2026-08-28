@@ -1,0 +1,40 @@
+{
+  "input": {
+    "left_image": "./assets/s0_left.jpg",
+    "right_image": "./assets/s0_right.jpg"
+  },
+  "output": {
+    "image": "./output/planar.jpg"
+  },
+  "camera": {
+    "width": 1920,
+    "height": 1080,
+    "device": 0,
+    "timeout_ms": 33,
+    "mipi_lanes": 4,
+    "mipi_mbps": 800
+  },
+  "registration": {
+    "mode": "auto",
+    "file": "",
+    "save_to": "./output/calib.xml"
+  },
+  "feature_detection": {
+    "work_max_width": 960,
+    "fast_threshold": 20,
+    "max_features": 2000
+  },
+  "ransac": {
+    "iterations": 2000,
+    "threshold_px": 2.0,
+    "max_reprojection_rmse_px": 2.0
+  },
+  "blending": {
+    "num_bands": 5
+  },
+  "runtime": {
+    "frames": 0,
+    "sleep_us": 0,
+    "force_offscreen": true
+  }
+}
