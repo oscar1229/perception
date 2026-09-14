@@ -23,7 +23,7 @@
 #include "../gtx/norm.hpp"
 
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
-#	pragma message("GLM: GLM_GTX_quaternion extension included")
+#       pragma message("GLM: GLM_GTX_quaternion extension included")
 #endif
 
 namespace glm
@@ -47,7 +47,7 @@ namespace glm
         tvec3<T, P> const & v,
         tquat<T, P> const & q);
 
-    //! Compute a point on a path according squad equation. 
+    //! Compute a point on a path according squad equation.
     //! q1 and q2 are control points; s1 and s2 are intermediate control points.
     ///
     /// @see gtx_quaternion
@@ -95,7 +95,7 @@ namespace glm
     /// @see gtx_quaternion
     //template<typename T, precision P>
     //tquat<T, P> sqrt(
-    //	tquat<T, P> const & q);
+    //  tquat<T, P> const & q);
 
     //! Rotates a 3 components vector by a quaternion.
     ///
@@ -173,11 +173,11 @@ namespace glm
     /// @see gtx_quaternion
     template<typename T, precision P>
     GLM_FUNC_DECL tquat<T, P> rotation(
-        tvec3<T, P> const & orig, 
+        tvec3<T, P> const & orig,
         tvec3<T, P> const & dest);
 
     /// Returns the squared length of x.
-    /// 
+    ///
     /// @see gtx_quaternion
     template<typename T, precision P>
     GLM_FUNC_DECL T length2(tquat<T, P> const & q);

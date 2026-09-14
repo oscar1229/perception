@@ -146,7 +146,7 @@ namespace glm
     GLM_FUNC_DECL tmat4x4<T, P> operator-(T const & s, tmat4x4<T, P> const & m);
 
     template <typename T, precision P>
-    GLM_FUNC_DECL tmat4x4<T, P> operator-(tmat4x4<T, P> const & m1,	tmat4x4<T, P> const & m2);
+    GLM_FUNC_DECL tmat4x4<T, P> operator-(tmat4x4<T, P> const & m1,     tmat4x4<T, P> const & m2);
 
     template <typename T, precision P>
     GLM_FUNC_DECL tmat4x4<T, P> operator*(tmat4x4<T, P> const & m, T const & s);
@@ -182,7 +182,7 @@ namespace glm
     GLM_FUNC_DECL typename tmat4x4<T, P>::row_type operator/(typename tmat4x4<T, P>::col_type const & v, tmat4x4<T, P> const & m);
 
     template <typename T, precision P>
-    GLM_FUNC_DECL tmat4x4<T, P> operator/(tmat4x4<T, P> const & m1,	tmat4x4<T, P> const & m2);
+    GLM_FUNC_DECL tmat4x4<T, P> operator/(tmat4x4<T, P> const & m1,     tmat4x4<T, P> const & m2);
 
     // -- Boolean operators --
 

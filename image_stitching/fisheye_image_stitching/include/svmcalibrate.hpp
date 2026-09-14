@@ -68,11 +68,11 @@ struct SV_CALI_RESULT_S {
 //       out pstCaliResultVect，各通道摄像头SVM标定结果
 //@return 保存失败，返回SV_FALSE
 SV_BOOL SV_Calibrate(const std::vector<SV_CALI_INPUT_S>& stCaliInVect,
-    const SV_SIZE_S& stVehicleSize,const SV_S8* s8SavedXmlFile,
+    const SV_SIZE_S& stVehicleSize, const SV_S8* s8SavedXmlFile,
     std::vector<SV_CALI_RESULT_S>* pstCaliResultVect);
 
 }//end of namespace svmcalibrate
-}//end of sv_avm
-}//endof sm
+}  // namespace sv_avm
+}  // namespace sm
 
 #endif  // SVMCALIBRATE_HPP

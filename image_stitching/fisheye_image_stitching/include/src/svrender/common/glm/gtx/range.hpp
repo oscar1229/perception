@@ -19,7 +19,7 @@
 #include "../detail/setup.hpp"
 
 #if !GLM_HAS_RANGE_FOR
-#	error "GLM_GTX_range requires C++11 suppport or 'range for'"
+#       error "GLM_GTX_range requires C++11 suppport or 'range for'"
 #endif
 
 #include "../gtc/type_ptr.hpp"
@@ -35,31 +35,31 @@ namespace glm
     {
         return v.length();
     }
-    
+
     template <typename T, precision P>
     inline length_t components(tvec2<T, P> const & v)
     {
         return v.length();
     }
-    
+
     template <typename T, precision P>
     inline length_t components(tvec3<T, P> const & v)
     {
         return v.length();
     }
-    
+
     template <typename T, precision P>
     inline length_t components(tvec4<T, P> const & v)
     {
         return v.length();
     }
-    
+
     template <typename genType>
     inline length_t components(genType const & m)
     {
         return m.length() * m[0].length();
     }
-    
+
     template <typename genType>
     inline typename genType::value_type const * begin(genType const & v)
     {

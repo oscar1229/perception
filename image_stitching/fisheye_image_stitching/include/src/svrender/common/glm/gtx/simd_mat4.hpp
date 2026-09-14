@@ -21,15 +21,15 @@
 #if(GLM_ARCH != GLM_ARCH_PURE)
 
 #if(GLM_ARCH & GLM_ARCH_SSE2_BIT)
-#	include "../detail/intrinsic_matrix.hpp"
-#	include "../gtx/simd_vec4.hpp"
+#       include "../detail/intrinsic_matrix.hpp"
+#       include "../gtx/simd_vec4.hpp"
 #else
-#	error "GLM: GLM_GTX_simd_mat4 requires compiler support of SSE2 through intrinsics"
+#       error "GLM: GLM_GTX_simd_mat4 requires compiler support of SSE2 through intrinsics"
 #endif
 
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
-#	pragma message("GLM: GLM_GTX_simd_mat4 extension included")
-#	pragma message("GLM: GLM_GTX_simd_mat4 extension is deprecated and will be removed in GLM 0.9.9. Use mat4 instead and use compiler SIMD arguments.")
+#       pragma message("GLM: GLM_GTX_simd_mat4 extension included")
+#       pragma message("GLM: GLM_GTX_simd_mat4 extension is deprecated and will be removed in GLM 0.9.9. Use mat4 instead and use compiler SIMD arguments.")
 #endif
 
 namespace glm{

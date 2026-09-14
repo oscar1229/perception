@@ -173,10 +173,10 @@ GLM_FUNC_QUALIFIER glm_vec4 glm_mat4_determinant_highp(glm_vec4 const in[4])
 {
     __m128 Fac0;
     {
-        //	valType SubFactor00 = m[2][2] * m[3][3] - m[3][2] * m[2][3];
-        //	valType SubFactor00 = m[2][2] * m[3][3] - m[3][2] * m[2][3];
-        //	valType SubFactor06 = m[1][2] * m[3][3] - m[3][2] * m[1][3];
-        //	valType SubFactor13 = m[1][2] * m[2][3] - m[2][2] * m[1][3];
+        //      valType SubFactor00 = m[2][2] * m[3][3] - m[3][2] * m[2][3];
+        //      valType SubFactor00 = m[2][2] * m[3][3] - m[3][2] * m[2][3];
+        //      valType SubFactor06 = m[1][2] * m[3][3] - m[3][2] * m[1][3];
+        //      valType SubFactor13 = m[1][2] * m[2][3] - m[2][2] * m[1][3];
 
         __m128 Swp0a = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(3, 3, 3, 3));
         __m128 Swp0b = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(2, 2, 2, 2));
@@ -193,10 +193,10 @@ GLM_FUNC_QUALIFIER glm_vec4 glm_mat4_determinant_highp(glm_vec4 const in[4])
 
     __m128 Fac1;
     {
-        //	valType SubFactor01 = m[2][1] * m[3][3] - m[3][1] * m[2][3];
-        //	valType SubFactor01 = m[2][1] * m[3][3] - m[3][1] * m[2][3];
-        //	valType SubFactor07 = m[1][1] * m[3][3] - m[3][1] * m[1][3];
-        //	valType SubFactor14 = m[1][1] * m[2][3] - m[2][1] * m[1][3];
+        //      valType SubFactor01 = m[2][1] * m[3][3] - m[3][1] * m[2][3];
+        //      valType SubFactor01 = m[2][1] * m[3][3] - m[3][1] * m[2][3];
+        //      valType SubFactor07 = m[1][1] * m[3][3] - m[3][1] * m[1][3];
+        //      valType SubFactor14 = m[1][1] * m[2][3] - m[2][1] * m[1][3];
 
         __m128 Swp0a = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(3, 3, 3, 3));
         __m128 Swp0b = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(1, 1, 1, 1));
@@ -214,10 +214,10 @@ GLM_FUNC_QUALIFIER glm_vec4 glm_mat4_determinant_highp(glm_vec4 const in[4])
 
     __m128 Fac2;
     {
-        //	valType SubFactor02 = m[2][1] * m[3][2] - m[3][1] * m[2][2];
-        //	valType SubFactor02 = m[2][1] * m[3][2] - m[3][1] * m[2][2];
-        //	valType SubFactor08 = m[1][1] * m[3][2] - m[3][1] * m[1][2];
-        //	valType SubFactor15 = m[1][1] * m[2][2] - m[2][1] * m[1][2];
+        //      valType SubFactor02 = m[2][1] * m[3][2] - m[3][1] * m[2][2];
+        //      valType SubFactor02 = m[2][1] * m[3][2] - m[3][1] * m[2][2];
+        //      valType SubFactor08 = m[1][1] * m[3][2] - m[3][1] * m[1][2];
+        //      valType SubFactor15 = m[1][1] * m[2][2] - m[2][1] * m[1][2];
 
         __m128 Swp0a = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(2, 2, 2, 2));
         __m128 Swp0b = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(1, 1, 1, 1));
@@ -234,10 +234,10 @@ GLM_FUNC_QUALIFIER glm_vec4 glm_mat4_determinant_highp(glm_vec4 const in[4])
 
     __m128 Fac3;
     {
-        //	valType SubFactor03 = m[2][0] * m[3][3] - m[3][0] * m[2][3];
-        //	valType SubFactor03 = m[2][0] * m[3][3] - m[3][0] * m[2][3];
-        //	valType SubFactor09 = m[1][0] * m[3][3] - m[3][0] * m[1][3];
-        //	valType SubFactor16 = m[1][0] * m[2][3] - m[2][0] * m[1][3];
+        //      valType SubFactor03 = m[2][0] * m[3][3] - m[3][0] * m[2][3];
+        //      valType SubFactor03 = m[2][0] * m[3][3] - m[3][0] * m[2][3];
+        //      valType SubFactor09 = m[1][0] * m[3][3] - m[3][0] * m[1][3];
+        //      valType SubFactor16 = m[1][0] * m[2][3] - m[2][0] * m[1][3];
 
         __m128 Swp0a = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(3, 3, 3, 3));
         __m128 Swp0b = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(0, 0, 0, 0));
@@ -254,10 +254,10 @@ GLM_FUNC_QUALIFIER glm_vec4 glm_mat4_determinant_highp(glm_vec4 const in[4])
 
     __m128 Fac4;
     {
-        //	valType SubFactor04 = m[2][0] * m[3][2] - m[3][0] * m[2][2];
-        //	valType SubFactor04 = m[2][0] * m[3][2] - m[3][0] * m[2][2];
-        //	valType SubFactor10 = m[1][0] * m[3][2] - m[3][0] * m[1][2];
-        //	valType SubFactor17 = m[1][0] * m[2][2] - m[2][0] * m[1][2];
+        //      valType SubFactor04 = m[2][0] * m[3][2] - m[3][0] * m[2][2];
+        //      valType SubFactor04 = m[2][0] * m[3][2] - m[3][0] * m[2][2];
+        //      valType SubFactor10 = m[1][0] * m[3][2] - m[3][0] * m[1][2];
+        //      valType SubFactor17 = m[1][0] * m[2][2] - m[2][0] * m[1][2];
 
         __m128 Swp0a = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(2, 2, 2, 2));
         __m128 Swp0b = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(0, 0, 0, 0));
@@ -274,10 +274,10 @@ GLM_FUNC_QUALIFIER glm_vec4 glm_mat4_determinant_highp(glm_vec4 const in[4])
 
     __m128 Fac5;
     {
-        //	valType SubFactor05 = m[2][0] * m[3][1] - m[3][0] * m[2][1];
-        //	valType SubFactor05 = m[2][0] * m[3][1] - m[3][0] * m[2][1];
-        //	valType SubFactor12 = m[1][0] * m[3][1] - m[3][0] * m[1][1];
-        //	valType SubFactor18 = m[1][0] * m[2][1] - m[2][0] * m[1][1];
+        //      valType SubFactor05 = m[2][0] * m[3][1] - m[3][0] * m[2][1];
+        //      valType SubFactor05 = m[2][0] * m[3][1] - m[3][0] * m[2][1];
+        //      valType SubFactor12 = m[1][0] * m[3][1] - m[3][0] * m[1][1];
+        //      valType SubFactor18 = m[1][0] * m[2][1] - m[2][0] * m[1][1];
 
         __m128 Swp0a = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(1, 1, 1, 1));
         __m128 Swp0b = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(0, 0, 0, 0));
@@ -292,8 +292,8 @@ GLM_FUNC_QUALIFIER glm_vec4 glm_mat4_determinant_highp(glm_vec4 const in[4])
         Fac5 = _mm_sub_ps(Mul00, Mul01);
     }
 
-    __m128 SignA = _mm_set_ps( 1.0f,-1.0f, 1.0f,-1.0f);
-    __m128 SignB = _mm_set_ps(-1.0f, 1.0f,-1.0f, 1.0f);
+    __m128 SignA = _mm_set_ps(1.0f, -1.0f, 1.0f, -1.0f);
+    __m128 SignB = _mm_set_ps(-1.0f, 1.0f, -1.0f, 1.0f);
 
     // m[1][0]
     // m[0][0]
@@ -375,10 +375,10 @@ GLM_FUNC_QUALIFIER glm_vec4 glm_mat4_determinant_highp(glm_vec4 const in[4])
     __m128 Row1 = _mm_shuffle_ps(Inv2, Inv3, _MM_SHUFFLE(0, 0, 0, 0));
     __m128 Row2 = _mm_shuffle_ps(Row0, Row1, _MM_SHUFFLE(2, 0, 2, 0));
 
-    //	valType Determinant = m[0][0] * Inverse[0][0]
-    //						+ m[0][1] * Inverse[1][0]
-    //						+ m[0][2] * Inverse[2][0]
-    //						+ m[0][3] * Inverse[3][0];
+    //  valType Determinant = m[0][0] * Inverse[0][0]
+    //                                          + m[0][1] * Inverse[1][0]
+    //                                          + m[0][2] * Inverse[2][0]
+    //                                          + m[0][3] * Inverse[3][0];
     __m128 Det0 = glm_vec4_dot(in[0], Row2);
     return Det0;
 }
@@ -414,10 +414,10 @@ GLM_FUNC_QUALIFIER glm_vec4 glm_mat4_determinant_lowp(glm_vec4 const m[4])
     __m128 SubF = _mm_sub_ps(_mm_movehl_ps(MulC, MulC), MulC);
 
     //tvec4<T, P> DetCof(
-    //	+ (m[1][1] * SubFactor00 - m[1][2] * SubFactor01 + m[1][3] * SubFactor02),
-    //	- (m[1][0] * SubFactor00 - m[1][2] * SubFactor03 + m[1][3] * SubFactor04),
-    //	+ (m[1][0] * SubFactor01 - m[1][1] * SubFactor03 + m[1][3] * SubFactor05),
-    //	- (m[1][0] * SubFactor02 - m[1][1] * SubFactor04 + m[1][2] * SubFactor05));
+    //  + (m[1][1] * SubFactor00 - m[1][2] * SubFactor01 + m[1][3] * SubFactor02),
+    //  - (m[1][0] * SubFactor00 - m[1][2] * SubFactor03 + m[1][3] * SubFactor04),
+    //  + (m[1][0] * SubFactor01 - m[1][1] * SubFactor03 + m[1][3] * SubFactor05),
+    //  - (m[1][0] * SubFactor02 - m[1][1] * SubFactor04 + m[1][2] * SubFactor05));
 
     __m128 SubFacA = _mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(SubE), _MM_SHUFFLE(2, 1, 0, 0)));
     __m128 SwpFacA = _mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(m[1]), _MM_SHUFFLE(0, 0, 0, 1)));
@@ -436,12 +436,12 @@ GLM_FUNC_QUALIFIER glm_vec4 glm_mat4_determinant_lowp(glm_vec4 const m[4])
     __m128 MulFacC = _mm_mul_ps(SwpFacC, SubFacC);
 
     __m128 AddRes = _mm_add_ps(SubRes, MulFacC);
-    __m128 DetCof = _mm_mul_ps(AddRes, _mm_setr_ps( 1.0f,-1.0f, 1.0f,-1.0f));
+    __m128 DetCof = _mm_mul_ps(AddRes, _mm_setr_ps(1.0f, -1.0f, 1.0f, -1.0f));
 
     //return m[0][0] * DetCof[0]
-    //	 + m[0][1] * DetCof[1]
-    //	 + m[0][2] * DetCof[2]
-    //	 + m[0][3] * DetCof[3];
+    //   + m[0][1] * DetCof[1]
+    //   + m[0][2] * DetCof[2]
+    //   + m[0][3] * DetCof[3];
 
     return glm_vec4_dot(m[0], DetCof);
 }
@@ -477,10 +477,10 @@ GLM_FUNC_QUALIFIER glm_vec4 glm_mat4_determinant(glm_vec4 const m[4])
     __m128 SubF = _mm_sub_ps(_mm_movehl_ps(MulC, MulC), MulC);
 
     //tvec4<T, P> DetCof(
-    //	+ (m[1][1] * SubFactor00 - m[1][2] * SubFactor01 + m[1][3] * SubFactor02),
-    //	- (m[1][0] * SubFactor00 - m[1][2] * SubFactor03 + m[1][3] * SubFactor04),
-    //	+ (m[1][0] * SubFactor01 - m[1][1] * SubFactor03 + m[1][3] * SubFactor05),
-    //	- (m[1][0] * SubFactor02 - m[1][1] * SubFactor04 + m[1][2] * SubFactor05));
+    //  + (m[1][1] * SubFactor00 - m[1][2] * SubFactor01 + m[1][3] * SubFactor02),
+    //  - (m[1][0] * SubFactor00 - m[1][2] * SubFactor03 + m[1][3] * SubFactor04),
+    //  + (m[1][0] * SubFactor01 - m[1][1] * SubFactor03 + m[1][3] * SubFactor05),
+    //  - (m[1][0] * SubFactor02 - m[1][1] * SubFactor04 + m[1][2] * SubFactor05));
 
     __m128 SubFacA = _mm_shuffle_ps(SubE, SubE, _MM_SHUFFLE(2, 1, 0, 0));
     __m128 SwpFacA = _mm_shuffle_ps(m[1], m[1], _MM_SHUFFLE(0, 0, 0, 1));
@@ -499,12 +499,12 @@ GLM_FUNC_QUALIFIER glm_vec4 glm_mat4_determinant(glm_vec4 const m[4])
     __m128 MulFacC = _mm_mul_ps(SwpFacC, SubFacC);
 
     __m128 AddRes = _mm_add_ps(SubRes, MulFacC);
-    __m128 DetCof = _mm_mul_ps(AddRes, _mm_setr_ps( 1.0f,-1.0f, 1.0f,-1.0f));
+    __m128 DetCof = _mm_mul_ps(AddRes, _mm_setr_ps(1.0f, -1.0f, 1.0f, -1.0f));
 
     //return m[0][0] * DetCof[0]
-    //	 + m[0][1] * DetCof[1]
-    //	 + m[0][2] * DetCof[2]
-    //	 + m[0][3] * DetCof[3];
+    //   + m[0][1] * DetCof[1]
+    //   + m[0][2] * DetCof[2]
+    //   + m[0][3] * DetCof[3];
 
     return glm_vec4_dot(m[0], DetCof);
 }
@@ -513,10 +513,10 @@ GLM_FUNC_QUALIFIER void glm_mat4_inverse(glm_vec4 const in[4], glm_vec4 out[4])
 {
     __m128 Fac0;
     {
-        //	valType SubFactor00 = m[2][2] * m[3][3] - m[3][2] * m[2][3];
-        //	valType SubFactor00 = m[2][2] * m[3][3] - m[3][2] * m[2][3];
-        //	valType SubFactor06 = m[1][2] * m[3][3] - m[3][2] * m[1][3];
-        //	valType SubFactor13 = m[1][2] * m[2][3] - m[2][2] * m[1][3];
+        //      valType SubFactor00 = m[2][2] * m[3][3] - m[3][2] * m[2][3];
+        //      valType SubFactor00 = m[2][2] * m[3][3] - m[3][2] * m[2][3];
+        //      valType SubFactor06 = m[1][2] * m[3][3] - m[3][2] * m[1][3];
+        //      valType SubFactor13 = m[1][2] * m[2][3] - m[2][2] * m[1][3];
 
         __m128 Swp0a = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(3, 3, 3, 3));
         __m128 Swp0b = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(2, 2, 2, 2));
@@ -533,10 +533,10 @@ GLM_FUNC_QUALIFIER void glm_mat4_inverse(glm_vec4 const in[4], glm_vec4 out[4])
 
     __m128 Fac1;
     {
-        //	valType SubFactor01 = m[2][1] * m[3][3] - m[3][1] * m[2][3];
-        //	valType SubFactor01 = m[2][1] * m[3][3] - m[3][1] * m[2][3];
-        //	valType SubFactor07 = m[1][1] * m[3][3] - m[3][1] * m[1][3];
-        //	valType SubFactor14 = m[1][1] * m[2][3] - m[2][1] * m[1][3];
+        //      valType SubFactor01 = m[2][1] * m[3][3] - m[3][1] * m[2][3];
+        //      valType SubFactor01 = m[2][1] * m[3][3] - m[3][1] * m[2][3];
+        //      valType SubFactor07 = m[1][1] * m[3][3] - m[3][1] * m[1][3];
+        //      valType SubFactor14 = m[1][1] * m[2][3] - m[2][1] * m[1][3];
 
         __m128 Swp0a = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(3, 3, 3, 3));
         __m128 Swp0b = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(1, 1, 1, 1));
@@ -554,10 +554,10 @@ GLM_FUNC_QUALIFIER void glm_mat4_inverse(glm_vec4 const in[4], glm_vec4 out[4])
 
     __m128 Fac2;
     {
-        //	valType SubFactor02 = m[2][1] * m[3][2] - m[3][1] * m[2][2];
-        //	valType SubFactor02 = m[2][1] * m[3][2] - m[3][1] * m[2][2];
-        //	valType SubFactor08 = m[1][1] * m[3][2] - m[3][1] * m[1][2];
-        //	valType SubFactor15 = m[1][1] * m[2][2] - m[2][1] * m[1][2];
+        //      valType SubFactor02 = m[2][1] * m[3][2] - m[3][1] * m[2][2];
+        //      valType SubFactor02 = m[2][1] * m[3][2] - m[3][1] * m[2][2];
+        //      valType SubFactor08 = m[1][1] * m[3][2] - m[3][1] * m[1][2];
+        //      valType SubFactor15 = m[1][1] * m[2][2] - m[2][1] * m[1][2];
 
         __m128 Swp0a = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(2, 2, 2, 2));
         __m128 Swp0b = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(1, 1, 1, 1));
@@ -574,10 +574,10 @@ GLM_FUNC_QUALIFIER void glm_mat4_inverse(glm_vec4 const in[4], glm_vec4 out[4])
 
     __m128 Fac3;
     {
-        //	valType SubFactor03 = m[2][0] * m[3][3] - m[3][0] * m[2][3];
-        //	valType SubFactor03 = m[2][0] * m[3][3] - m[3][0] * m[2][3];
-        //	valType SubFactor09 = m[1][0] * m[3][3] - m[3][0] * m[1][3];
-        //	valType SubFactor16 = m[1][0] * m[2][3] - m[2][0] * m[1][3];
+        //      valType SubFactor03 = m[2][0] * m[3][3] - m[3][0] * m[2][3];
+        //      valType SubFactor03 = m[2][0] * m[3][3] - m[3][0] * m[2][3];
+        //      valType SubFactor09 = m[1][0] * m[3][3] - m[3][0] * m[1][3];
+        //      valType SubFactor16 = m[1][0] * m[2][3] - m[2][0] * m[1][3];
 
         __m128 Swp0a = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(3, 3, 3, 3));
         __m128 Swp0b = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(0, 0, 0, 0));
@@ -594,10 +594,10 @@ GLM_FUNC_QUALIFIER void glm_mat4_inverse(glm_vec4 const in[4], glm_vec4 out[4])
 
     __m128 Fac4;
     {
-        //	valType SubFactor04 = m[2][0] * m[3][2] - m[3][0] * m[2][2];
-        //	valType SubFactor04 = m[2][0] * m[3][2] - m[3][0] * m[2][2];
-        //	valType SubFactor10 = m[1][0] * m[3][2] - m[3][0] * m[1][2];
-        //	valType SubFactor17 = m[1][0] * m[2][2] - m[2][0] * m[1][2];
+        //      valType SubFactor04 = m[2][0] * m[3][2] - m[3][0] * m[2][2];
+        //      valType SubFactor04 = m[2][0] * m[3][2] - m[3][0] * m[2][2];
+        //      valType SubFactor10 = m[1][0] * m[3][2] - m[3][0] * m[1][2];
+        //      valType SubFactor17 = m[1][0] * m[2][2] - m[2][0] * m[1][2];
 
         __m128 Swp0a = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(2, 2, 2, 2));
         __m128 Swp0b = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(0, 0, 0, 0));
@@ -614,10 +614,10 @@ GLM_FUNC_QUALIFIER void glm_mat4_inverse(glm_vec4 const in[4], glm_vec4 out[4])
 
     __m128 Fac5;
     {
-        //	valType SubFactor05 = m[2][0] * m[3][1] - m[3][0] * m[2][1];
-        //	valType SubFactor05 = m[2][0] * m[3][1] - m[3][0] * m[2][1];
-        //	valType SubFactor12 = m[1][0] * m[3][1] - m[3][0] * m[1][1];
-        //	valType SubFactor18 = m[1][0] * m[2][1] - m[2][0] * m[1][1];
+        //      valType SubFactor05 = m[2][0] * m[3][1] - m[3][0] * m[2][1];
+        //      valType SubFactor05 = m[2][0] * m[3][1] - m[3][0] * m[2][1];
+        //      valType SubFactor12 = m[1][0] * m[3][1] - m[3][0] * m[1][1];
+        //      valType SubFactor18 = m[1][0] * m[2][1] - m[2][0] * m[1][1];
 
         __m128 Swp0a = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(1, 1, 1, 1));
         __m128 Swp0b = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(0, 0, 0, 0));
@@ -632,8 +632,8 @@ GLM_FUNC_QUALIFIER void glm_mat4_inverse(glm_vec4 const in[4], glm_vec4 out[4])
         Fac5 = _mm_sub_ps(Mul00, Mul01);
     }
 
-    __m128 SignA = _mm_set_ps( 1.0f,-1.0f, 1.0f,-1.0f);
-    __m128 SignB = _mm_set_ps(-1.0f, 1.0f,-1.0f, 1.0f);
+    __m128 SignA = _mm_set_ps(1.0f, -1.0f, 1.0f, -1.0f);
+    __m128 SignB = _mm_set_ps(-1.0f, 1.0f, -1.0f, 1.0f);
 
     // m[1][0]
     // m[0][0]
@@ -715,15 +715,15 @@ GLM_FUNC_QUALIFIER void glm_mat4_inverse(glm_vec4 const in[4], glm_vec4 out[4])
     __m128 Row1 = _mm_shuffle_ps(Inv2, Inv3, _MM_SHUFFLE(0, 0, 0, 0));
     __m128 Row2 = _mm_shuffle_ps(Row0, Row1, _MM_SHUFFLE(2, 0, 2, 0));
 
-    //	valType Determinant = m[0][0] * Inverse[0][0] 
-    //						+ m[0][1] * Inverse[1][0] 
-    //						+ m[0][2] * Inverse[2][0] 
-    //						+ m[0][3] * Inverse[3][0];
+    //  valType Determinant = m[0][0] * Inverse[0][0]
+    //                                          + m[0][1] * Inverse[1][0]
+    //                                          + m[0][2] * Inverse[2][0]
+    //                                          + m[0][3] * Inverse[3][0];
     __m128 Det0 = glm_vec4_dot(in[0], Row2);
     __m128 Rcp0 = _mm_div_ps(_mm_set1_ps(1.0f), Det0);
     //__m128 Rcp0 = _mm_rcp_ps(Det0);
 
-    //	Inverse /= Determinant;
+    //  Inverse /= Determinant;
     out[0] = _mm_mul_ps(Inv0, Rcp0);
     out[1] = _mm_mul_ps(Inv1, Rcp0);
     out[2] = _mm_mul_ps(Inv2, Rcp0);
@@ -734,10 +734,10 @@ GLM_FUNC_QUALIFIER void glm_mat4_inverse_lowp(glm_vec4 const in[4], glm_vec4 out
 {
     __m128 Fac0;
     {
-        //	valType SubFactor00 = m[2][2] * m[3][3] - m[3][2] * m[2][3];
-        //	valType SubFactor00 = m[2][2] * m[3][3] - m[3][2] * m[2][3];
-        //	valType SubFactor06 = m[1][2] * m[3][3] - m[3][2] * m[1][3];
-        //	valType SubFactor13 = m[1][2] * m[2][3] - m[2][2] * m[1][3];
+        //      valType SubFactor00 = m[2][2] * m[3][3] - m[3][2] * m[2][3];
+        //      valType SubFactor00 = m[2][2] * m[3][3] - m[3][2] * m[2][3];
+        //      valType SubFactor06 = m[1][2] * m[3][3] - m[3][2] * m[1][3];
+        //      valType SubFactor13 = m[1][2] * m[2][3] - m[2][2] * m[1][3];
 
         __m128 Swp0a = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(3, 3, 3, 3));
         __m128 Swp0b = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(2, 2, 2, 2));
@@ -754,10 +754,10 @@ GLM_FUNC_QUALIFIER void glm_mat4_inverse_lowp(glm_vec4 const in[4], glm_vec4 out
 
     __m128 Fac1;
     {
-        //	valType SubFactor01 = m[2][1] * m[3][3] - m[3][1] * m[2][3];
-        //	valType SubFactor01 = m[2][1] * m[3][3] - m[3][1] * m[2][3];
-        //	valType SubFactor07 = m[1][1] * m[3][3] - m[3][1] * m[1][3];
-        //	valType SubFactor14 = m[1][1] * m[2][3] - m[2][1] * m[1][3];
+        //      valType SubFactor01 = m[2][1] * m[3][3] - m[3][1] * m[2][3];
+        //      valType SubFactor01 = m[2][1] * m[3][3] - m[3][1] * m[2][3];
+        //      valType SubFactor07 = m[1][1] * m[3][3] - m[3][1] * m[1][3];
+        //      valType SubFactor14 = m[1][1] * m[2][3] - m[2][1] * m[1][3];
 
         __m128 Swp0a = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(3, 3, 3, 3));
         __m128 Swp0b = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(1, 1, 1, 1));
@@ -775,10 +775,10 @@ GLM_FUNC_QUALIFIER void glm_mat4_inverse_lowp(glm_vec4 const in[4], glm_vec4 out
 
     __m128 Fac2;
     {
-        //	valType SubFactor02 = m[2][1] * m[3][2] - m[3][1] * m[2][2];
-        //	valType SubFactor02 = m[2][1] * m[3][2] - m[3][1] * m[2][2];
-        //	valType SubFactor08 = m[1][1] * m[3][2] - m[3][1] * m[1][2];
-        //	valType SubFactor15 = m[1][1] * m[2][2] - m[2][1] * m[1][2];
+        //      valType SubFactor02 = m[2][1] * m[3][2] - m[3][1] * m[2][2];
+        //      valType SubFactor02 = m[2][1] * m[3][2] - m[3][1] * m[2][2];
+        //      valType SubFactor08 = m[1][1] * m[3][2] - m[3][1] * m[1][2];
+        //      valType SubFactor15 = m[1][1] * m[2][2] - m[2][1] * m[1][2];
 
         __m128 Swp0a = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(2, 2, 2, 2));
         __m128 Swp0b = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(1, 1, 1, 1));
@@ -795,10 +795,10 @@ GLM_FUNC_QUALIFIER void glm_mat4_inverse_lowp(glm_vec4 const in[4], glm_vec4 out
 
     __m128 Fac3;
     {
-        //	valType SubFactor03 = m[2][0] * m[3][3] - m[3][0] * m[2][3];
-        //	valType SubFactor03 = m[2][0] * m[3][3] - m[3][0] * m[2][3];
-        //	valType SubFactor09 = m[1][0] * m[3][3] - m[3][0] * m[1][3];
-        //	valType SubFactor16 = m[1][0] * m[2][3] - m[2][0] * m[1][3];
+        //      valType SubFactor03 = m[2][0] * m[3][3] - m[3][0] * m[2][3];
+        //      valType SubFactor03 = m[2][0] * m[3][3] - m[3][0] * m[2][3];
+        //      valType SubFactor09 = m[1][0] * m[3][3] - m[3][0] * m[1][3];
+        //      valType SubFactor16 = m[1][0] * m[2][3] - m[2][0] * m[1][3];
 
         __m128 Swp0a = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(3, 3, 3, 3));
         __m128 Swp0b = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(0, 0, 0, 0));
@@ -815,10 +815,10 @@ GLM_FUNC_QUALIFIER void glm_mat4_inverse_lowp(glm_vec4 const in[4], glm_vec4 out
 
     __m128 Fac4;
     {
-        //	valType SubFactor04 = m[2][0] * m[3][2] - m[3][0] * m[2][2];
-        //	valType SubFactor04 = m[2][0] * m[3][2] - m[3][0] * m[2][2];
-        //	valType SubFactor10 = m[1][0] * m[3][2] - m[3][0] * m[1][2];
-        //	valType SubFactor17 = m[1][0] * m[2][2] - m[2][0] * m[1][2];
+        //      valType SubFactor04 = m[2][0] * m[3][2] - m[3][0] * m[2][2];
+        //      valType SubFactor04 = m[2][0] * m[3][2] - m[3][0] * m[2][2];
+        //      valType SubFactor10 = m[1][0] * m[3][2] - m[3][0] * m[1][2];
+        //      valType SubFactor17 = m[1][0] * m[2][2] - m[2][0] * m[1][2];
 
         __m128 Swp0a = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(2, 2, 2, 2));
         __m128 Swp0b = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(0, 0, 0, 0));
@@ -835,10 +835,10 @@ GLM_FUNC_QUALIFIER void glm_mat4_inverse_lowp(glm_vec4 const in[4], glm_vec4 out
 
     __m128 Fac5;
     {
-        //	valType SubFactor05 = m[2][0] * m[3][1] - m[3][0] * m[2][1];
-        //	valType SubFactor05 = m[2][0] * m[3][1] - m[3][0] * m[2][1];
-        //	valType SubFactor12 = m[1][0] * m[3][1] - m[3][0] * m[1][1];
-        //	valType SubFactor18 = m[1][0] * m[2][1] - m[2][0] * m[1][1];
+        //      valType SubFactor05 = m[2][0] * m[3][1] - m[3][0] * m[2][1];
+        //      valType SubFactor05 = m[2][0] * m[3][1] - m[3][0] * m[2][1];
+        //      valType SubFactor12 = m[1][0] * m[3][1] - m[3][0] * m[1][1];
+        //      valType SubFactor18 = m[1][0] * m[2][1] - m[2][0] * m[1][1];
 
         __m128 Swp0a = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(1, 1, 1, 1));
         __m128 Swp0b = _mm_shuffle_ps(in[3], in[2], _MM_SHUFFLE(0, 0, 0, 0));
@@ -853,8 +853,8 @@ GLM_FUNC_QUALIFIER void glm_mat4_inverse_lowp(glm_vec4 const in[4], glm_vec4 out
         Fac5 = _mm_sub_ps(Mul00, Mul01);
     }
 
-    __m128 SignA = _mm_set_ps( 1.0f,-1.0f, 1.0f,-1.0f);
-    __m128 SignB = _mm_set_ps(-1.0f, 1.0f,-1.0f, 1.0f);
+    __m128 SignA = _mm_set_ps(1.0f, -1.0f, 1.0f, -1.0f);
+    __m128 SignB = _mm_set_ps(-1.0f, 1.0f, -1.0f, 1.0f);
 
     // m[1][0]
     // m[0][0]
@@ -936,14 +936,14 @@ GLM_FUNC_QUALIFIER void glm_mat4_inverse_lowp(glm_vec4 const in[4], glm_vec4 out
     __m128 Row1 = _mm_shuffle_ps(Inv2, Inv3, _MM_SHUFFLE(0, 0, 0, 0));
     __m128 Row2 = _mm_shuffle_ps(Row0, Row1, _MM_SHUFFLE(2, 0, 2, 0));
 
-    //	valType Determinant = m[0][0] * Inverse[0][0] 
-    //						+ m[0][1] * Inverse[1][0] 
-    //						+ m[0][2] * Inverse[2][0] 
-    //						+ m[0][3] * Inverse[3][0];
+    //  valType Determinant = m[0][0] * Inverse[0][0]
+    //                                          + m[0][1] * Inverse[1][0]
+    //                                          + m[0][2] * Inverse[2][0]
+    //                                          + m[0][3] * Inverse[3][0];
     __m128 Det0 = glm_vec4_dot(in[0], Row2);
     __m128 Rcp0 = _mm_rcp_ps(Det0);
     //__m128 Rcp0 = _mm_div_ps(one, Det0);
-    //	Inverse /= Determinant;
+    //  Inverse /= Determinant;
     out[0] = _mm_mul_ps(Inv0, Rcp0);
     out[1] = _mm_mul_ps(Inv1, Rcp0);
     out[2] = _mm_mul_ps(Inv2, Rcp0);
@@ -968,7 +968,7 @@ GLM_FUNC_QUALIFIER void glm_mat4_rotate(__m128 const in[4], float Angle, float c
     // tvec3<T, P> temp = (valType(1) - c) * axis;
     __m128 Temp0 = _mm_sub_ps(one, CosA);
     __m128 Temp1 = _mm_mul_ps(Temp0, AxisC);
-	
+
     //Rotate[0][0] = c + temp[0] * axis[0];
     //Rotate[0][1] = 0 + temp[0] * axis[1] + s * axis[2];
     //Rotate[0][2] = 0 + temp[0] * axis[2] - s * axis[1];

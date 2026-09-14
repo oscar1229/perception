@@ -1,15 +1,15 @@
 /// @ref gtc_functions
 /// @file glm/gtc/functions.hpp
-/// 
+///
 /// @see core (dependence)
 /// @see gtc_half_float (dependence)
 /// @see gtc_quaternion (dependence)
 ///
 /// @defgroup gtc_functions GLM_GTC_functions
 /// @ingroup gtc
-/// 
+///
 /// @brief List of useful common functions.
-/// 
+///
 /// <glm/gtc/functions.hpp> need to be included to use these functionalities.
 
 #ifndef FUNCTIONS_HPP
@@ -23,7 +23,7 @@
 #include "../detail/type_vec2.hpp"
 
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
-#	pragma message("GLM: GLM_GTC_functions extension included")
+#       pragma message("GLM: GLM_GTC_functions extension included")
 #endif
 
 namespace glm

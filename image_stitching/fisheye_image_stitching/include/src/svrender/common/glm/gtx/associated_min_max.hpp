@@ -6,7 +6,7 @@
 ///
 /// @defgroup gtx_associated_min_max GLM_GTX_associated_min_max
 /// @ingroup gtx
-/// 
+///
 /// @brief Min and max functions that return associated values not the compared onces.
 /// <glm/gtx/associated_min_max.hpp> need to be included to use these functionalities.
 
@@ -19,7 +19,7 @@
 #include "../glm.hpp"
 
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
-#	pragma message("GLM: GLM_GTX_associated_min_max extension included")
+#       pragma message("GLM: GLM_GTX_associated_min_max extension included")
 #endif
 
 namespace glm

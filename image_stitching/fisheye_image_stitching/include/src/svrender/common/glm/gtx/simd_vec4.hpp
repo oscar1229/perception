@@ -21,23 +21,23 @@
 #if(GLM_ARCH != GLM_ARCH_PURE)
 
 #if(GLM_ARCH & GLM_ARCH_SSE2_BIT)
-#	include "../detail/intrinsic_common.hpp"
-#	include "../detail/intrinsic_geometric.hpp"
-#	include "../detail/intrinsic_integer.hpp"
+#       include "../detail/intrinsic_common.hpp"
+#       include "../detail/intrinsic_geometric.hpp"
+#       include "../detail/intrinsic_integer.hpp"
 #else
-#	error "GLM: GLM_GTX_simd_vec4 requires compiler support of SSE2 through intrinsics"
+#       error "GLM: GLM_GTX_simd_vec4 requires compiler support of SSE2 through intrinsics"
 #endif
 
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
-#	pragma message("GLM: GLM_GTX_simd_vec4 extension included")
-#	pragma message("GLM: GLM_GTX_simd_vec4 extension is deprecated and will be removed in GLM 0.9.9. Use *vec4 types instead and use compiler SIMD arguments.")
+#       pragma message("GLM: GLM_GTX_simd_vec4 extension included")
+#       pragma message("GLM: GLM_GTX_simd_vec4 extension is deprecated and will be removed in GLM 0.9.9. Use *vec4 types instead and use compiler SIMD arguments.")
 #endif
 
 
 // Warning silencer for nameless struct/union.
 #if (GLM_COMPILER & GLM_COMPILER_VC)
-#	pragma warning(push)
-#	pragma warning(disable:4201)   // warning C4201: nonstandard extension used : nameless struct/union
+#       pragma warning(push)
+#       pragma warning(disable:4201)   // warning C4201: nonstandard extension used : nameless struct/union
 #endif
 
 namespace glm
@@ -225,8 +225,8 @@ namespace detail
     //! sign as x.
     //! (From GLM_GTX_simd_vec4 extension, common function)
     //detail::fvec4SIMD modf(
-    //	detail::fvec4SIMD const & x,
-    //	detail::fvec4SIMD & i);
+    //  detail::fvec4SIMD const & x,
+    //  detail::fvec4SIMD & i);
 
     //! Returns y if y < x; otherwise, it returns x.
     ///
@@ -543,7 +543,7 @@ namespace detail
 #include "simd_vec4.inl"
 
 #if (GLM_COMPILER & GLM_COMPILER_VC)
-#	pragma warning(pop)
+#       pragma warning(pop)
 #endif
 
 #endif//(GLM_ARCH != GLM_ARCH_PURE)

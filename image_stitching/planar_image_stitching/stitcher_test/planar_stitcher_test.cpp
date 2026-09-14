@@ -15,11 +15,11 @@
 #include <chrono>
 #include <csignal>
 #include <cstdint>
-#include <filesystem>
+#include <filesystem>  // NOLINT(build/c++17)
 #include <iomanip>
 #include <iostream>
 
-using namespace planar_stitcher;
+using namespace planar_stitcher;  // NOLINT(build/namespaces)
 
 namespace {
 volatile std::sig_atomic_t g_exit = 0;
@@ -32,7 +32,7 @@ int Fail(const char* stage, const std::string& error) {
     std::cerr << stage << ": " << error << "\n";
     return 1;
 }
-}
+}  // namespace
 
 int main() {
     std::signal(SIGINT, HandleSignal);

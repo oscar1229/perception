@@ -9,7 +9,7 @@
 #include <chrono>
 #include <cmath>
 #include <cstdint>
-#include <filesystem>
+#include <filesystem>  // NOLINT(build/c++17)
 #include <iostream>
 #include <stdexcept>
 #include <string>

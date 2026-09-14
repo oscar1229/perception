@@ -20,7 +20,7 @@
 #include <cstdlib>
 
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
-#	pragma message("GLM: GLM_GTX_std_based_type extension included")
+#       pragma message("GLM: GLM_GTX_std_based_type extension included")
 #endif
 
 namespace glm
@@ -30,35 +30,35 @@ namespace glm
 
     /// Vector type based of one std::size_t component.
     /// @see GLM_GTX_std_based_type
-    typedef tvec1<std::size_t, defaultp>		size1;
+    typedef tvec1<std::size_t, defaultp>                size1;
 
     /// Vector type based of two std::size_t components.
     /// @see GLM_GTX_std_based_type
-    typedef tvec2<std::size_t, defaultp>		size2;
+    typedef tvec2<std::size_t, defaultp>                size2;
 
     /// Vector type based of three std::size_t components.
     /// @see GLM_GTX_std_based_type
-    typedef tvec3<std::size_t, defaultp>		size3;
+    typedef tvec3<std::size_t, defaultp>                size3;
 
     /// Vector type based of four std::size_t components.
     /// @see GLM_GTX_std_based_type
-    typedef tvec4<std::size_t, defaultp>		size4;
+    typedef tvec4<std::size_t, defaultp>                size4;
 
     /// Vector type based of one std::size_t component.
     /// @see GLM_GTX_std_based_type
-    typedef tvec1<std::size_t, defaultp>		size1_t;
+    typedef tvec1<std::size_t, defaultp>                size1_t;
 
     /// Vector type based of two std::size_t components.
     /// @see GLM_GTX_std_based_type
-    typedef tvec2<std::size_t, defaultp>		size2_t;
+    typedef tvec2<std::size_t, defaultp>                size2_t;
 
     /// Vector type based of three std::size_t components.
     /// @see GLM_GTX_std_based_type
-    typedef tvec3<std::size_t, defaultp>		size3_t;
+    typedef tvec3<std::size_t, defaultp>                size3_t;
 
     /// Vector type based of four std::size_t components.
     /// @see GLM_GTX_std_based_type
-    typedef tvec4<std::size_t, defaultp>		size4_t;
+    typedef tvec4<std::size_t, defaultp>                size4_t;
 
     /// @}
 }//namespace glm

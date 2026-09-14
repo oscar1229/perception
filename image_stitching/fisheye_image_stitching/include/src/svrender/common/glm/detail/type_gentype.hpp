@@ -16,12 +16,12 @@ namespace glm
     };
 
     typedef std::size_t sizeType;
-    
+
 namespace detail
 {
     template
     <
-        typename VALTYPE, 
+        typename VALTYPE,
         template <typename> class TYPE
     >
     struct genType
@@ -38,7 +38,7 @@ namespace detail
         typedef sizeType size_type;
         static bool is_vector();
         static bool is_matrix();
-        
+
         typedef TYPE<VALTYPE> type;
         typedef TYPE<VALTYPE> * pointer;
         typedef TYPE<VALTYPE> const * const_pointer;
@@ -55,19 +55,19 @@ namespace detail
         value_pointer value_address(){return value_pointer(this);}
 
     //protected:
-    //	enum kind
-    //	{
-    //		GEN_TYPE,
-    //		VEC_TYPE,
-    //		MAT_TYPE
-    //	};
+    //  enum kind
+    //  {
+    //          GEN_TYPE,
+    //          VEC_TYPE,
+    //          MAT_TYPE
+    //  };
 
-    //	typedef typename TYPE::kind kind;
+    //  typedef typename TYPE::kind kind;
     };
 
     template
     <
-        typename VALTYPE, 
+        typename VALTYPE,
         template <typename> class TYPE
     >
     bool genType<VALTYPE, TYPE>::is_vector()
@@ -138,60 +138,60 @@ namespace detail
         class_type& operator-- ();
     };
 */
-    
+
     //template <typename T>
     //struct traits
     //{
-    //	static const bool is_signed = false;
-    //	static const bool is_float = false;
-    //	static const bool is_vector = false;
-    //	static const bool is_matrix = false;
-    //	static const bool is_genType = false;
-    //	static const bool is_genIType = false;
-    //	static const bool is_genUType = false;
+    //  static const bool is_signed = false;
+    //  static const bool is_float = false;
+    //  static const bool is_vector = false;
+    //  static const bool is_matrix = false;
+    //  static const bool is_genType = false;
+    //  static const bool is_genIType = false;
+    //  static const bool is_genUType = false;
     //};
-    
+
     //template <>
     //struct traits<half>
     //{
-    //	static const bool is_float = true;
-    //	static const bool is_genType = true;
+    //  static const bool is_float = true;
+    //  static const bool is_genType = true;
     //};
-    
+
     //template <>
     //struct traits<float>
     //{
-    //	static const bool is_float = true;
-    //	static const bool is_genType = true;
+    //  static const bool is_float = true;
+    //  static const bool is_genType = true;
     //};
-    
+
     //template <>
     //struct traits<double>
     //{
-    //	static const bool is_float = true;
-    //	static const bool is_genType = true;
+    //  static const bool is_float = true;
+    //  static const bool is_genType = true;
     //};
-    
+
     //template <typename genType>
     //struct desc
     //{
-    //	typedef genType							type;
-    //	typedef genType *						pointer;
-    //	typedef genType const*					const_pointer;
-    //	typedef genType const *const			const_pointer_const;
-    //	typedef genType *const					pointer_const;
-    //	typedef genType &						reference;
-    //	typedef genType const&					const_reference;
-    //	typedef genType const&					param_type;
-    
-    //	typedef typename genType::value_type	value_type;
-    //	typedef typename genType::size_type		size_type;
-    //	static const typename size_type			value_size;
+    //  typedef genType                                                 type;
+    //  typedef genType *                                               pointer;
+    //  typedef genType const*                                  const_pointer;
+    //  typedef genType const *const                    const_pointer_const;
+    //  typedef genType *const                                  pointer_const;
+    //  typedef genType &                                               reference;
+    //  typedef genType const&                                  const_reference;
+    //  typedef genType const&                                  param_type;
+
+    //  typedef typename genType::value_type    value_type;
+    //  typedef typename genType::size_type             size_type;
+    //  static const typename size_type                 value_size;
     //};
-    
+
     //template <typename genType>
     //const typename desc<genType>::size_type desc<genType>::value_size = genType::value_size();
-    
+
 }//namespace detail
 }//namespace glm
 

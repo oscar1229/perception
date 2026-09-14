@@ -6,9 +6,9 @@
 ///
 /// @defgroup gtx_bit GLM_GTX_bit
 /// @ingroup gtx
-/// 
+///
 /// @brief Allow to perform bit operations on integer values
-/// 
+///
 /// <glm/gtx/bit.hpp> need to be included to use these functionalities.
 
 #ifndef BIT_HPP
@@ -20,7 +20,7 @@
 #include "../gtc/bitfield.hpp"
 
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
-#	pragma message("GLM: GLM_GTX_bit extension is deprecated, include GLM_GTC_bitfield and GLM_GTC_integer instead")
+#       pragma message("GLM: GLM_GTX_bit extension is deprecated, include GLM_GTC_bitfield and GLM_GTC_integer instead")
 #endif
 
 namespace glm

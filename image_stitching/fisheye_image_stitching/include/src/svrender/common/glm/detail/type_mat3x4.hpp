@@ -147,13 +147,13 @@ namespace glm
     GLM_FUNC_DECL typename tmat3x4<T, P>::row_type operator*(typename tmat3x4<T, P>::col_type const & v, tmat3x4<T, P> const & m);
 
     template <typename T, precision P>
-    GLM_FUNC_DECL tmat4x4<T, P> operator*(tmat3x4<T, P> const & m1,	tmat4x3<T, P> const & m2);
+    GLM_FUNC_DECL tmat4x4<T, P> operator*(tmat3x4<T, P> const & m1,     tmat4x3<T, P> const & m2);
 
     template <typename T, precision P>
     GLM_FUNC_DECL tmat2x4<T, P> operator*(tmat3x4<T, P> const & m1, tmat2x3<T, P> const & m2);
 
     template <typename T, precision P>
-    GLM_FUNC_DECL tmat3x4<T, P> operator*(tmat3x4<T, P> const & m1,	tmat3x3<T, P> const & m2);
+    GLM_FUNC_DECL tmat3x4<T, P> operator*(tmat3x4<T, P> const & m1,     tmat3x3<T, P> const & m2);
 
     template <typename T, precision P>
     GLM_FUNC_DECL tmat3x4<T, P> operator/(tmat3x4<T, P> const & m, T scalar);

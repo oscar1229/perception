@@ -1,15 +1,15 @@
 /// @ref gtc_epsilon
 /// @file glm/gtc/epsilon.hpp
-/// 
+///
 /// @see core (dependence)
 /// @see gtc_half_float (dependence)
 /// @see gtc_quaternion (dependence)
 ///
 /// @defgroup gtc_epsilon GLM_GTC_epsilon
 /// @ingroup gtc
-/// 
+///
 /// @brief Comparison functions for a user defined epsilon values.
-/// 
+///
 /// <glm/gtc/epsilon.hpp> need to be included to use these functionalities.
 
 #ifndef EPSILON_HPP
@@ -22,7 +22,7 @@
 #include "../detail/precision.hpp"
 
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
-#	pragma message("GLM: GLM_GTC_epsilon extension included")
+#       pragma message("GLM: GLM_GTC_epsilon extension included")
 #endif
 
 namespace glm

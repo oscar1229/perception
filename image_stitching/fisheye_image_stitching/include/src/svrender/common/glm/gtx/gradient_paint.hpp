@@ -20,7 +20,7 @@
 #include "../gtx/optimum_pow.hpp"
 
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
-#	pragma message("GLM: GLM_GTX_gradient_paint extension included")
+#       pragma message("GLM: GLM_GTX_gradient_paint extension included")
 #endif
 
 namespace glm

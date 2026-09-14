@@ -23,14 +23,14 @@
 #if GLM_ARCH != GLM_ARCH_PURE
 
 #if GLM_ARCH & GLM_ARCH_SSE2_BIT
-#	include "../gtx/simd_mat4.hpp"
+#       include "../gtx/simd_mat4.hpp"
 #else
-#	error "GLM: GLM_GTX_simd_quat requires compiler support of SSE2 through intrinsics"
+#       error "GLM: GLM_GTX_simd_quat requires compiler support of SSE2 through intrinsics"
 #endif
 
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
-#	pragma message("GLM: GLM_GTX_simd_quat extension included")
-#	pragma message("GLM: GLM_GTX_simd_quat extension is deprecated and will be removed in GLM 0.9.9. Use GLM_GTC_quaternion instead and use compiler SIMD arguments.")
+#       pragma message("GLM: GLM_GTX_simd_quat extension included")
+#       pragma message("GLM: GLM_GTX_simd_quat extension is deprecated and will be removed in GLM 0.9.9. Use GLM_GTC_quaternion instead and use compiler SIMD arguments.")
 #endif
 
 // Warning silencer for nameless struct/union.
@@ -292,7 +292,7 @@ namespace detail
         float const & y,
         float const & z);
 
-    // TODO: Move this to somewhere more appropriate. Used with fastMix() and fastSlerp().
+    // TODO(glm): Move this to somewhere more appropriate. Used with fastMix() and fastSlerp().
     /// Performs the equivalent of glm::fastSin() on each component of the given __m128.
     __m128 fastSin(__m128 x);
 

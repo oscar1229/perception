@@ -9,11 +9,11 @@
 #include "../fwd.hpp"
 #include "type_vec.hpp"
 #if GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
-#	if GLM_HAS_UNRESTRICTED_UNIONS
-#		include "_swizzle.hpp"
-#	else
-#		include "_swizzle_func.hpp"
-#	endif
+#       if GLM_HAS_UNRESTRICTED_UNIONS
+#               include "_swizzle.hpp"
+#       else
+#               include "_swizzle_func.hpp"
+#       endif
 #endif //GLM_SWIZZLE
 #include <cstddef>
 
@@ -30,20 +30,20 @@ namespace glm
 
         // -- Data --
 
-#		if GLM_HAS_ONLY_XYZW
+#               if GLM_HAS_ONLY_XYZW
             T x;
 
-#		elif GLM_HAS_ALIGNED_TYPE
-#			if GLM_COMPILER & GLM_COMPILER_GCC
-#				pragma GCC diagnostic push
-#				pragma GCC diagnostic ignored "-Wpedantic"
-#			endif
-#			if GLM_COMPILER & GLM_COMPILER_CLANG
-#				pragma clang diagnostic push
-#				pragma clang diagnostic ignored "-Wgnu-anonymous-struct"
-#				pragma clang diagnostic ignored "-Wnested-anon-types"
-#			endif
-        
+#               elif GLM_HAS_ALIGNED_TYPE
+#                       if GLM_COMPILER & GLM_COMPILER_GCC
+#                               pragma GCC diagnostic push
+#                               pragma GCC diagnostic ignored "-Wpedantic"
+#                       endif
+#                       if GLM_COMPILER & GLM_COMPILER_CLANG
+#                               pragma clang diagnostic push
+#                               pragma clang diagnostic ignored "-Wgnu-anonymous-struct"
+#                               pragma clang diagnostic ignored "-Wnested-anon-types"
+#                       endif
+
             union
             {
                 T x;
@@ -62,20 +62,20 @@ namespace glm
                     _GLM_SWIZZLE1_4_MEMBERS(T, P, tvec4, s)
 #				endif//GLM_SWIZZLE*/
             };
-        
-#			if GLM_COMPILER & GLM_COMPILER_CLANG
-#				pragma clang diagnostic pop
-#			endif
-#			if GLM_COMPILER & GLM_COMPILER_GCC
-#				pragma GCC diagnostic pop
-#			endif
-#		else
+
+#                       if GLM_COMPILER & GLM_COMPILER_CLANG
+#                               pragma clang diagnostic pop
+#                       endif
+#                       if GLM_COMPILER & GLM_COMPILER_GCC
+#                               pragma GCC diagnostic pop
+#                       endif
+#               else
             union {T x, r, s;};
 /*
 #			if GLM_SWIZZLE == GLM_SWIZZLE_ENABLED
                 GLM_SWIZZLE_GEN_VEC_FROM_VEC1(T, P, tvec2, tvec2, tvec3, tvec4)
 #			endif//GLM_SWIZZLE*/
-#		endif
+#               endif
 
         // -- Component accesses --
 
@@ -208,7 +208,7 @@ namespace glm
     GLM_FUNC_DECL tvec1<T, P> operator-(T scalar, tvec1<T, P> const & v);
 
     template <typename T, precision P>
-    GLM_FUNC_DECL tvec1<T, P> operator-	(tvec1<T, P> const & v1, tvec1<T, P> const & v2);
+    GLM_FUNC_DECL tvec1<T, P> operator- (tvec1<T, P> const & v1, tvec1<T, P> const & v2);
 
     template <typename T, precision P>
     GLM_FUNC_DECL tvec1<T, P> operator*(tvec1<T, P> const & v, T scalar);

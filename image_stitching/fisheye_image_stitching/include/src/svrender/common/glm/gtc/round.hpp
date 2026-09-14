@@ -25,7 +25,7 @@
 #include <limits>
 
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
-#	pragma message("GLM: GLM_GTC_integer extension included")
+#       pragma message("GLM: GLM_GTC_integer extension included")
 #endif
 
 namespace glm
@@ -106,7 +106,7 @@ namespace glm
     /// Higher multiple number of Source.
     ///
     /// @tparam genType Floating-point or integer scalar or vector types.
-    /// @param Source 
+    /// @param Source
     /// @param Multiple Must be a null or positive value
     ///
     /// @see gtc_round
@@ -116,7 +116,7 @@ namespace glm
     /// Higher multiple number of Source.
     ///
     /// @tparam genType Floating-point or integer scalar or vector types.
-    /// @param Source 
+    /// @param Source
     /// @param Multiple Must be a null or positive value
     ///
     /// @see gtc_round
@@ -126,7 +126,7 @@ namespace glm
     /// Lower multiple number of Source.
     ///
     /// @tparam genType Floating-point or integer scalar or vector types.
-    /// @param Source 
+    /// @param Source
     /// @param Multiple Must be a null or positive value
     ///
     /// @see gtc_round
@@ -138,7 +138,7 @@ namespace glm
     /// Lower multiple number of Source.
     ///
     /// @tparam genType Floating-point or integer scalar or vector types.
-    /// @param Source 
+    /// @param Source
     /// @param Multiple Must be a null or positive value
     ///
     /// @see gtc_round
@@ -150,7 +150,7 @@ namespace glm
     /// Lower multiple number of Source.
     ///
     /// @tparam genType Floating-point or integer scalar or vector types.
-    /// @param Source 
+    /// @param Source
     /// @param Multiple Must be a null or positive value
     ///
     /// @see gtc_round
@@ -162,7 +162,7 @@ namespace glm
     /// Lower multiple number of Source.
     ///
     /// @tparam genType Floating-point or integer scalar or vector types.
-    /// @param Source 
+    /// @param Source
     /// @param Multiple Must be a null or positive value
     ///
     /// @see gtc_round

@@ -19,7 +19,7 @@
 #include "../glm.hpp"
 
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
-#	pragma message("GLM: GLM_GTX_color_space_YCoCg extension included")
+#       pragma message("GLM: GLM_GTX_color_space_YCoCg extension included")
 #endif
 
 namespace glm

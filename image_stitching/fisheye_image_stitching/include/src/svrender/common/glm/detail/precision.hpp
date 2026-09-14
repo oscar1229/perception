@@ -16,25 +16,25 @@ namespace glm
         packed_mediump,
         packed_lowp,
 
-#		if GLM_HAS_ALIGNED_TYPE
+#               if GLM_HAS_ALIGNED_TYPE
             aligned_highp,
             aligned_mediump,
             aligned_lowp,
             aligned = aligned_highp,
-#		endif
+#               endif
 
         highp = packed_highp,
         mediump = packed_mediump,
         lowp = packed_lowp,
         packed = packed_highp,
 
-#		if GLM_HAS_ALIGNED_TYPE && defined(GLM_FORCE_ALIGNED)
+#               if GLM_HAS_ALIGNED_TYPE && defined(GLM_FORCE_ALIGNED)
             defaultp = aligned_highp
-#		else
+#               else
             defaultp = highp
-#		endif
+#               endif
     };
-    
+
 namespace detail
 {
     template <glm::precision P>
@@ -43,7 +43,7 @@ namespace detail
         static const bool value = false;
     };
 
-#	if GLM_HAS_ALIGNED_TYPE
+#       if GLM_HAS_ALIGNED_TYPE
         template<>
         struct is_aligned<glm::aligned_lowp>
         {
@@ -61,7 +61,7 @@ namespace detail
         {
             static const bool value = true;
         };
-#	endif
+#       endif
 }//namespace detail
 }//namespace glm
 

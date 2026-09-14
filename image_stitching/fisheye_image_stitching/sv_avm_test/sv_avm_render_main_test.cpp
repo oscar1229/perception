@@ -39,8 +39,8 @@
 #include "src/svrender/camera/camerarender.hpp"
 #include "src/svmparam/svmparam.hpp"
 
-using namespace sm;
-using namespace sm::sv_avm;
+using namespace sm;  // NOLINT(build/namespaces)
+using namespace sm::sv_avm;  // NOLINT(build/namespaces)
 
 static SV_BOOL g_bExit = SV_FALSE;
 
@@ -833,7 +833,7 @@ int main(int argc, char* argv[]) {
 
     std::vector<SV_F64> vTexMs, vSubmitMs, vGpuWaitMs, vSwapMs, vFrameMs;
     #define SV_NOW(tv) gettimeofday(&(tv), NULL)
-    #define SV_MS(a,b) (((b).tv_sec-(a).tv_sec)*1000.0 + ((b).tv_usec-(a).tv_usec)/1000.0)
+    #define SV_MS(a, b) (((b).tv_sec-(a).tv_sec)*1000.0 + ((b).tv_usec-(a).tv_usec)/1000.0)
 
     struct timeval stTvStart, stTvEnd;
     struct timeval stFpsReportStart;
@@ -872,8 +872,9 @@ int main(int argc, char* argv[]) {
         if (stCfg.s32SleepUs > 0) usleep(stCfg.s32SleepUs);
         SV_NOW(t5);
 
-        SV_F64 f64Tex=SV_MS(t0,t1), f64Submit=SV_MS(t1,t2), f64GpuWait=SV_MS(t2,t3),
-                f64Swap=SV_MS(t3,t4), f64Frame=SV_MS(t0,t4);
+        SV_F64 f64Tex = SV_MS(t0, t1), f64Submit = SV_MS(t1, t2),
+            f64GpuWait = SV_MS(t2, t3),
+            f64Swap = SV_MS(t3, t4), f64Frame = SV_MS(t0, t4);
         vTexMs.push_back(f64Tex); vSubmitMs.push_back(f64Submit); vGpuWaitMs.push_back(f64GpuWait);
         vSwapMs.push_back(f64Swap); vFrameMs.push_back(f64Frame);
         f64WinTexSum += f64Tex;
@@ -931,8 +932,8 @@ int main(int argc, char* argv[]) {
     for (auto& it : items) {
         const std::vector<SV_F64>& v = *it.v;
         if (v.empty()) continue;
-        SV_F64 sum=0, mn=v[0], mx=v[0];
-        for (SV_F64 x : v) { sum+=x; if(x<mn)mn=x; if(x>mx)mx=x; }
+        SV_F64 sum = 0, mn = v[0], mx = v[0];
+        for (SV_F64 x : v) { sum += x; if (x < mn) mn = x; if (x > mx) mx = x; }
         LOG(INFO) << "  " << it.name << ": avg=" << (sum/v.size()) << " ms, min=" << mn << " ms, max=" << mx << " ms";
     }
 

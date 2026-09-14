@@ -9,7 +9,7 @@
 /// @ingroup gtc
 ///
 /// @brief Defines specific C++-based precision types.
-/// 
+///
 /// @ref core_precision defines types based on GLSL's precision qualifiers. This
 /// extension defines types based on explicitly-sized C++ data types.
 ///
@@ -37,13 +37,13 @@
 #include "../mat4x4.hpp"
 
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
-#	pragma message("GLM: GLM_GTC_type_precision extension included")
+#       pragma message("GLM: GLM_GTC_type_precision extension included")
 #endif
 
 namespace glm
 {
     ///////////////////////////
-    // Signed int vector types 
+    // Signed int vector types
 
     /// @addtogroup gtc_type_precision
     /// @{
@@ -51,7 +51,7 @@ namespace glm
     /// Low precision 8 bit signed integer type.
     /// @see gtc_type_precision
     typedef detail::int8 lowp_int8;
-    
+
     /// Low precision 16 bit signed integer type.
     /// @see gtc_type_precision
     typedef detail::int16 lowp_int16;
@@ -67,7 +67,7 @@ namespace glm
     /// Low precision 8 bit signed integer type.
     /// @see gtc_type_precision
     typedef detail::int8 lowp_int8_t;
-    
+
     /// Low precision 16 bit signed integer type.
     /// @see gtc_type_precision
     typedef detail::int16 lowp_int16_t;
@@ -83,7 +83,7 @@ namespace glm
     /// Low precision 8 bit signed integer type.
     /// @see gtc_type_precision
     typedef detail::int8 lowp_i8;
-    
+
     /// Low precision 16 bit signed integer type.
     /// @see gtc_type_precision
     typedef detail::int16 lowp_i16;
@@ -99,7 +99,7 @@ namespace glm
     /// Medium precision 8 bit signed integer type.
     /// @see gtc_type_precision
     typedef detail::int8 mediump_int8;
-    
+
     /// Medium precision 16 bit signed integer type.
     /// @see gtc_type_precision
     typedef detail::int16 mediump_int16;
@@ -115,7 +115,7 @@ namespace glm
     /// Medium precision 8 bit signed integer type.
     /// @see gtc_type_precision
     typedef detail::int8 mediump_int8_t;
-    
+
     /// Medium precision 16 bit signed integer type.
     /// @see gtc_type_precision
     typedef detail::int16 mediump_int16_t;
@@ -131,7 +131,7 @@ namespace glm
     /// Medium precision 8 bit signed integer type.
     /// @see gtc_type_precision
     typedef detail::int8 mediump_i8;
-    
+
     /// Medium precision 16 bit signed integer type.
     /// @see gtc_type_precision
     typedef detail::int16 mediump_i16;
@@ -147,7 +147,7 @@ namespace glm
     /// High precision 8 bit signed integer type.
     /// @see gtc_type_precision
     typedef detail::int8 highp_int8;
-    
+
     /// High precision 16 bit signed integer type.
     /// @see gtc_type_precision
     typedef detail::int16 highp_int16;
@@ -163,7 +163,7 @@ namespace glm
     /// High precision 8 bit signed integer type.
     /// @see gtc_type_precision
     typedef detail::int8 highp_int8_t;
-    
+
     /// High precision 16 bit signed integer type.
     /// @see gtc_type_precision
     typedef detail::int16 highp_int16_t;
@@ -179,7 +179,7 @@ namespace glm
     /// High precision 8 bit signed integer type.
     /// @see gtc_type_precision
     typedef detail::int8 highp_i8;
-    
+
     /// High precision 16 bit signed integer type.
     /// @see gtc_type_precision
     typedef detail::int16 highp_i16;
@@ -191,12 +191,12 @@ namespace glm
     /// High precision 64 bit signed integer type.
     /// @see gtc_type_precision
     typedef detail::int64 highp_i64;
-    
+
 
     /// 8 bit signed integer type.
     /// @see gtc_type_precision
     typedef detail::int8 int8;
-    
+
     /// 16 bit signed integer type.
     /// @see gtc_type_precision
     typedef detail::int16 int16;
@@ -218,7 +218,7 @@ namespace glm
     /// 8 bit signed integer type.
     /// @see gtc_type_precision
     typedef detail::int8 int8_t;
-    
+
     /// 16 bit signed integer type.
     /// @see gtc_type_precision
     typedef detail::int16 int16_t;
@@ -235,7 +235,7 @@ namespace glm
     /// 8 bit signed integer type.
     /// @see gtc_type_precision
     typedef detail::int8 i8;
-    
+
     /// 16 bit signed integer type.
     /// @see gtc_type_precision
     typedef detail::int16 i16;
@@ -252,7 +252,7 @@ namespace glm
     /// 8 bit signed integer scalar type.
     /// @see gtc_type_precision
     typedef tvec1<i8, defaultp> i8vec1;
-    
+
     /// 8 bit signed integer vector of 2 components type.
     /// @see gtc_type_precision
     typedef tvec2<i8, defaultp> i8vec2;
@@ -269,7 +269,7 @@ namespace glm
     /// 16 bit signed integer scalar type.
     /// @see gtc_type_precision
     typedef tvec1<i16, defaultp> i16vec1;
-    
+
     /// 16 bit signed integer vector of 2 components type.
     /// @see gtc_type_precision
     typedef tvec2<i16, defaultp> i16vec2;
@@ -286,7 +286,7 @@ namespace glm
     /// 32 bit signed integer scalar type.
     /// @see gtc_type_precision
     typedef tvec1<i32, defaultp> i32vec1;
-    
+
     /// 32 bit signed integer vector of 2 components type.
     /// @see gtc_type_precision
     typedef tvec2<i32, defaultp> i32vec2;
@@ -303,7 +303,7 @@ namespace glm
     /// 64 bit signed integer scalar type.
     /// @see gtc_type_precision
     typedef tvec1<i64, defaultp> i64vec1;
-    
+
     /// 64 bit signed integer vector of 2 components type.
     /// @see gtc_type_precision
     typedef tvec2<i64, defaultp> i64vec2;
@@ -323,7 +323,7 @@ namespace glm
     /// Low precision 8 bit unsigned integer type.
     /// @see gtc_type_precision
     typedef detail::uint8 lowp_uint8;
-    
+
     /// Low precision 16 bit unsigned integer type.
     /// @see gtc_type_precision
     typedef detail::uint16 lowp_uint16;
@@ -339,7 +339,7 @@ namespace glm
     /// Low precision 8 bit unsigned integer type.
     /// @see gtc_type_precision
     typedef detail::uint8 lowp_uint8_t;
-    
+
     /// Low precision 16 bit unsigned integer type.
     /// @see gtc_type_precision
     typedef detail::uint16 lowp_uint16_t;
@@ -355,7 +355,7 @@ namespace glm
     /// Low precision 8 bit unsigned integer type.
     /// @see gtc_type_precision
     typedef detail::uint8 lowp_u8;
-    
+
     /// Low precision 16 bit unsigned integer type.
     /// @see gtc_type_precision
     typedef detail::uint16 lowp_u16;
@@ -367,11 +367,11 @@ namespace glm
     /// Low precision 64 bit unsigned integer type.
     /// @see gtc_type_precision
     typedef detail::uint64 lowp_u64;
-    
+
     /// Medium precision 8 bit unsigned integer type.
     /// @see gtc_type_precision
     typedef detail::uint8 mediump_uint8;
-    
+
     /// Medium precision 16 bit unsigned integer type.
     /// @see gtc_type_precision
     typedef detail::uint16 mediump_uint16;
@@ -387,7 +387,7 @@ namespace glm
     /// Medium precision 8 bit unsigned integer type.
     /// @see gtc_type_precision
     typedef detail::uint8 mediump_uint8_t;
-    
+
     /// Medium precision 16 bit unsigned integer type.
     /// @see gtc_type_precision
     typedef detail::uint16 mediump_uint16_t;
@@ -403,7 +403,7 @@ namespace glm
     /// Medium precision 8 bit unsigned integer type.
     /// @see gtc_type_precision
     typedef detail::uint8 mediump_u8;
-    
+
     /// Medium precision 16 bit unsigned integer type.
     /// @see gtc_type_precision
     typedef detail::uint16 mediump_u16;
@@ -415,11 +415,11 @@ namespace glm
     /// Medium precision 64 bit unsigned integer type.
     /// @see gtc_type_precision
     typedef detail::uint64 mediump_u64;
-    
+
     /// High precision 8 bit unsigned integer type.
     /// @see gtc_type_precision
     typedef detail::uint8 highp_uint8;
-    
+
     /// High precision 16 bit unsigned integer type.
     /// @see gtc_type_precision
     typedef detail::uint16 highp_uint16;
@@ -435,7 +435,7 @@ namespace glm
     /// High precision 8 bit unsigned integer type.
     /// @see gtc_type_precision
     typedef detail::uint8 highp_uint8_t;
-    
+
     /// High precision 16 bit unsigned integer type.
     /// @see gtc_type_precision
     typedef detail::uint16 highp_uint16_t;
@@ -451,7 +451,7 @@ namespace glm
     /// High precision 8 bit unsigned integer type.
     /// @see gtc_type_precision
     typedef detail::uint8 highp_u8;
-    
+
     /// High precision 16 bit unsigned integer type.
     /// @see gtc_type_precision
     typedef detail::uint16 highp_u16;
@@ -467,7 +467,7 @@ namespace glm
     /// Default precision 8 bit unsigned integer type.
     /// @see gtc_type_precision
     typedef detail::uint8 uint8;
-    
+
     /// Default precision 16 bit unsigned integer type.
     /// @see gtc_type_precision
     typedef detail::uint16 uint16;
@@ -489,7 +489,7 @@ namespace glm
     /// Default precision 8 bit unsigned integer type.
     /// @see gtc_type_precision
     typedef detail::uint8 uint8_t;
-    
+
     /// Default precision 16 bit unsigned integer type.
     /// @see gtc_type_precision
     typedef detail::uint16 uint16_t;
@@ -506,7 +506,7 @@ namespace glm
     /// Default precision 8 bit unsigned integer type.
     /// @see gtc_type_precision
     typedef detail::uint8 u8;
-    
+
     /// Default precision 16 bit unsigned integer type.
     /// @see gtc_type_precision
     typedef detail::uint16 u16;
@@ -524,7 +524,7 @@ namespace glm
     /// Default precision 8 bit unsigned integer scalar type.
     /// @see gtc_type_precision
     typedef tvec1<u8, defaultp> u8vec1;
-    
+
     /// Default precision 8 bit unsigned integer vector of 2 components type.
     /// @see gtc_type_precision
     typedef tvec2<u8, defaultp> u8vec2;
@@ -541,7 +541,7 @@ namespace glm
     /// Default precision 16 bit unsigned integer scalar type.
     /// @see gtc_type_precision
     typedef tvec1<u16, defaultp> u16vec1;
-    
+
     /// Default precision 16 bit unsigned integer vector of 2 components type.
     /// @see gtc_type_precision
     typedef tvec2<u16, defaultp> u16vec2;
@@ -558,7 +558,7 @@ namespace glm
     /// Default precision 32 bit unsigned integer scalar type.
     /// @see gtc_type_precision
     typedef tvec1<u32, defaultp> u32vec1;
-    
+
     /// Default precision 32 bit unsigned integer vector of 2 components type.
     /// @see gtc_type_precision
     typedef tvec2<u32, defaultp> u32vec2;
@@ -575,7 +575,7 @@ namespace glm
     /// Default precision 64 bit unsigned integer scalar type.
     /// @see gtc_type_precision
     typedef tvec1<u64, defaultp> u64vec1;
-    
+
     /// Default precision 64 bit unsigned integer vector of 2 components type.
     /// @see gtc_type_precision
     typedef tvec2<u64, defaultp> u64vec2;
@@ -635,7 +635,7 @@ namespace glm
     /// @see gtc_type_precision
     typedef tvec4<float, defaultp> fvec4;
 
-    
+
     /// Single-precision floating-point vector of 1 component.
     /// @see gtc_type_precision
     typedef tvec1<f32, defaultp> f32vec1;
@@ -671,7 +671,7 @@ namespace glm
 
 
     //////////////////////
-    // Float matrix types 
+    // Float matrix types
 
     /// Single-precision floating-point 1x1 matrix.
     /// @see gtc_type_precision

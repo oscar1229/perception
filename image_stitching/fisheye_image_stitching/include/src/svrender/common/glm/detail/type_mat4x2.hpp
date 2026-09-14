@@ -137,7 +137,7 @@ namespace glm
     GLM_FUNC_DECL tmat4x2<T, P> operator-(tmat4x2<T, P> const & m, T scalar);
 
     template <typename T, precision P>
-    GLM_FUNC_DECL tmat4x2<T, P> operator-(tmat4x2<T, P> const & m1,	tmat4x2<T, P> const & m2);
+    GLM_FUNC_DECL tmat4x2<T, P> operator-(tmat4x2<T, P> const & m1,     tmat4x2<T, P> const & m2);
 
     template <typename T, precision P>
     GLM_FUNC_DECL tmat4x2<T, P> operator*(tmat4x2<T, P> const & m, T scalar);

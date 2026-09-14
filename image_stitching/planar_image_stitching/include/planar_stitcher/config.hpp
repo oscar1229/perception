@@ -50,6 +50,6 @@ struct Config {
 bool ParseConfigFile(const std::string& path, Config* config, std::string* error);
 bool ParseConfigText(const std::string& text, Config* config, std::string* error);
 
-}
+}  // namespace planar_stitcher
 
 #endif  // CONFIG_HPP

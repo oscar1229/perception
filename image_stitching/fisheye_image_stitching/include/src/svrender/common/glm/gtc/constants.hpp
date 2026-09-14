@@ -6,9 +6,9 @@
 ///
 /// @defgroup gtc_constants GLM_GTC_constants
 /// @ingroup gtc
-/// 
+///
 /// @brief Provide a list of constants and precomputed useful values.
-/// 
+///
 /// <glm/gtc/constants.hpp> need to be included to use these features.
 
 #ifndef CONSTANTS_HPP
@@ -20,7 +20,7 @@
 #include "../detail/setup.hpp"
 
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
-#	pragma message("GLM: GLM_GTC_constants extension included")
+#       pragma message("GLM: GLM_GTC_constants extension included")
 #endif
 
 namespace glm

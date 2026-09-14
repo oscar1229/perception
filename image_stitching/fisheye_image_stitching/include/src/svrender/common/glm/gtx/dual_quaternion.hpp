@@ -25,7 +25,7 @@
 #include "../gtc/quaternion.hpp"
 
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
-#	pragma message("GLM: GLM_GTX_dual_quaternion extension included")
+#       pragma message("GLM: GLM_GTX_dual_quaternion extension included")
 #endif
 
 namespace glm
@@ -179,72 +179,72 @@ namespace glm
     /// Dual-quaternion of low single-precision floating-point numbers.
     ///
     /// @see gtx_dual_quaternion
-    typedef tdualquat<float, lowp>		lowp_dualquat;
+    typedef tdualquat<float, lowp>              lowp_dualquat;
 
     /// Dual-quaternion of medium single-precision floating-point numbers.
     ///
     /// @see gtx_dual_quaternion
-    typedef tdualquat<float, mediump>	mediump_dualquat;
+    typedef tdualquat<float, mediump>   mediump_dualquat;
 
     /// Dual-quaternion of high single-precision floating-point numbers.
     ///
     /// @see gtx_dual_quaternion
-    typedef tdualquat<float, highp>		highp_dualquat;
+    typedef tdualquat<float, highp>             highp_dualquat;
 
 
     /// Dual-quaternion of low single-precision floating-point numbers.
     ///
     /// @see gtx_dual_quaternion
-    typedef tdualquat<float, lowp>		lowp_fdualquat;
+    typedef tdualquat<float, lowp>              lowp_fdualquat;
 
     /// Dual-quaternion of medium single-precision floating-point numbers.
     ///
     /// @see gtx_dual_quaternion
-    typedef tdualquat<float, mediump>	mediump_fdualquat;
+    typedef tdualquat<float, mediump>   mediump_fdualquat;
 
     /// Dual-quaternion of high single-precision floating-point numbers.
     ///
     /// @see gtx_dual_quaternion
-    typedef tdualquat<float, highp>		highp_fdualquat;
+    typedef tdualquat<float, highp>             highp_fdualquat;
 
 
     /// Dual-quaternion of low double-precision floating-point numbers.
     ///
     /// @see gtx_dual_quaternion
-    typedef tdualquat<double, lowp>		lowp_ddualquat;
+    typedef tdualquat<double, lowp>             lowp_ddualquat;
 
     /// Dual-quaternion of medium double-precision floating-point numbers.
     ///
     /// @see gtx_dual_quaternion
-    typedef tdualquat<double, mediump>	mediump_ddualquat;
+    typedef tdualquat<double, mediump>  mediump_ddualquat;
 
     /// Dual-quaternion of high double-precision floating-point numbers.
     ///
     /// @see gtx_dual_quaternion
-    typedef tdualquat<double, highp>	highp_ddualquat;
+    typedef tdualquat<double, highp>    highp_ddualquat;
 
 
 #if(!defined(GLM_PRECISION_HIGHP_FLOAT) && !defined(GLM_PRECISION_MEDIUMP_FLOAT) && !defined(GLM_PRECISION_LOWP_FLOAT))
     /// Dual-quaternion of floating-point numbers.
     ///
     /// @see gtx_dual_quaternion
-    typedef highp_fdualquat			dualquat;
+    typedef highp_fdualquat                     dualquat;
 
     /// Dual-quaternion of single-precision floating-point numbers.
     ///
     /// @see gtx_dual_quaternion
-    typedef highp_fdualquat			fdualquat;
+    typedef highp_fdualquat                     fdualquat;
 #elif(defined(GLM_PRECISION_HIGHP_FLOAT) && !defined(GLM_PRECISION_MEDIUMP_FLOAT) && !defined(GLM_PRECISION_LOWP_FLOAT))
-    typedef highp_fdualquat			dualquat;
-    typedef highp_fdualquat			fdualquat;
+    typedef highp_fdualquat                     dualquat;
+    typedef highp_fdualquat                     fdualquat;
 #elif(!defined(GLM_PRECISION_HIGHP_FLOAT) && defined(GLM_PRECISION_MEDIUMP_FLOAT) && !defined(GLM_PRECISION_LOWP_FLOAT))
-    typedef mediump_fdualquat		dualquat;
-    typedef mediump_fdualquat		fdualquat;
+    typedef mediump_fdualquat           dualquat;
+    typedef mediump_fdualquat           fdualquat;
 #elif(!defined(GLM_PRECISION_HIGHP_FLOAT) && !defined(GLM_PRECISION_MEDIUMP_FLOAT) && defined(GLM_PRECISION_LOWP_FLOAT))
-    typedef lowp_fdualquat			dualquat;
-    typedef lowp_fdualquat			fdualquat;
+    typedef lowp_fdualquat                      dualquat;
+    typedef lowp_fdualquat                      fdualquat;
 #else
-#	error "GLM error: multiple default precision requested for single-precision floating-point types"
+#       error "GLM error: multiple default precision requested for single-precision floating-point types"
 #endif
 
 
@@ -252,15 +252,15 @@ namespace glm
     /// Dual-quaternion of default double-precision floating-point numbers.
     ///
     /// @see gtx_dual_quaternion
-    typedef highp_ddualquat			ddualquat;
+    typedef highp_ddualquat                     ddualquat;
 #elif(defined(GLM_PRECISION_HIGHP_DOUBLE) && !defined(GLM_PRECISION_MEDIUMP_DOUBLE) && !defined(GLM_PRECISION_LOWP_DOUBLE))
-    typedef highp_ddualquat			ddualquat;
+    typedef highp_ddualquat                     ddualquat;
 #elif(!defined(GLM_PRECISION_HIGHP_DOUBLE) && defined(GLM_PRECISION_MEDIUMP_DOUBLE) && !defined(GLM_PRECISION_LOWP_DOUBLE))
-    typedef mediump_ddualquat		ddualquat;
+    typedef mediump_ddualquat           ddualquat;
 #elif(!defined(GLM_PRECISION_HIGHP_DOUBLE) && !defined(GLM_PRECISION_MEDIUMP_DOUBLE) && defined(GLM_PRECISION_LOWP_DOUBLE))
-    typedef lowp_ddualquat			ddualquat;
+    typedef lowp_ddualquat                      ddualquat;
 #else
-#	error "GLM error: Multiple default precision requested for double-precision floating-point types"
+#       error "GLM error: Multiple default precision requested for double-precision floating-point types"
 #endif
 
     /// @}

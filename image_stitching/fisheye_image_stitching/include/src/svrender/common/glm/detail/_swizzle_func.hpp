@@ -6,43 +6,43 @@
 
 #pragma once
 
-#define GLM_SWIZZLE_GEN_VEC2_ENTRY(TMPL_TYPE, PRECISION, CLASS_TYPE, SWIZZLED_TYPE, CONST, A, B)	\
-    SWIZZLED_TYPE<TMPL_TYPE, PRECISION> A ## B() CONST												\
-    {																								\
-        return SWIZZLED_TYPE<TMPL_TYPE, PRECISION>(this->A, this->B);								\
+#define GLM_SWIZZLE_GEN_VEC2_ENTRY(TMPL_TYPE, PRECISION, CLASS_TYPE, SWIZZLED_TYPE, CONST, A, B)        \
+    SWIZZLED_TYPE<TMPL_TYPE, PRECISION> A ## B() CONST                                                                                          \
+    {                                                                                                                                                                                           \
+        return SWIZZLED_TYPE<TMPL_TYPE, PRECISION>(this->A, this->B);                                                           \
     }
 
-#define GLM_SWIZZLE_GEN_VEC3_ENTRY(TMPL_TYPE, PRECISION, CLASS_TYPE, SWIZZLED_TYPE, CONST, A, B, C)		\
-    SWIZZLED_TYPE<TMPL_TYPE, PRECISION> A ## B ## C() CONST												\
-    {																									\
-        return SWIZZLED_TYPE<TMPL_TYPE, PRECISION>(this->A, this->B, this->C);							\
+#define GLM_SWIZZLE_GEN_VEC3_ENTRY(TMPL_TYPE, PRECISION, CLASS_TYPE, SWIZZLED_TYPE, CONST, A, B, C)             \
+    SWIZZLED_TYPE<TMPL_TYPE, PRECISION> A ## B ## C() CONST                                                                                             \
+    {                                                                                                                                                                                                   \
+        return SWIZZLED_TYPE<TMPL_TYPE, PRECISION>(this->A, this->B, this->C);                                                  \
     }
 
-#define GLM_SWIZZLE_GEN_VEC4_ENTRY(TMPL_TYPE, PRECISION, CLASS_TYPE, SWIZZLED_TYPE, CONST, A, B, C, D)	\
-    SWIZZLED_TYPE<TMPL_TYPE, PRECISION> A ## B ## C ## D() CONST										\
-    {																									\
-        return SWIZZLED_TYPE<TMPL_TYPE, PRECISION>(this->A, this->B, this->C, this->D);					\
+#define GLM_SWIZZLE_GEN_VEC4_ENTRY(TMPL_TYPE, PRECISION, CLASS_TYPE, SWIZZLED_TYPE, CONST, A, B, C, D)  \
+    SWIZZLED_TYPE<TMPL_TYPE, PRECISION> A ## B ## C ## D() CONST                                                                                \
+    {                                                                                                                                                                                                   \
+        return SWIZZLED_TYPE<TMPL_TYPE, PRECISION>(this->A, this->B, this->C, this->D);                                 \
     }
 
-#define GLM_SWIZZLE_GEN_VEC2_ENTRY_DEF(TMPL_TYPE, PRECISION, CLASS_TYPE, SWIZZLED_TYPE, CONST, A, B)	\
-    template <typename TMPL_TYPE>																		\
-    SWIZZLED_TYPE<TMPL_TYPE> CLASS_TYPE<TMPL_TYPE, PRECISION>::A ## B() CONST							\
-    {																									\
-        return SWIZZLED_TYPE<TMPL_TYPE, PRECISION>(this->A, this->B);									\
+#define GLM_SWIZZLE_GEN_VEC2_ENTRY_DEF(TMPL_TYPE, PRECISION, CLASS_TYPE, SWIZZLED_TYPE, CONST, A, B)    \
+    template <typename TMPL_TYPE>                                                                                                                                               \
+    SWIZZLED_TYPE<TMPL_TYPE> CLASS_TYPE<TMPL_TYPE, PRECISION>::A ## B() CONST                                                   \
+    {                                                                                                                                                                                                   \
+        return SWIZZLED_TYPE<TMPL_TYPE, PRECISION>(this->A, this->B);                                                                   \
     }
 
-#define GLM_SWIZZLE_GEN_VEC3_ENTRY_DEF(TMPL_TYPE, PRECISION, CLASS_TYPE, SWIZZLED_TYPE, CONST, A, B, C)		\
-    template <typename TMPL_TYPE>																			\
-    SWIZZLED_TYPE<TMPL_TYPE> CLASS_TYPE<TMPL_TYPE, PRECISION>::A ## B ## C() CONST							\
-    {																										\
-        return SWIZZLED_TYPE<TMPL_TYPE, PRECISION>(this->A, this->B, this->C);								\
+#define GLM_SWIZZLE_GEN_VEC3_ENTRY_DEF(TMPL_TYPE, PRECISION, CLASS_TYPE, SWIZZLED_TYPE, CONST, A, B, C)         \
+    template <typename TMPL_TYPE>                                                                                                                                                       \
+    SWIZZLED_TYPE<TMPL_TYPE> CLASS_TYPE<TMPL_TYPE, PRECISION>::A ## B ## C() CONST                                                      \
+    {                                                                                                                                                                                                           \
+        return SWIZZLED_TYPE<TMPL_TYPE, PRECISION>(this->A, this->B, this->C);                                                          \
     }
 
-#define GLM_SWIZZLE_GEN_VEC4_ENTRY_DEF(TMPL_TYPE, PRECISION, CLASS_TYPE, SWIZZLED_TYPE, CONST, A, B, C, D)	\
-    template <typename TMPL_TYPE>																			\
-    SWIZZLED_TYPE<TMPL_TYPE> CLASS_TYPE<TMPL_TYPE, PRECISION>::A ## B ## C ## D() CONST						\
-    {																										\
-        return SWIZZLED_TYPE<TMPL_TYPE, PRECISION>(this->A, this->B, this->C, this->D);						\
+#define GLM_SWIZZLE_GEN_VEC4_ENTRY_DEF(TMPL_TYPE, PRECISION, CLASS_TYPE, SWIZZLED_TYPE, CONST, A, B, C, D)      \
+    template <typename TMPL_TYPE>                                                                                                                                                       \
+    SWIZZLED_TYPE<TMPL_TYPE> CLASS_TYPE<TMPL_TYPE, PRECISION>::A ## B ## C ## D() CONST                                         \
+    {                                                                                                                                                                                                           \
+        return SWIZZLED_TYPE<TMPL_TYPE, PRECISION>(this->A, this->B, this->C, this->D);                                         \
     }
 
 #define GLM_MUTABLE
@@ -202,9 +202,9 @@
     GLM_SWIZZLE_GEN_VEC3_FROM_VEC2_SWIZZLE(TMPL_TYPE, PRECISION, CLASS_TYPE, SWIZZLED_VEC3_TYPE, A, B) \
     GLM_SWIZZLE_GEN_VEC4_FROM_VEC2_SWIZZLE(TMPL_TYPE, PRECISION, CLASS_TYPE, SWIZZLED_VEC4_TYPE, A, B)
 
-#define GLM_SWIZZLE_GEN_VEC_FROM_VEC2(TMPL_TYPE, PRECISION, CLASS_TYPE, SWIZZLED_VEC2_TYPE, SWIZZLED_VEC3_TYPE, SWIZZLED_VEC4_TYPE)			\
-    GLM_SWIZZLE_GEN_VEC_FROM_VEC2_COMP(TMPL_TYPE, PRECISION, CLASS_TYPE, SWIZZLED_VEC2_TYPE, SWIZZLED_VEC3_TYPE, SWIZZLED_VEC4_TYPE, x, y)	\
-    GLM_SWIZZLE_GEN_VEC_FROM_VEC2_COMP(TMPL_TYPE, PRECISION, CLASS_TYPE, SWIZZLED_VEC2_TYPE, SWIZZLED_VEC3_TYPE, SWIZZLED_VEC4_TYPE, r, g)	\
+#define GLM_SWIZZLE_GEN_VEC_FROM_VEC2(TMPL_TYPE, PRECISION, CLASS_TYPE, SWIZZLED_VEC2_TYPE, SWIZZLED_VEC3_TYPE, SWIZZLED_VEC4_TYPE)                     \
+    GLM_SWIZZLE_GEN_VEC_FROM_VEC2_COMP(TMPL_TYPE, PRECISION, CLASS_TYPE, SWIZZLED_VEC2_TYPE, SWIZZLED_VEC3_TYPE, SWIZZLED_VEC4_TYPE, x, y)      \
+    GLM_SWIZZLE_GEN_VEC_FROM_VEC2_COMP(TMPL_TYPE, PRECISION, CLASS_TYPE, SWIZZLED_VEC2_TYPE, SWIZZLED_VEC3_TYPE, SWIZZLED_VEC4_TYPE, r, g)      \
     GLM_SWIZZLE_GEN_VEC_FROM_VEC2_COMP(TMPL_TYPE, PRECISION, CLASS_TYPE, SWIZZLED_VEC2_TYPE, SWIZZLED_VEC3_TYPE, SWIZZLED_VEC4_TYPE, s, t)
 
 //GLM_SWIZZLE_GEN_VEC_FROM_VEC2(valType, detail::vec2, detail::vec2, detail::vec3, detail::vec4)

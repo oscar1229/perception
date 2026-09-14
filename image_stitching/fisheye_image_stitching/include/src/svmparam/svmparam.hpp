@@ -157,16 +157,16 @@ class InnerSV_SvmParamClass{
     //定义个参数分量文件节点字符串常量，以保证读写XML时文件节点相同
     const SV_S8* ks8CameraKNodeStr = "K";//摄像头内参文件节点
     const SV_S8* ks8CameraDistortNodeStr = "Distortion";//鱼眼畸变参数
-    const SV_S8* ks8CameraRotateVectNodeStr="Rotate";//旋转向量
-    const SV_S8* ks8CameraTranslateVectNodeStr="Translate";//平移向量
-    const SV_S8* ks8CameraImageSizeNodeStr="ImageSize";//摄像头图像尺寸
-    const SV_S8* ksVehicleSizeNodeStr="VehicleSize";//车辆尺寸
-    const SV_S8* ks8ChessPositionNodeStr="ChessBoardPosition";//左右通道棋盘格位置
-    const SV_S8* ks8ChessBoardCenterNodeStr="ChessBoardCenter";//中间区域棋盘格规格
-    const SV_S8* ks8ChessBoardEdgeNodeStr="ChessBoardEdge";//边缘区域棋盘格规格
-    const SV_S8* ks8GridSizeNodeStr="GridSize";//单格棋盘格尺寸
-    const SV_S8* ks8U8PaternBoardSize="U8PatternSize";//8点式标定布长度
-    const SV_S8* ks8U8ImagePointsNodeStr="ImagePoints";//8点式标定像素坐标节点
+    const SV_S8* ks8CameraRotateVectNodeStr = "Rotate";//旋转向量
+    const SV_S8* ks8CameraTranslateVectNodeStr = "Translate";//平移向量
+    const SV_S8* ks8CameraImageSizeNodeStr = "ImageSize";//摄像头图像尺寸
+    const SV_S8* ksVehicleSizeNodeStr = "VehicleSize";//车辆尺寸
+    const SV_S8* ks8ChessPositionNodeStr = "ChessBoardPosition";//左右通道棋盘格位置
+    const SV_S8* ks8ChessBoardCenterNodeStr = "ChessBoardCenter";//中间区域棋盘格规格
+    const SV_S8* ks8ChessBoardEdgeNodeStr = "ChessBoardEdge";//边缘区域棋盘格规格
+    const SV_S8* ks8GridSizeNodeStr = "GridSize";//单格棋盘格尺寸
+    const SV_S8* ks8U8PaternBoardSize = "U8PatternSize";//8点式标定布长度
+    const SV_S8* ks8U8ImagePointsNodeStr = "ImagePoints";//8点式标定像素坐标节点
     //Init操作初始化参数
     const SV_F64 kf64CameraK[9]={3.3663932877255422e+02, 0.0, 6.3583064178582879e+02,
         0.0, 3.1971130511644719e+02, 3.6648115807921403e+02,
@@ -174,7 +174,7 @@ class InnerSV_SvmParamClass{
     const SV_F64 kf64CameraDistor[4]={0.0, 0.0, 0.0, 0.0};
     const SV_F64 kf64CameraTrans[3]={ -2.0406123947224861e-01, 1.3088482537645041e+00, 3.7495659155705119e-01};
     const SV_F64 kf64CameraRotate[3]={2.4639143620937900e+00, 5.5126125145234184e-02, -1.7706632258495471e-02};
-    const SV_SIZE_S kstImageSize={1280, 720};
+    const SV_SIZE_S kstImageSize = {1280, 720};
 
     //显式申明移动构造函数和赋值运算符，禁用当前类的复制，只声明，不做定义
     InnerSV_SvmParamClass(const InnerSV_SvmParamClass&);
@@ -255,7 +255,7 @@ class InnerSV_SvmParamClass{
     SV_CAMERA_PARAMS_S stCameraParams[4];//各摄像头参数，创建对象时需初始化
     SV_SIZE_S stVehicleSize;//车辆尺寸，即车辆的长、款；创建对象时需初始化
     //创建class时，需赋初值SV_ENUM_CALIMETHOD_BUTT,允许赋值SV_ENUM_CALIMETHOD_UCHESSBORD，SV_ENUM_CALIMETHOD_U8POINTS,SV_ENUM_CALIMETHOD_BUTT
-    SV_S32 s32CaliMethod[static_cast<SV_U32>(SV_ENUM_CAMERA_BUTT)];
+    SV_S32 s32CaliMethod[static_cast<SV_U32>(SV_ENUM_CAMERA_BUTT)];  // NOLINT(runtime/arrays)
     //四通道标定模板结构体指针，SV_VOID*型，在读取XML文件时申请存储空间，析构class时需释放。
     SV_VOID* pstCaliPatern[static_cast<SV_U32>(SV_ENUM_CAMERA_BUTT)];
     void*  pXmlReadFd;//创建对象时初始化为NULL, 调用InnerSV_ReadFromXml创建，指向xml文件对象，InnerSV_ReadFromXml调用结束时销毁

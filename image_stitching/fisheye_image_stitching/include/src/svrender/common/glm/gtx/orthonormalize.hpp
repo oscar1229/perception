@@ -22,7 +22,7 @@
 #include "../geometric.hpp"
 
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
-#	pragma message("GLM: GLM_GTX_orthonormalize extension included")
+#       pragma message("GLM: GLM_GTX_orthonormalize extension included")
 #endif
 
 namespace glm
@@ -33,13 +33,13 @@ namespace glm
     /// Returns the orthonormalized matrix of m.
     ///
     /// @see gtx_orthonormalize
-    template <typename T, precision P> 
+    template <typename T, precision P>
     GLM_FUNC_DECL tmat3x3<T, P> orthonormalize(tmat3x3<T, P> const & m);
-        
+
     /// Orthonormalizes x according y.
     ///
     /// @see gtx_orthonormalize
-    template <typename T, precision P> 
+    template <typename T, precision P>
     GLM_FUNC_DECL tvec3<T, P> orthonormalize(tvec3<T, P> const & x, tvec3<T, P> const & y);
 
     /// @}

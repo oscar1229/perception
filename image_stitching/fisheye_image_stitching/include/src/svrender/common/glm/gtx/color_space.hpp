@@ -19,7 +19,7 @@
 #include "../glm.hpp"
 
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
-#	pragma message("GLM: GLM_GTX_color_space extension included")
+#       pragma message("GLM: GLM_GTX_color_space extension included")
 #endif
 
 namespace glm
@@ -38,7 +38,7 @@ namespace glm
     template <typename T, precision P>
     GLM_FUNC_DECL tvec3<T, P> hsvColor(
         tvec3<T, P> const & rgbValue);
-        
+
     /// Build a saturation matrix.
     /// @see gtx_color_space
     template <typename T>
@@ -51,14 +51,14 @@ namespace glm
     GLM_FUNC_DECL tvec3<T, P> saturation(
         T const s,
         tvec3<T, P> const & color);
-        
+
     /// Modify the saturation of a color.
     /// @see gtx_color_space
     template <typename T, precision P>
     GLM_FUNC_DECL tvec4<T, P> saturation(
         T const s,
         tvec4<T, P> const & color);
-        
+
     /// Compute color luminosity associating ratios (0.33, 0.59, 0.11) to RGB canals.
     /// @see gtx_color_space
     template <typename T, precision P>

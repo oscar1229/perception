@@ -27,11 +27,11 @@
 #include <string>
 
 #if(GLM_COMPILER & GLM_COMPILER_CUDA)
-#	error "GLM_GTX_string_cast is not supported on CUDA compiler"
+#       error "GLM_GTX_string_cast is not supported on CUDA compiler"
 #endif
 
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
-#	pragma message("GLM: GLM_GTX_string_cast extension included")
+#       pragma message("GLM: GLM_GTX_string_cast extension included")
 #endif
 
 namespace glm

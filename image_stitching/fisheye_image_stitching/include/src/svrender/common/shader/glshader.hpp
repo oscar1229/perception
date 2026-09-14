@@ -71,10 +71,10 @@ private:
     programInfo stProgram;    // GL program
 };
 
-}//end of glshader
-}//end of svrender
-}//end of sv_avm
-}//end of sm
+}  // namespace glshader
+}  // namespace svrender
+}  // namespace sv_avm
+}  // namespace sm
 
 
 

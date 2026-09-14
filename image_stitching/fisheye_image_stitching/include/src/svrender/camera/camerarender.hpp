@@ -42,28 +42,28 @@ namespace camera {
 //         display::InnerSV_DeleteDisplay();
 class InnerSv_CameraRenderClass {
 public:
-    explicit InnerSv_CameraRenderClass(mvp::InnerSV_MvCalss* pclMvClass):gpclMvClass(pclMvClass),u32MvpUniform(0),u32MvpUniformOES(0),bUseOES(SV_FALSE){}
+    explicit InnerSv_CameraRenderClass(mvp::InnerSV_MvCalss* pclMvClass):gpclMvClass(pclMvClass), u32MvpUniform(0), u32MvpUniformOES(0), bUseOES(SV_FALSE){}
 
     SV_BOOL Init(const std::vector<SV_CAMERA_PARAMS_S> &stCameraParamsVector, \
-        const SV_SIZE_S& stVehicleSize,const SV_BOWL_GRID_PARAM_S& stGridParam);
+        const SV_SIZE_S& stVehicleSize, const SV_BOWL_GRID_PARAM_S& stGridParam);
     SV_VOID GenCameraTextrue(const std::vector<SV_IMAGE_S> &img);
     //SV_VOID Render(const std::vector<SV_IMAGE_S> &stImageVect,const SV_S32& s32ViewMode,const SV_RECT_S& stViewPoint);
-    SV_VOID Render(const SV_S32& s32ViewMode,const SV_RECT_S& stViewPoint2D);
+    SV_VOID Render(const SV_S32& s32ViewMode, const SV_RECT_S& stViewPoint2D);
     //@brief 映射单视图图像
     //@param in stImageVect摄像头视图
     //       in s32Chnl摄像头通道号
     //       in stViewPoint 视点，即当前视图的显示范围
-    SV_VOID RenderSingleChl(const SV_S32 &s32Chnl,const SV_RECT_S& stViewPoint);
+    SV_VOID RenderSingleChl(const SV_S32 &s32Chnl, const SV_RECT_S& stViewPoint);
 private:
     //@remarks 显式申明移动构造函数和赋值运算符，禁用当前类的复制，只声明，不做定义
     InnerSv_CameraRenderClass(const InnerSv_CameraRenderClass&);
     InnerSv_CameraRenderClass& operator = (const InnerSv_CameraRenderClass& m);
 
-    const glm::mat4 kstCameraOriginMvp=glm::mat4(glm::vec4(1,0,0,0),glm::vec4(0,1,0,0),glm::vec4(0,0,1,0),glm::vec4(0,0,0,1));//摄像头单视图映射Mvp矩阵
+    const glm::mat4 kstCameraOriginMvp = glm::mat4(glm::vec4(1, 0, 0, 0), glm::vec4(0, 1, 0, 0), glm::vec4(0, 0, 1, 0), glm::vec4(0, 0, 0, 1));//摄像头单视图映射Mvp矩阵
 
     SV_BOOL ProgramInit(SV_VOID);
     SV_VOID CameraTextInit(const std::vector<SV_CAMERA_PARAMS_S> &stCameraParamsVector, \
-        const SV_SIZE_S& stVehicleSize,const SV_BOWL_GRID_PARAM_S& stGridParam);
+        const SV_SIZE_S& stVehicleSize, const SV_BOWL_GRID_PARAM_S& stGridParam);
     //零拷贝(NV12 dma_buf)路径:把img的dma_fd导入为EGLImage并绑定到external纹理
     //@return 成功返回SV_TRUE;若任一通道不具备dma_fd则返回SV_FALSE(调用方回退普通路径)
     SV_BOOL GenCameraTextrueZeroCopy(const std::vector<SV_IMAGE_S> &img);
@@ -89,10 +89,10 @@ private:
     std::vector<SV_U32> u32CameraOrigiVaoVect;//各摄像头原始视图的顶点缓冲对象，其中，左右前为原像，后视为水平镜像
 };
 
-}//end camera
-}//end svrender
-}//end sv_avm
-}//end sm
+}  // namespace camera
+}  // namespace svrender
+}  // namespace sv_avm
+}  // namespace sm
 
 
 

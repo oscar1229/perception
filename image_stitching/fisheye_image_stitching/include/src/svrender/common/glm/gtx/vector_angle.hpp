@@ -24,7 +24,7 @@
 #include "../gtx/rotate_vector.hpp"
 
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
-#	pragma message("GLM: GLM_GTX_vector_angle extension included")
+#       pragma message("GLM: GLM_GTX_vector_angle extension included")
 #endif
 
 namespace glm
@@ -37,7 +37,7 @@ namespace glm
     /// @see gtx_vector_angle extension.
     template <typename vecType>
     GLM_FUNC_DECL typename vecType::value_type angle(
-        vecType const & x, 
+        vecType const & x,
         vecType const & y);
 
     //! Returns the oriented angle between two 2d vectors.

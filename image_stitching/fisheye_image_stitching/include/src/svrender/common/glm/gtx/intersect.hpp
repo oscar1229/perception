@@ -25,7 +25,7 @@
 #include "../gtx/vector_query.hpp"
 
 #if GLM_MESSAGES == GLM_MESSAGES_ENABLED && !defined(GLM_EXT_INCLUDED)
-#	pragma message("GLM: GLM_GTX_closest_point extension included")
+#       pragma message("GLM: GLM_GTX_closest_point extension included")
 #endif
 
 namespace glm
@@ -58,7 +58,7 @@ namespace glm
         genType const & vert0, genType const & vert1, genType const & vert2,
         genType & position);
 
-    //! Compute the intersection distance of a ray and a sphere. 
+    //! Compute the intersection distance of a ray and a sphere.
     //! The ray direction vector is unit length.
     //! From GLM_GTX_intersect extension.
     template <typename genType>
@@ -81,7 +81,7 @@ namespace glm
     GLM_FUNC_DECL bool intersectLineSphere(
         genType const & point0, genType const & point1,
         genType const & sphereCenter, typename genType::value_type sphereRadius,
-        genType & intersectionPosition1, genType & intersectionNormal1, 
+        genType & intersectionPosition1, genType & intersectionNormal1,
         genType & intersectionPosition2 = genType(), genType & intersectionNormal2 = genType());
 
     /// @}
