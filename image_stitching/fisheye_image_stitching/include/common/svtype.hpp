@@ -56,8 +56,8 @@ enum {
 };
 //尺寸规格
 struct SV_SIZE_S {
-	SV_S32 s32Width;//宽
-	SV_S32 s32Height;//长或高
+    SV_S32 s32Width;//宽
+    SV_S32 s32Height;//长或高
 };
 
 struct SV_SIZEF_S {
@@ -67,21 +67,21 @@ struct SV_SIZEF_S {
 
 //二维整型坐标点
 struct SV_POINT2S32_S {
-	SV_S32 s32X;
-	SV_S32 s32Y;
+    SV_S32 s32X;
+    SV_S32 s32Y;
 };
 //三维整型坐标点
 struct SV_POINT3S32_S
 {
-	SV_S32 s32X;
-	SV_S32 s32Y;
-	SV_S32 s32Z;
+    SV_S32 s32X;
+    SV_S32 s32Y;
+    SV_S32 s32Z;
 };
 
 //二维浮点型坐标点
 struct SV_POINT2F32_S {
-	SV_F32 f32X;
-	SV_F32 f32Y;
+    SV_F32 f32X;
+    SV_F32 f32Y;
 };
 //三维浮点型坐标点
 struct SV_POINT3F32_S {
@@ -93,20 +93,20 @@ struct SV_POINT3F32_S {
 //二维double型坐标点
 struct SV_POINT2F64_S {
     SV_F64 f64X;
-	SV_F64 f64Y;
+    SV_F64 f64Y;
 };
 //三维double型坐标点
 struct SV_POINT3F64_S
 {
     SV_F64 f64X;
-	SV_F64 f64Y;
-	SV_F64 f64Z;
+    SV_F64 f64Y;
+    SV_F64 f64Z;
 };
 
 //长方形
 struct SV_RECT_S {
-	SV_POINT2S32_S stStartPoint;
-	SV_SIZE_S stRectSize;
+    SV_POINT2S32_S stStartPoint;
+    SV_SIZE_S stRectSize;
 };
 
 

@@ -33,15 +33,15 @@
 
 namespace glm
 {
-	/// @addtogroup gtx_string_cast
-	/// @{
+    /// @addtogroup gtx_string_cast
+    /// @{
 
-	/// Create a string from a GLM vector or matrix typed variable.
-	/// @see gtx_string_cast extension.
-	template <template <typename, precision> class matType, typename T, precision P>
-	GLM_FUNC_DECL std::string to_string(matType<T, P> const & x);
+    /// Create a string from a GLM vector or matrix typed variable.
+    /// @see gtx_string_cast extension.
+    template <template <typename, precision> class matType, typename T, precision P>
+    GLM_FUNC_DECL std::string to_string(matType<T, P> const & x);
 
-	/// @}
+    /// @}
 }//namespace glm
 
 #include "string_cast.inl"

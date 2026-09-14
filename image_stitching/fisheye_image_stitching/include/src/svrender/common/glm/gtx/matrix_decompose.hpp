@@ -26,17 +26,17 @@
 
 namespace glm
 {
-	/// @addtogroup gtx_matrix_decompose
-	/// @{
+    /// @addtogroup gtx_matrix_decompose
+    /// @{
 
-	/// Decomposes a model matrix to translations, rotation and scale components 
-	/// @see gtx_matrix_decompose
-	template <typename T, precision P>
-	GLM_FUNC_DECL bool decompose(
-		tmat4x4<T, P> const & modelMatrix,
-		tvec3<T, P> & scale, tquat<T, P> & orientation, tvec3<T, P> & translation, tvec3<T, P> & skew, tvec4<T, P> & perspective);
+    /// Decomposes a model matrix to translations, rotation and scale components 
+    /// @see gtx_matrix_decompose
+    template <typename T, precision P>
+    GLM_FUNC_DECL bool decompose(
+        tmat4x4<T, P> const & modelMatrix,
+        tvec3<T, P> & scale, tquat<T, P> & orientation, tvec3<T, P> & translation, tvec3<T, P> & skew, tvec4<T, P> & perspective);
 
-	/// @}
+    /// @}
 }//namespace glm
 
 #include "matrix_decompose.inl"

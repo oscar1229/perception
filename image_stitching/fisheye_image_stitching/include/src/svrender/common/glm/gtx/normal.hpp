@@ -22,18 +22,18 @@
 
 namespace glm
 {
-	/// @addtogroup gtx_normal
-	/// @{
+    /// @addtogroup gtx_normal
+    /// @{
 
-	//! Computes triangle normal from triangle points. 
-	//! From GLM_GTX_normal extension.
-	template <typename T, precision P> 
-	GLM_FUNC_DECL tvec3<T, P> triangleNormal(
-		tvec3<T, P> const & p1, 
-		tvec3<T, P> const & p2, 
-		tvec3<T, P> const & p3);
+    //! Computes triangle normal from triangle points. 
+    //! From GLM_GTX_normal extension.
+    template <typename T, precision P> 
+    GLM_FUNC_DECL tvec3<T, P> triangleNormal(
+        tvec3<T, P> const & p1, 
+        tvec3<T, P> const & p2, 
+        tvec3<T, P> const & p3);
 
-	/// @}
+    /// @}
 }//namespace glm
 
 #include "normal.inl"

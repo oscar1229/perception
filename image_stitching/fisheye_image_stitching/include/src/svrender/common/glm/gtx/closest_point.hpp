@@ -21,25 +21,25 @@
 
 namespace glm
 {
-	/// @addtogroup gtx_closest_point
-	/// @{
+    /// @addtogroup gtx_closest_point
+    /// @{
 
-	/// Find the point on a straight line which is the closet of a point. 
-	/// @see gtx_closest_point
-	template <typename T, precision P>
-	GLM_FUNC_DECL tvec3<T, P> closestPointOnLine(
-		tvec3<T, P> const & point,
-		tvec3<T, P> const & a, 
-		tvec3<T, P> const & b);
-	
-	/// 2d lines work as well	
-	template <typename T, precision P>
-	GLM_FUNC_DECL tvec2<T, P> closestPointOnLine(
-		tvec2<T, P> const & point,
-		tvec2<T, P> const & a, 
-		tvec2<T, P> const & b);	
+    /// Find the point on a straight line which is the closet of a point. 
+    /// @see gtx_closest_point
+    template <typename T, precision P>
+    GLM_FUNC_DECL tvec3<T, P> closestPointOnLine(
+        tvec3<T, P> const & point,
+        tvec3<T, P> const & a, 
+        tvec3<T, P> const & b);
+    
+    /// 2d lines work as well	
+    template <typename T, precision P>
+    GLM_FUNC_DECL tvec2<T, P> closestPointOnLine(
+        tvec2<T, P> const & point,
+        tvec2<T, P> const & a, 
+        tvec2<T, P> const & b);	
 
-	/// @}
+    /// @}
 }// namespace glm
 
 #include "closest_point.inl"
