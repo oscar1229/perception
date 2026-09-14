@@ -11,6 +11,9 @@
 ///
 /// <glm/gtx/matrix_interpolation.hpp> need to be included to use these functionalities.
 
+#ifndef MATRIX_INTERPOLATION_HPP
+#define MATRIX_INTERPOLATION_HPP
+
 #pragma once
 
 // Dependency:
@@ -59,3 +62,5 @@ namespace glm
 }//namespace glm
 
 #include "matrix_interpolation.inl"
+
+#endif  // MATRIX_INTERPOLATION_HPP

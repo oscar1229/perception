@@ -1,3 +1,6 @@
+#ifndef EGL_WINDOW_HPP
+#define EGL_WINDOW_HPP
+
 #pragma once
 
 #include <EGL/egl.h>
@@ -82,3 +85,5 @@ private:
 };
 
 }  // namespace planar_stitcher
+
+#endif  // EGL_WINDOW_HPP

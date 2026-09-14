@@ -12,6 +12,9 @@
 ///
 /// <glm/gtx/component_wise.hpp> need to be included to use these functionalities.
 
+#ifndef COMPONENT_WISE_HPP
+#define COMPONENT_WISE_HPP
+
 #pragma once
 
 // Dependencies
@@ -63,3 +66,5 @@ namespace glm
 }//namespace glm
 
 #include "component_wise.inl"
+
+#endif  // COMPONENT_WISE_HPP

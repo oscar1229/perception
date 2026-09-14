@@ -12,6 +12,9 @@
 ///
 /// <glm/gtx/fast_square_root.hpp> need to be included to use these functionalities.
 
+#ifndef FAST_SQUARE_ROOT_HPP
+#define FAST_SQUARE_ROOT_HPP
+
 #pragma once
 
 // Dependency:
@@ -86,3 +89,5 @@ namespace glm
 }// namespace glm
 
 #include "fast_square_root.inl"
+
+#endif  // FAST_SQUARE_ROOT_HPP

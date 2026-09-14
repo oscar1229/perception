@@ -11,6 +11,9 @@
 ///
 /// <glm/gtx/normalized_dot.hpp> need to be included to use these functionalities.
 
+#ifndef NORMALIZE_DOT_HPP
+#define NORMALIZE_DOT_HPP
+
 #pragma once
 
 // Dependency:
@@ -43,3 +46,5 @@ namespace glm
 }//namespace glm
 
 #include "normalize_dot.inl"
+
+#endif  // NORMALIZE_DOT_HPP

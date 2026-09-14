@@ -1,6 +1,9 @@
 /// @ref core
 /// @file glm/detail/_noise.hpp
 
+#ifndef _NOISE_HPP
+#define _NOISE_HPP
+
 #pragma once
 
 #include "../vec2.hpp"
@@ -104,4 +107,6 @@ namespace detail
 */
 }//namespace detail
 }//namespace glm
+
+#endif  // _NOISE_HPP
 

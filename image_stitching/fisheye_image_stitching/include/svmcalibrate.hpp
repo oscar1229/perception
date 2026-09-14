@@ -6,8 +6,8 @@
 *
 */
 
-#ifndef SV_AVM_SVMCALIBRATE_HPP_
-#define SV_AVM_SVMCALIBRATE_HPP_
+#ifndef SVMCALIBRATE_HPP
+#define SVMCALIBRATE_HPP
 #pragma once
 
 #include <stdio.h>
@@ -75,4 +75,4 @@ SV_BOOL SV_Calibrate(const std::vector<SV_CALI_INPUT_S>& stCaliInVect,
 }//end of sv_avm
 }//endof sm
 
-#endif /* SV_AVM_SVMCALIBRATE_HPP_ */
+#endif  // SVMCALIBRATE_HPP

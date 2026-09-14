@@ -10,6 +10,9 @@
 /// 
 /// <glm/gtx/hash.hpp> need to be included to use these functionalities.
 
+#ifndef HASH_HPP
+#define HASH_HPP
+
 #pragma once
 
 #include <functional>
@@ -132,3 +135,5 @@ namespace std
 } // namespace std
 
 #include "hash.inl"
+
+#endif  // HASH_HPP

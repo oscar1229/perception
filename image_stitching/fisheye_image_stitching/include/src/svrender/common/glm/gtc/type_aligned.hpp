@@ -9,6 +9,9 @@
 /// @brief Aligned types.
 /// <glm/gtc/type_aligned.hpp> need to be included to use these features.
 
+#ifndef TYPE_ALIGNED_HPP
+#define TYPE_ALIGNED_HPP
+
 #pragma once
 
 #if !GLM_HAS_ALIGNED_TYPE
@@ -360,3 +363,5 @@ namespace glm
 
     /// @}
 }//namespace glm
+
+#endif  // TYPE_ALIGNED_HPP

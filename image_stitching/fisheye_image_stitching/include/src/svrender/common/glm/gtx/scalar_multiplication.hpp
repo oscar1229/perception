@@ -10,6 +10,9 @@
 ///    vec4 / int
 /// So we'll fix that! Of course "float * vec4" should remain the same (hence the enable_if magic)
 
+#ifndef SCALAR_MULTIPLICATION_HPP
+#define SCALAR_MULTIPLICATION_HPP
+
 #pragma once
 
 #include "../detail/setup.hpp"
@@ -67,3 +70,5 @@ GLM_IMPLEMENT_SCAL_MULT(mat4)
 
 #undef GLM_IMPLEMENT_SCAL_MULT
 } // namespace glm
+
+#endif  // SCALAR_MULTIPLICATION_HPP

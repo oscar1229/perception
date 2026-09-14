@@ -12,6 +12,9 @@
 ///
 /// <glm/gtc/quaternion.hpp> need to be included to use these functionalities.
 
+#ifndef QUATERNION_HPP
+#define QUATERNION_HPP
+
 #pragma once
 
 // Dependency:
@@ -395,3 +398,5 @@ namespace glm
 } //namespace glm
 
 #include "quaternion.inl"
+
+#endif  // QUATERNION_HPP

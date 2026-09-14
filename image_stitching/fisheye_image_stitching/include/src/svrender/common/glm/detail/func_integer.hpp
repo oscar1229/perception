@@ -10,6 +10,9 @@
 /// The notation [a, b] means the set of bits from bit-number a through bit-number 
 /// b, inclusive. The lowest-order bit is bit 0.
 
+#ifndef FUNC_INTEGER_HPP
+#define FUNC_INTEGER_HPP
+
 #pragma once
 
 #include "setup.hpp"
@@ -201,3 +204,5 @@ namespace glm
 }//namespace glm
 
 #include "func_integer.inl"
+
+#endif  // FUNC_INTEGER_HPP

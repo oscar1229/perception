@@ -10,6 +10,9 @@
 ///
 /// <glm/gtx/raw_data.hpp> need to be included to use these functionalities.
 
+#ifndef RAW_DATA_HPP
+#define RAW_DATA_HPP
+
 #pragma once
 
 // Dependencies
@@ -45,3 +48,5 @@ namespace glm
 }// namespace glm
 
 #include "raw_data.inl"
+
+#endif  // RAW_DATA_HPP

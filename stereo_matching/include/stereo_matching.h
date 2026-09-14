@@ -1,5 +1,5 @@
-#ifndef SPACEMIT_STEREO_MATCHING_H
-#define SPACEMIT_STEREO_MATCHING_H
+#ifndef STEREO_MATCHING_H
+#define STEREO_MATCHING_H
 
 #include <cstddef>
 
@@ -93,4 +93,4 @@ private:
 
 }  // namespace spacemit::stereo
 
-#endif
+#endif  // STEREO_MATCHING_H

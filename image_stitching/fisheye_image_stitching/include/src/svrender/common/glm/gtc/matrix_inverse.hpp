@@ -9,6 +9,9 @@
 /// Defines additional matrix inverting functions.
 /// <glm/gtc/matrix_inverse.hpp> need to be included to use these functionalities.
 
+#ifndef MATRIX_INVERSE_HPP
+#define MATRIX_INVERSE_HPP
+
 #pragma once
 
 // Dependencies
@@ -47,3 +50,5 @@ namespace glm
 }//namespace glm
 
 #include "matrix_inverse.inl"
+
+#endif  // MATRIX_INVERSE_HPP

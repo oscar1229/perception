@@ -10,6 +10,9 @@
 ///
 /// <glm/gtx/matrix_decompose.hpp> need to be included to use these functionalities.
 
+#ifndef MATRIX_DECOMPOSE_HPP
+#define MATRIX_DECOMPOSE_HPP
+
 #pragma once
 
 // Dependencies
@@ -40,3 +43,5 @@ namespace glm
 }//namespace glm
 
 #include "matrix_decompose.inl"
+
+#endif  // MATRIX_DECOMPOSE_HPP

@@ -11,6 +11,9 @@
 /// 
 /// <glm/gtc/bitfield.hpp> need to be included to use these functionalities.
 
+#ifndef BITFIELD_HPP
+#define BITFIELD_HPP
+
 #pragma once
 
 // Dependencies
@@ -205,3 +208,5 @@ namespace glm
 } //namespace glm
 
 #include "bitfield.inl"
+
+#endif  // BITFIELD_HPP

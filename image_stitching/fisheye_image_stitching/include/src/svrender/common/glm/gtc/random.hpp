@@ -12,6 +12,9 @@
 ///
 /// <glm/gtc/random.hpp> need to be included to use these functionalities.
 
+#ifndef RANDOM_HPP
+#define RANDOM_HPP
+
 #pragma once
 
 // Dependency:
@@ -96,3 +99,5 @@ namespace glm
 }//namespace glm
 
 #include "random.inl"
+
+#endif  // RANDOM_HPP

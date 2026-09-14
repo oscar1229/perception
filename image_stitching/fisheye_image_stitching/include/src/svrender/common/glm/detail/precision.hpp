@@ -1,6 +1,9 @@
 /// @ref core
 /// @file glm/detail/precision.hpp
 
+#ifndef PRECISION_HPP
+#define PRECISION_HPP
+
 #pragma once
 
 #include "setup.hpp"
@@ -61,3 +64,5 @@ namespace detail
 #	endif
 }//namespace detail
 }//namespace glm
+
+#endif  // PRECISION_HPP

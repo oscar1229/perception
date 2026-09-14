@@ -11,6 +11,9 @@
 ///
 /// <glm/gtx/euler_angles.hpp> need to be included to use these functionalities.
 
+#ifndef EULER_ANGLES_HPP
+#define EULER_ANGLES_HPP
+
 #pragma once
 
 // Dependency:
@@ -141,3 +144,5 @@ namespace glm
 }//namespace glm
 
 #include "euler_angles.inl"
+
+#endif  // EULER_ANGLES_HPP

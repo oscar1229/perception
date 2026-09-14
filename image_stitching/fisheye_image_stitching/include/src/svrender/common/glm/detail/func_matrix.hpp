@@ -12,6 +12,9 @@
 /// arguments and return values are double precision. Only the single-precision 
 /// floating point version is shown.
 
+#ifndef FUNC_MATRIX_HPP
+#define FUNC_MATRIX_HPP
+
 #pragma once
 
 // Dependencies
@@ -147,3 +150,5 @@ namespace detail
 }//namespace glm
 
 #include "func_matrix.inl"
+
+#endif  // FUNC_MATRIX_HPP

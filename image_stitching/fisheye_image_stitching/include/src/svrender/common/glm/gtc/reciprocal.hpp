@@ -10,6 +10,9 @@
 ///
 /// <glm/gtc/reciprocal.hpp> need to be included to use these features.
 
+#ifndef RECIPROCAL_HPP
+#define RECIPROCAL_HPP
+
 #pragma once
 
 // Dependencies
@@ -133,3 +136,5 @@ namespace glm
 }//namespace glm
 
 #include "reciprocal.inl"
+
+#endif  // RECIPROCAL_HPP

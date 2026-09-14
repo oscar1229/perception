@@ -9,6 +9,9 @@
 /// Defines functions to access rows or columns of a matrix easily.
 /// <glm/gtc/matrix_access.hpp> need to be included to use these functionalities.
 
+#ifndef MATRIX_ACCESS_HPP
+#define MATRIX_ACCESS_HPP
+
 #pragma once
 
 // Dependency:
@@ -57,3 +60,5 @@ namespace glm
 }//namespace glm
 
 #include "matrix_access.inl"
+
+#endif  // MATRIX_ACCESS_HPP

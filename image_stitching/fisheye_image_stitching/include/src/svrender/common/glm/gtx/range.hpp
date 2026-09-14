@@ -10,6 +10,9 @@
 ///
 /// <glm/gtx/range.hpp> need to be included to use these functionalities.
 
+#ifndef RANGE_HPP
+#define RANGE_HPP
+
 #pragma once
 
 // Dependencies
@@ -83,3 +86,5 @@ namespace glm
 
     /// @}
 }//namespace glm
+
+#endif  // RANGE_HPP

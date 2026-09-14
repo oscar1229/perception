@@ -18,6 +18,9 @@
 ///
 /// <glm/gtc/matrix_transform.hpp> need to be included to use these functionalities.
 
+#ifndef MATRIX_TRANSFORM_HPP
+#define MATRIX_TRANSFORM_HPP
+
 #pragma once
 
 // Dependencies
@@ -463,3 +466,5 @@ namespace glm
 }//namespace glm
 
 #include "matrix_transform.inl"
+
+#endif  // MATRIX_TRANSFORM_HPP

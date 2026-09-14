@@ -9,6 +9,9 @@
 ///
 /// These functions do not operate component-wise, rather as described in each case.
 
+#ifndef FUNC_PACKING_HPP
+#define FUNC_PACKING_HPP
+
 #pragma once
 
 #include "type_vec2.hpp"
@@ -166,3 +169,5 @@ namespace glm
 }//namespace glm
 
 #include "func_packing.inl"
+
+#endif  // FUNC_PACKING_HPP

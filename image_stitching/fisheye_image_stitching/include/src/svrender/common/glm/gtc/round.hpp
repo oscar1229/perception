@@ -11,6 +11,9 @@
 ///
 /// <glm/gtc/round.hpp> need to be included to use these functionalities.
 
+#ifndef ROUND_HPP
+#define ROUND_HPP
+
 #pragma once
 
 // Dependencies
@@ -172,3 +175,5 @@ namespace glm
 } //namespace glm
 
 #include "round.inl"
+
+#endif  // ROUND_HPP

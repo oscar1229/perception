@@ -1,6 +1,9 @@
 /// @ref simd
 /// @file glm/simd/integer.h
 
+#ifndef INTEGER_H
+#define INTEGER_H
+
 #pragma once
 
 #if GLM_ARCH & GLM_ARCH_SSE2_BIT
@@ -113,3 +116,5 @@ GLM_FUNC_QUALIFIER glm_uvec4 glm_i128_interleave2(glm_uvec4 x, glm_uvec4 y)
 }
 
 #endif//GLM_ARCH & GLM_ARCH_SSE2_BIT
+
+#endif  // INTEGER_H

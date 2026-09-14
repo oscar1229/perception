@@ -12,6 +12,9 @@
 /// 
 /// <glm/gtc/epsilon.hpp> need to be included to use these functionalities.
 
+#ifndef EPSILON_HPP
+#define EPSILON_HPP
+
 #pragma once
 
 // Dependencies
@@ -71,3 +74,5 @@ namespace glm
 }//namespace glm
 
 #include "epsilon.inl"
+
+#endif  // EPSILON_HPP

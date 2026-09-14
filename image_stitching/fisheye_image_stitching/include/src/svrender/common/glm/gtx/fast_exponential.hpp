@@ -11,6 +11,9 @@
 ///
 /// <glm/gtx/fast_exponential.hpp> need to be included to use these functionalities.
 
+#ifndef FAST_EXPONENTIAL_HPP
+#define FAST_EXPONENTIAL_HPP
+
 #pragma once
 
 // Dependency:
@@ -89,3 +92,5 @@ namespace glm
 }//namespace glm
 
 #include "fast_exponential.inl"
+
+#endif  // FAST_EXPONENTIAL_HPP

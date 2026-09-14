@@ -5,8 +5,8 @@
 *
 */
 
-#ifndef SV_SVM_SVRENDER_GLSHADER_GLSHADER_HPP_
-#define SV_SVM_SVRENDER_GLSHADER_GLSHADER_HPP_
+#ifndef GLSHADER_HPP
+#define GLSHADER_HPP
 #pragma once
 
 #include<string>
@@ -79,4 +79,4 @@ private:
 
 
 
-#endif /* SV_SVM_SVRENDER_GLSHADER_GLSHADER_HPP_ */
+#endif  // GLSHADER_HPP

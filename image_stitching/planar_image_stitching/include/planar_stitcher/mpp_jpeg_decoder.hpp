@@ -1,3 +1,6 @@
+#ifndef MPP_JPEG_DECODER_HPP
+#define MPP_JPEG_DECODER_HPP
+
 #pragma once
 
 #include <array>
@@ -52,3 +55,5 @@ private:
 };
 
 }  // namespace planar_stitcher
+
+#endif  // MPP_JPEG_DECODER_HPP

@@ -10,6 +10,9 @@
 ///
 /// <glm/gtx/closest_point.hpp> need to be included to use these functionalities.
 
+#ifndef CLOSEST_POINT_HPP
+#define CLOSEST_POINT_HPP
+
 #pragma once
 
 // Dependency:
@@ -43,3 +46,5 @@ namespace glm
 }// namespace glm
 
 #include "closest_point.inl"
+
+#endif  // CLOSEST_POINT_HPP

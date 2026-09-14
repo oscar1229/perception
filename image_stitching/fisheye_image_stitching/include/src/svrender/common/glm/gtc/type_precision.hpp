@@ -15,6 +15,9 @@
 ///
 /// <glm/gtc/type_precision.hpp> need to be included to use these functionalities.
 
+#ifndef TYPE_PRECISION_HPP
+#define TYPE_PRECISION_HPP
+
 #pragma once
 
 // Dependency:
@@ -859,3 +862,5 @@ namespace glm
 }//namespace glm
 
 #include "type_precision.inl"
+
+#endif  // TYPE_PRECISION_HPP

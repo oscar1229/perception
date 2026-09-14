@@ -1,6 +1,9 @@
 /// @ref core
 /// @file glm/detail/_vectorize.hpp
 
+#ifndef _VECTORIZE_HPP
+#define _VECTORIZE_HPP
+
 #pragma once
 
 #include "type_vec1.hpp"
@@ -129,3 +132,5 @@ namespace detail
     };
 }//namespace detail
 }//namespace glm
+
+#endif  // _VECTORIZE_HPP

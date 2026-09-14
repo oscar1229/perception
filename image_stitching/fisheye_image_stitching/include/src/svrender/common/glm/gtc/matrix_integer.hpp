@@ -9,6 +9,9 @@
 /// Defines a number of matrices with integer types.
 /// <glm/gtc/matrix_integer.hpp> need to be included to use these functionalities.
 
+#ifndef MATRIX_INTEGER_HPP
+#define MATRIX_INTEGER_HPP
+
 #pragma once
 
 // Dependency:
@@ -484,3 +487,5 @@ namespace glm
 
     /// @}
 }//namespace glm
+
+#endif  // MATRIX_INTEGER_HPP

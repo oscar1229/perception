@@ -11,6 +11,9 @@
 ///
 /// <glm/gtx/transform2.hpp> need to be included to use these functionalities.
 
+#ifndef TRANSFORM2_HPP
+#define TRANSFORM2_HPP
+
 #pragma once
 
 // Dependency:
@@ -105,3 +108,5 @@ namespace glm
 }// namespace glm
 
 #include "transform2.inl"
+
+#endif  // TRANSFORM2_HPP

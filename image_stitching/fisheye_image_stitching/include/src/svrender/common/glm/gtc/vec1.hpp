@@ -9,6 +9,9 @@
 /// @brief Add vec1, ivec1, uvec1 and bvec1 types.
 /// <glm/gtc/vec1.hpp> need to be included to use these functionalities.
 
+#ifndef VEC1_HPP
+#define VEC1_HPP
+
 #pragma once
 
 // Dependency:
@@ -162,3 +165,5 @@ namespace glm
 }// namespace glm
 
 #include "vec1.inl"
+
+#endif  // VEC1_HPP

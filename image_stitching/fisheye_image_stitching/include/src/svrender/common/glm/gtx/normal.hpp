@@ -11,6 +11,9 @@
 ///
 /// <glm/gtx/normal.hpp> need to be included to use these functionalities.
 
+#ifndef NORMAL_HPP
+#define NORMAL_HPP
+
 #pragma once
 
 // Dependency:
@@ -37,3 +40,5 @@ namespace glm
 }//namespace glm
 
 #include "normal.inl"
+
+#endif  // NORMAL_HPP

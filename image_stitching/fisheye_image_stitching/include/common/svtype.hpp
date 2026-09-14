@@ -12,8 +12,8 @@
 *
 ********************************************************************************/
 
-#ifndef COMMON_SVTYPE_HPP_
-#define COMMON_SVTYPE_HPP_
+#ifndef SVTYPE_HPP
+#define SVTYPE_HPP
 #pragma once
 namespace sm {
 #define SV_TRUE  1
@@ -154,4 +154,4 @@ inline const SV_S32 s32GetCameraChannelNumber()
 }
 
 
-#endif /* COMMON_SVTYPE_HPP_ */
+#endif  // SVTYPE_HPP

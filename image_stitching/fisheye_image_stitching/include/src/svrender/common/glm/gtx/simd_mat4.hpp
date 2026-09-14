@@ -10,6 +10,9 @@
 ///
 /// <glm/gtx/simd_mat4.hpp> need to be included to use these functionalities.
 
+#ifndef SIMD_MAT4_HPP
+#define SIMD_MAT4_HPP
+
 #pragma once
 
 // Dependencies
@@ -180,3 +183,5 @@ namespace detail
 #include "simd_mat4.inl"
 
 #endif//(GLM_ARCH != GLM_ARCH_PURE)
+
+#endif  // SIMD_MAT4_HPP

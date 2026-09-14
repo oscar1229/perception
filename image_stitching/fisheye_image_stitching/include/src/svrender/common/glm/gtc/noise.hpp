@@ -13,6 +13,9 @@
 /// http://www.itn.liu.se/~stegu/simplexnoise/simplexnoise.pdf
 /// <glm/gtc/noise.hpp> need to be included to use these functionalities.
 
+#ifndef NOISE_HPP
+#define NOISE_HPP
+
 #pragma once
 
 // Dependencies
@@ -58,3 +61,5 @@ namespace glm
 }//namespace glm
 
 #include "noise.inl"
+
+#endif  // NOISE_HPP

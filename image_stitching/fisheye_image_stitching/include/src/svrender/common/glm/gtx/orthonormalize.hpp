@@ -11,6 +11,9 @@
 ///
 /// <glm/gtx/orthonormalize.hpp> need to be included to use these functionalities.
 
+#ifndef ORTHONORMALIZE_HPP
+#define ORTHONORMALIZE_HPP
+
 #pragma once
 
 // Dependency:
@@ -43,3 +46,5 @@ namespace glm
 }//namespace glm
 
 #include "orthonormalize.inl"
+
+#endif  // ORTHONORMALIZE_HPP

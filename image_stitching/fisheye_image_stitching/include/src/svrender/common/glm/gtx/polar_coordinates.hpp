@@ -10,6 +10,9 @@
 ///
 /// <glm/gtx/polar_coordinates.hpp> need to be included to use these functionalities.
 
+#ifndef POLAR_COORDINATES_HPP
+#define POLAR_COORDINATES_HPP
+
 #pragma once
 
 // Dependency:
@@ -42,3 +45,5 @@ namespace glm
 }//namespace glm
 
 #include "polar_coordinates.inl"
+
+#endif  // POLAR_COORDINATES_HPP

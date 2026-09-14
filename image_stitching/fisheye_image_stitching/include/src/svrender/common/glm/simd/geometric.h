@@ -1,6 +1,9 @@
 /// @ref simd
 /// @file glm/simd/geometric.h
 
+#ifndef GEOMETRIC_H
+#define GEOMETRIC_H
+
 #pragma once
 
 #include "common.h"
@@ -122,3 +125,5 @@ GLM_FUNC_QUALIFIER __m128 glm_vec4_refract(glm_vec4 I, glm_vec4 N, glm_vec4 eta)
 }
 
 #endif//GLM_ARCH & GLM_ARCH_SSE2_BIT
+
+#endif  // GEOMETRIC_H

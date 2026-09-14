@@ -1,6 +1,9 @@
 /// @ref core
 /// @file glm/detail/type_gentype.hpp
 
+#ifndef TYPE_GENTYPE_HPP
+#define TYPE_GENTYPE_HPP
+
 #pragma once
 
 namespace glm
@@ -193,3 +196,5 @@ namespace detail
 }//namespace glm
 
 //#include "type_gentype.inl"
+
+#endif  // TYPE_GENTYPE_HPP

@@ -3,8 +3,8 @@
 *
 */
 
-#ifndef SV_SVMAVM_SV_AVMCOMMON_HPP_
-#define SV_SVMAVM_SV_AVMCOMMON_HPP_
+#ifndef SV_AVMCOMMON_HPP
+#define SV_AVMCOMMON_HPP
 namespace sm {
 namespace sv_avm {
 
@@ -55,4 +55,4 @@ enum {//标定结果枚举
 }
 
 
-#endif /* SRC_COMMON_SV_AVMCOMMON_HPP_ */
+#endif  // SV_AVMCOMMON_HPP

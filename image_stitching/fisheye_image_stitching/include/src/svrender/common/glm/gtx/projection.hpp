@@ -10,6 +10,9 @@
 ///
 /// <glm/gtx/projection.hpp> need to be included to use these functionalities.
 
+#ifndef PROJECTION_HPP
+#define PROJECTION_HPP
+
 #pragma once
 
 // Dependency:
@@ -34,3 +37,5 @@ namespace glm
 }//namespace glm
 
 #include "projection.inl"
+
+#endif  // PROJECTION_HPP

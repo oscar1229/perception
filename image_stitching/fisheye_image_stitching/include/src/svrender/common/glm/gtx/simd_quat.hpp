@@ -10,6 +10,9 @@
 ///
 /// <glm/gtx/simd_quat.hpp> need to be included to use these functionalities.
 
+#ifndef SIMD_QUAT_HPP
+#define SIMD_QUAT_HPP
+
 #pragma once
 
 // Dependency:
@@ -305,3 +308,5 @@ namespace detail
 
 
 #endif//(GLM_ARCH != GLM_ARCH_PURE)
+
+#endif  // SIMD_QUAT_HPP

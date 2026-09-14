@@ -25,6 +25,9 @@
 /// at once by including <glm/ext.hpp>. Otherwise, each extension needs to be 
 /// included  a specific file.
 
+#ifndef EXT_HPP
+#define EXT_HPP
+
 #pragma once
 
 #include "glm.hpp"
@@ -114,3 +117,5 @@
 #if GLM_HAS_RANGE_FOR
 #	include "./gtx/range.hpp"
 #endif
+
+#endif  // EXT_HPP

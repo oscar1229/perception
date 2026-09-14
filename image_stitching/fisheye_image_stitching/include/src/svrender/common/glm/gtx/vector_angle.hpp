@@ -12,6 +12,9 @@
 ///
 /// <glm/gtx/vector_angle.hpp> need to be included to use these functionalities.
 
+#ifndef VECTOR_ANGLE_HPP
+#define VECTOR_ANGLE_HPP
+
 #pragma once
 
 // Dependency:
@@ -58,3 +61,5 @@ namespace glm
 }// namespace glm
 
 #include "vector_angle.inl"
+
+#endif  // VECTOR_ANGLE_HPP

@@ -1,6 +1,9 @@
 /// @ref core
 /// @file glm/detail/type_mat4x4.hpp
 
+#ifndef TYPE_MAT4X4_HPP
+#define TYPE_MAT4X4_HPP
+
 #pragma once
 
 #include "../fwd.hpp"
@@ -193,3 +196,5 @@ namespace glm
 #ifndef GLM_EXTERNAL_TEMPLATE
 #include "type_mat4x4.inl"
 #endif//GLM_EXTERNAL_TEMPLATE
+
+#endif  // TYPE_MAT4X4_HPP

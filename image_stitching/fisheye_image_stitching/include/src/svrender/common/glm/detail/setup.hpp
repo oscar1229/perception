@@ -1,6 +1,9 @@
 /// @ref core
 /// @file glm/detail/setup.hpp
 
+#ifndef SETUP_HPP
+#define SETUP_HPP
+
 #pragma once
 
 #if (defined(GLM_FORCE_SWIZZLE) || defined(GLM_SWIZZLE)) && defined(GLM_FORCE_UNRESTRICTED_GENTYPE)
@@ -826,3 +829,5 @@ namespace glm
 {
     enum ctor{uninitialize};
 }//namespace glm
+
+#endif  // SETUP_HPP

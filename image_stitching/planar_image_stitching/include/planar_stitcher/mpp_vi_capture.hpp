@@ -1,3 +1,6 @@
+#ifndef MPP_VI_CAPTURE_HPP
+#define MPP_VI_CAPTURE_HPP
+
 #pragma once
 
 #include "planar_stitcher/mpp_jpeg_decoder.hpp"
@@ -64,3 +67,5 @@ private:
 };
 
 }  // namespace planar_stitcher
+
+#endif  // MPP_VI_CAPTURE_HPP

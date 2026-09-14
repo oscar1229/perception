@@ -1,6 +1,9 @@
 /// @ref core
 /// @file glm/detail/_swizzle_func.hpp
 
+#ifndef _SWIZZLE_FUNC_HPP
+#define _SWIZZLE_FUNC_HPP
+
 #pragma once
 
 #define GLM_SWIZZLE_GEN_VEC2_ENTRY(TMPL_TYPE, PRECISION, CLASS_TYPE, SWIZZLED_TYPE, CONST, A, B)	\
@@ -694,3 +697,5 @@
     GLM_SWIZZLE_GEN_VEC_FROM_VEC4_COMP(TMPL_TYPE, PRECISION, CLASS_TYPE, SWIZZLED_VEC2_TYPE, SWIZZLED_VEC3_TYPE, SWIZZLED_VEC4_TYPE, s, t, p, q)
 
 //GLM_SWIZZLE_GEN_VEC_FROM_VEC4(valType, detail::vec4, detail::vec2, detail::vec3, detail::vec4)
+
+#endif  // _SWIZZLE_FUNC_HPP

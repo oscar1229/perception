@@ -1,6 +1,9 @@
 /// @ref simd
 /// @file glm/simd/platform.h
 
+#ifndef PLATFORM_H
+#define PLATFORM_H
+
 #pragma once
 
 ///////////////////////////////////////////////////////////////////////////////////
@@ -450,3 +453,5 @@
     typedef __m256i		glm_i64vec4;
     typedef __m256i		glm_u64vec4;
 #endif
+
+#endif  // PLATFORM_H

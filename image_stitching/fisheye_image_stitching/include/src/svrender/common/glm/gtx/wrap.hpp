@@ -10,6 +10,9 @@
 ///
 /// <glm/gtx/wrap.hpp> need to be included to use these functionalities.
 
+#ifndef WRAP_HPP
+#define WRAP_HPP
+
 #pragma once
 
 // Dependency:
@@ -49,3 +52,5 @@ namespace glm
 }// namespace glm
 
 #include "wrap.inl"
+
+#endif  // WRAP_HPP

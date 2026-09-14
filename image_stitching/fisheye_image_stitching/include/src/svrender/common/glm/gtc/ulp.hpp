@@ -11,6 +11,9 @@
 /// in ULP.
 /// <glm/gtc/ulp.hpp> need to be included to use these features.
 
+#ifndef ULP_HPP
+#define ULP_HPP
+
 #pragma once
 
 // Dependencies
@@ -61,3 +64,5 @@ namespace glm
 }// namespace glm
 
 #include "ulp.inl"
+
+#endif  // ULP_HPP

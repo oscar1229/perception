@@ -13,6 +13,9 @@
 ///
 /// <glm/gtx/type_aligned.hpp> need to be included to use these functionalities.
 
+#ifndef TYPE_ALIGNED_HPP
+#define TYPE_ALIGNED_HPP
+
 #pragma once
 
 // Dependency:
@@ -964,3 +967,5 @@ namespace glm
 }//namespace glm
 
 #include "type_aligned.inl"
+
+#endif  // TYPE_ALIGNED_HPP

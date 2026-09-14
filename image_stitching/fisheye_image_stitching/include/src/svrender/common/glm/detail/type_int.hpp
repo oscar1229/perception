@@ -1,6 +1,9 @@
 /// @ref core
 /// @file glm/detail/type_int.hpp
 
+#ifndef TYPE_INT_HPP
+#define TYPE_INT_HPP
+
 #pragma once
 
 #include "setup.hpp"
@@ -304,3 +307,5 @@ namespace detail
 #endif//GLM_STATIC_ASSERT_NULL
 
 }//namespace glm
+
+#endif  // TYPE_INT_HPP

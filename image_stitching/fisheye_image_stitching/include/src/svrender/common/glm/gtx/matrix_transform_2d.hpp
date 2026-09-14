@@ -11,6 +11,9 @@
 ///
 /// <glm/gtx/matrix_transform_2d.hpp> need to be included to use these functionalities.
 
+#ifndef MATRIX_TRANSFORM_2D_HPP
+#define MATRIX_TRANSFORM_2D_HPP
+
 #pragma once
 
 // Dependency:
@@ -76,3 +79,5 @@ namespace glm
 }//namespace glm
 
 #include "matrix_transform_2d.inl"
+
+#endif  // MATRIX_TRANSFORM_2D_HPP

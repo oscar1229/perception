@@ -1,3 +1,6 @@
+#ifndef CONFIG_HPP
+#define CONFIG_HPP
+
 #pragma once
 
 #include <string>
@@ -48,3 +51,5 @@ bool ParseConfigFile(const std::string& path, Config* config, std::string* error
 bool ParseConfigText(const std::string& text, Config* config, std::string* error);
 
 }
+
+#endif  // CONFIG_HPP

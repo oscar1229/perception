@@ -1,6 +1,9 @@
 /// @ref core
 /// @file glm/detail/type_float.hpp
 
+#ifndef TYPE_FLOAT_HPP
+#define TYPE_FLOAT_HPP
+
 #pragma once
 
 #include "setup.hpp"
@@ -65,3 +68,5 @@ namespace detail
     /// @}
 
 }//namespace glm
+
+#endif  // TYPE_FLOAT_HPP

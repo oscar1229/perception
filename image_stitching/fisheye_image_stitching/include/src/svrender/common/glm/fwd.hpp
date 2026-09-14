@@ -1,6 +1,9 @@
 /// @ref core
 /// @file glm/fwd.hpp
 
+#ifndef FWD_HPP
+#define FWD_HPP
+
 #pragma once
 
 #include "detail/type_int.hpp"
@@ -2568,3 +2571,5 @@ namespace glm
 #endif
 
 }//namespace glm
+
+#endif  // FWD_HPP

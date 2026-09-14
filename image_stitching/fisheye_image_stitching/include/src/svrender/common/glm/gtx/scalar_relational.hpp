@@ -10,6 +10,9 @@
 ///
 /// <glm/gtx/scalar_relational.hpp> need to be included to use these functionalities.
 
+#ifndef SCALAR_RELATIONAL_HPP
+#define SCALAR_RELATIONAL_HPP
+
 #pragma once
 
 // Dependency:
@@ -30,3 +33,5 @@ namespace glm
 }//namespace glm
 
 #include "scalar_relational.inl"
+
+#endif  // SCALAR_RELATIONAL_HPP

@@ -1,6 +1,9 @@
 /// @ref core
 /// @file glm/detail/type_mat.hpp
 
+#ifndef TYPE_MAT_HPP
+#define TYPE_MAT_HPP
+
 #pragma once
 
 #include "precision.hpp"
@@ -765,3 +768,5 @@ namespace detail
     
     /// @}
 }//namespace glm
+
+#endif  // TYPE_MAT_HPP

@@ -11,6 +11,9 @@
 ///
 /// <glm/gtc/color.hpp> need to be included to use these functionalities.
 
+#ifndef COLOR_SPACE_HPP
+#define COLOR_SPACE_HPP
+
 #pragma once
 
 // Dependencies
@@ -54,3 +57,5 @@ namespace glm
 } //namespace glm
 
 #include "color_space.inl"
+
+#endif  // COLOR_SPACE_HPP

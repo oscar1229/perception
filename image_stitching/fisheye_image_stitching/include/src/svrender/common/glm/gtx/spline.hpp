@@ -10,6 +10,9 @@
 ///
 /// <glm/gtx/spline.hpp> need to be included to use these functionalities.
 
+#ifndef SPLINE_HPP
+#define SPLINE_HPP
+
 #pragma once
 
 // Dependency:
@@ -59,3 +62,5 @@ namespace glm
 }//namespace glm
 
 #include "spline.inl"
+
+#endif  // SPLINE_HPP

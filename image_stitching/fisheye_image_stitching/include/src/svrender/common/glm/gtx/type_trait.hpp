@@ -10,6 +10,9 @@
 ///
 /// <glm/gtx/type_trait.hpp> need to be included to use these functionalities.
 
+#ifndef TYPE_TRAIT_HPP
+#define TYPE_TRAIT_HPP
+
 #pragma once
 
 // Dependency:
@@ -250,3 +253,5 @@ namespace glm
 }//namespace glm
 
 #include "type_trait.inl"
+
+#endif  // TYPE_TRAIT_HPP

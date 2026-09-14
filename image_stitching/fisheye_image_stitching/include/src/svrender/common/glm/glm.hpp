@@ -49,6 +49,9 @@
 ///
 /// @ingroup core
 
+#ifndef GLM_HPP
+#define GLM_HPP
+
 #include "detail/_fixes.hpp"
 
 #pragma once
@@ -86,3 +89,5 @@
 #include "matrix.hpp"
 #include "vector_relational.hpp"
 #include "integer.hpp"
+
+#endif  // GLM_HPP

@@ -10,6 +10,9 @@
 ///
 /// <glm/gtx/simd_vec4.hpp> need to be included to use these functionalities.
 
+#ifndef SIMD_VEC4_HPP
+#define SIMD_VEC4_HPP
+
 #pragma once
 
 // Dependency:
@@ -544,3 +547,5 @@ namespace detail
 #endif
 
 #endif//(GLM_ARCH != GLM_ARCH_PURE)
+
+#endif  // SIMD_VEC4_HPP

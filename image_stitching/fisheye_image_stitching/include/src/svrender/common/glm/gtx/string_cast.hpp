@@ -14,6 +14,9 @@
 /// <glm/gtx/string_cast.hpp> need to be included to use these functionalities.
 /// This extension is not supported with CUDA
 
+#ifndef STRING_CAST_HPP
+#define STRING_CAST_HPP
+
 #pragma once
 
 // Dependency:
@@ -45,3 +48,5 @@ namespace glm
 }//namespace glm
 
 #include "string_cast.inl"
+
+#endif  // STRING_CAST_HPP

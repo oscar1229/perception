@@ -1,6 +1,9 @@
 /// @ref core
 /// @file glm/detail/type_vec4.hpp
 
+#ifndef TYPE_VEC4_HPP
+#define TYPE_VEC4_HPP
+
 #pragma once
 
 #include "type_vec.hpp"
@@ -452,3 +455,5 @@ namespace glm
 #ifndef GLM_EXTERNAL_TEMPLATE
 #include "type_vec4.inl"
 #endif//GLM_EXTERNAL_TEMPLATE
+
+#endif  // TYPE_VEC4_HPP

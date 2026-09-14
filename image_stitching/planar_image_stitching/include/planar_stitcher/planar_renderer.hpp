@@ -1,3 +1,6 @@
+#ifndef PLANAR_RENDERER_HPP
+#define PLANAR_RENDERER_HPP
+
 #pragma once
 
 #include "planar_stitcher/blend_pipeline.hpp"
@@ -58,3 +61,5 @@ std::vector<uint8_t> ConvertBottomUpRgbaToBgr(const uint8_t* rgba,
                                                 int width, int height);
 
 }  // namespace planar_stitcher
+
+#endif  // PLANAR_RENDERER_HPP

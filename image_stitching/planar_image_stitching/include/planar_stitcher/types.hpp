@@ -1,3 +1,6 @@
+#ifndef TYPES_HPP
+#define TYPES_HPP
+
 #pragma once
 
 namespace planar_stitcher {
@@ -25,3 +28,5 @@ struct Mat3 {
 };
 
 }
+
+#endif  // TYPES_HPP

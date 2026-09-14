@@ -1,6 +1,9 @@
 /// @ref simd
 /// @file glm/simd/common.h
 
+#ifndef COMMON_H
+#define COMMON_H
+
 #pragma once
 
 #include "platform.h"
@@ -238,3 +241,5 @@ GLM_FUNC_QUALIFIER glm_vec4 glm_vec4_inf(glm_vec4 x)
 }
 
 #endif//GLM_ARCH & GLM_ARCH_SSE2_BIT
+
+#endif  // COMMON_H

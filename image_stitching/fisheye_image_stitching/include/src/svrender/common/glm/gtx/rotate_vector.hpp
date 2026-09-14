@@ -11,6 +11,9 @@
 ///
 /// <glm/gtx/rotate_vector.hpp> need to be included to use these functionalities.
 
+#ifndef ROTATE_VECTOR_HPP
+#define ROTATE_VECTOR_HPP
+
 #pragma once
 
 // Dependency:
@@ -115,3 +118,5 @@ namespace glm
 }//namespace glm
 
 #include "rotate_vector.inl"
+
+#endif  // ROTATE_VECTOR_HPP

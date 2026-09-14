@@ -10,6 +10,9 @@
 /// @brief Min and max functions that return associated values not the compared onces.
 /// <glm/gtx/associated_min_max.hpp> need to be included to use these functionalities.
 
+#ifndef ASSOCIATED_MIN_MAX_HPP
+#define ASSOCIATED_MIN_MAX_HPP
+
 #pragma once
 
 // Dependency:
@@ -200,3 +203,5 @@ namespace glm
 } //namespace glm
 
 #include "associated_min_max.inl"
+
+#endif  // ASSOCIATED_MIN_MAX_HPP

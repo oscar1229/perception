@@ -13,6 +13,9 @@
 /// In all cases, the sizes of all the input and return vectors for any particular 
 /// call must match.
 
+#ifndef FUNC_VECTOR_RELATIONAL_HPP
+#define FUNC_VECTOR_RELATIONAL_HPP
+
 #pragma once
 
 #include "precision.hpp"
@@ -109,3 +112,5 @@ namespace glm
 }//namespace glm
 
 #include "func_vector_relational.inl"
+
+#endif  // FUNC_VECTOR_RELATIONAL_HPP

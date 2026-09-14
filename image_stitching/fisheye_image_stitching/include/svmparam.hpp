@@ -6,8 +6,8 @@
 *
 **************************************************************************************************************************/
 
-#ifndef SV_SVAVM_SVMPARAM_HPP
-#define SV_SVAVM_SVMPARAM_HPP
+#ifndef SVMPARAM_HPP
+#define SVMPARAM_HPP
 #pragma once
 
 #include<stdio.h>
@@ -265,4 +265,4 @@ class InnerSV_SvmParamClass{
 }//end of namespace svmparam
 }//end of namespace sv_avm
 }//end of namespace sm
-#endif /* SV_SVAVM_SVMPARAM_HPP */
+#endif  // SVMPARAM_HPP

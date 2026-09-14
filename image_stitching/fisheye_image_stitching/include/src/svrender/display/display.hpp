@@ -3,8 +3,8 @@
 *
 */
 
-#ifndef SV_SVM_SVRENDER_DISPLAY_DISPLAY_HPP_
-#define SV_SVM_SVRENDER_DISPLAY_DISPLAY_HPP_
+#ifndef DISPLAY_HPP
+#define DISPLAY_HPP
 
 #pragma once
 
@@ -111,4 +111,4 @@ SV_BOOL InnerSV_bSaveOffscreenFrame(SV_VOID);
 }//end of sm
 
 
-#endif /* SV_SVM_SVRENDER_DISPLAY_DISPLAY_HPP_ */
+#endif  // DISPLAY_HPP

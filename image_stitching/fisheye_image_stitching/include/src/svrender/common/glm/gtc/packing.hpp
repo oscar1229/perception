@@ -11,6 +11,9 @@
 ///
 /// <glm/gtc/packing.hpp> need to be included to use these features.
 
+#ifndef PACKING_HPP
+#define PACKING_HPP
+
 #pragma once
 
 // Dependency:
@@ -577,3 +580,5 @@ namespace glm
 }// namespace glm
 
 #include "packing.inl"
+
+#endif  // PACKING_HPP

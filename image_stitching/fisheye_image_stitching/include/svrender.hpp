@@ -3,8 +3,8 @@
 *
 */
 
-#ifndef SV_AVM_SVRENDER_HPP_
-#define SV_AVM_SVRENDER_HPP_
+#ifndef SVRENDER_HPP
+#define SVRENDER_HPP
 #pragma once
 #include <pthread.h>
 #include <string>
@@ -103,4 +103,4 @@ SV_VOID SV_RenderClassicalView(const SV_S32& s32ClassicalView);
 }
 }
 }
-#endif /* SV_AVM_SVRENDER_HPP_ */
+#endif  // SVRENDER_HPP

@@ -10,6 +10,9 @@
 ///
 /// <glm/gtx/handed_coordinate_system.hpp> need to be included to use these functionalities.
 
+#ifndef HANDED_COORDINATE_SPACE_HPP
+#define HANDED_COORDINATE_SPACE_HPP
+
 #pragma once
 
 // Dependency:
@@ -44,3 +47,5 @@ namespace glm
 }// namespace glm
 
 #include "handed_coordinate_space.inl"
+
+#endif  // HANDED_COORDINATE_SPACE_HPP

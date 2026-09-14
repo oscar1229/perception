@@ -1,6 +1,9 @@
 /// @ref core
 /// @file glm/detail/type_half.hpp
 
+#ifndef TYPE_HALF_HPP
+#define TYPE_HALF_HPP
+
 #pragma once
 
 #include "setup.hpp"
@@ -17,3 +20,5 @@ namespace detail
 }//namespace glm
 
 #include "type_half.inl"
+
+#endif  // TYPE_HALF_HPP

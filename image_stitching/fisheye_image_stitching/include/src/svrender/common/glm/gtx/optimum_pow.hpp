@@ -10,6 +10,9 @@
 ///
 /// <glm/gtx/optimum_pow.hpp> need to be included to use these functionalities.
 
+#ifndef OPTIMUM_POW_HPP
+#define OPTIMUM_POW_HPP
+
 #pragma once
 
 // Dependency:
@@ -48,3 +51,5 @@ namespace gtx
 }//namespace glm
 
 #include "optimum_pow.inl"
+
+#endif  // OPTIMUM_POW_HPP

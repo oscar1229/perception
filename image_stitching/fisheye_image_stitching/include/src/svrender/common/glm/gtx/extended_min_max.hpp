@@ -11,6 +11,9 @@
 ///
 /// <glm/gtx/extented_min_max.hpp> need to be included to use these functionalities.
 
+#ifndef EXTENDED_MIN_MAX_HPP
+#define EXTENDED_MIN_MAX_HPP
+
 #pragma once
 
 // Dependency:
@@ -131,3 +134,5 @@ namespace glm
 }//namespace glm
 
 #include "extended_min_max.inl"
+
+#endif  // EXTENDED_MIN_MAX_HPP

@@ -10,6 +10,9 @@
 ///
 /// <glm/gtx/mixed_product.hpp> need to be included to use these functionalities.
 
+#ifndef MIXED_PRODUCT_HPP
+#define MIXED_PRODUCT_HPP
+
 #pragma once
 
 // Dependency:
@@ -35,3 +38,5 @@ namespace glm
 }// namespace glm
 
 #include "mixed_product.inl"
+
+#endif  // MIXED_PRODUCT_HPP

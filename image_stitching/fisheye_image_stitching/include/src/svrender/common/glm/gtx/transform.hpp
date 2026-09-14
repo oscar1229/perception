@@ -13,6 +13,9 @@
 ///
 /// <glm/gtx/transform.hpp> need to be included to use these functionalities.
 
+#ifndef TRANSFORM_HPP
+#define TRANSFORM_HPP
+
 #pragma once
 
 // Dependency:
@@ -54,3 +57,5 @@ namespace glm
 }// namespace glm
 
 #include "transform.inl"
+
+#endif  // TRANSFORM_HPP

@@ -12,6 +12,9 @@
 ///
 /// <glm/gtx/rotate_normalized_axis.hpp> need to be included to use these functionalities.
 
+#ifndef ROTATE_NORMALIZED_AXIS_HPP
+#define ROTATE_NORMALIZED_AXIS_HPP
+
 #pragma once
 
 // Dependency:
@@ -62,3 +65,5 @@ namespace glm
 }//namespace glm
 
 #include "rotate_normalized_axis.inl"
+
+#endif  // ROTATE_NORMALIZED_AXIS_HPP

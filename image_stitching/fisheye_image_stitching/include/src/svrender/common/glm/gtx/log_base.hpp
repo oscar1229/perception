@@ -10,6 +10,9 @@
 ///
 /// <glm/gtx/log_base.hpp> need to be included to use these functionalities.
 
+#ifndef LOG_BASE_HPP
+#define LOG_BASE_HPP
+
 #pragma once
 
 // Dependency:
@@ -42,3 +45,5 @@ namespace glm
 }//namespace glm
 
 #include "log_base.inl"
+
+#endif  // LOG_BASE_HPP

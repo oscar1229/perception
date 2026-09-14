@@ -1,6 +1,9 @@
 /// @ref core
 /// @file glm/mat4x3.hpp
 
+#ifndef MAT4X3_HPP
+#define MAT4X3_HPP
+
 #pragma once
 
 #include "detail/type_mat4x3.hpp"
@@ -29,3 +32,5 @@ namespace glm
     typedef tmat4x3<float, highp>		highp_mat4x3;
 
 }//namespace glm
+
+#endif  // MAT4X3_HPP

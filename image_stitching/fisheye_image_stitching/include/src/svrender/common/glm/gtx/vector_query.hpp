@@ -10,6 +10,9 @@
 ///
 /// <glm/gtx/vector_query.hpp> need to be included to use these functionalities.
 
+#ifndef VECTOR_QUERY_HPP
+#define VECTOR_QUERY_HPP
+
 #pragma once
 
 // Dependency:
@@ -60,3 +63,5 @@ namespace glm
 }// namespace glm
 
 #include "vector_query.inl"
+
+#endif  // VECTOR_QUERY_HPP

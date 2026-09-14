@@ -12,6 +12,9 @@
 /// 
 /// These all operate component-wise. The description is per component.
 
+#ifndef FUNC_TRIGONOMETRIC_HPP
+#define FUNC_TRIGONOMETRIC_HPP
+
 #pragma once
 
 #include "setup.hpp"
@@ -174,3 +177,5 @@ namespace glm
 }//namespace glm
 
 #include "func_trigonometric.inl"
+
+#endif  // FUNC_TRIGONOMETRIC_HPP

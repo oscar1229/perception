@@ -10,6 +10,9 @@
 ///
 /// <glm/gtx/integer.hpp> need to be included to use these functionalities.
 
+#ifndef INTEGER_HPP
+#define INTEGER_HPP
+
 #pragma once
 
 // Dependency:
@@ -70,3 +73,5 @@ namespace glm
 }//namespace glm
 
 #include "integer.inl"
+
+#endif  // INTEGER_HPP

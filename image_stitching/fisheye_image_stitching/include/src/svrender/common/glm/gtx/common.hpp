@@ -11,6 +11,9 @@
 ///
 /// <glm/gtx/common.hpp> need to be included to use these functionalities.
 
+#ifndef COMMON_HPP
+#define COMMON_HPP
+
 #pragma once
 
 // Dependencies:
@@ -51,3 +54,5 @@ namespace glm
 }//namespace glm
 
 #include "common.inl"
+
+#endif  // COMMON_HPP

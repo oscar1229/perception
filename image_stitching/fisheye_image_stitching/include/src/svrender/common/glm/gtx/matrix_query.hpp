@@ -11,6 +11,9 @@
 ///
 /// <glm/gtx/matrix_query.hpp> need to be included to use these functionalities.
 
+#ifndef MATRIX_QUERY_HPP
+#define MATRIX_QUERY_HPP
+
 #pragma once
 
 // Dependency:
@@ -71,3 +74,5 @@ namespace glm
 }//namespace glm
 
 #include "matrix_query.inl"
+
+#endif  // MATRIX_QUERY_HPP

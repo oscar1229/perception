@@ -11,6 +11,9 @@
 ///
 /// <glm/gtx/compatibility.hpp> need to be included to use these functionalities.
 
+#ifndef COMPATIBILITY_HPP
+#define COMPATIBILITY_HPP
+
 #pragma once
 
 // Dependency:
@@ -128,3 +131,5 @@ namespace glm
 }//namespace glm
 
 #include "compatibility.inl"
+
+#endif  // COMPATIBILITY_HPP

@@ -11,6 +11,9 @@
 /// 
 /// <glm/gtc/constants.hpp> need to be included to use these features.
 
+#ifndef CONSTANTS_HPP
+#define CONSTANTS_HPP
+
 #pragma once
 
 // Dependencies
@@ -174,3 +177,5 @@ namespace glm
 } //namespace glm
 
 #include "constants.inl"
+
+#endif  // CONSTANTS_HPP

@@ -1,6 +1,9 @@
 /// @ref core
 /// @file glm/detail/_features.hpp
 
+#ifndef _FEATURES_HPP
+#define _FEATURES_HPP
+
 #pragma once
 
 // #define GLM_CXX98_EXCEPTIONS
@@ -397,3 +400,5 @@
 #	endif
 
 #endif//(GLM_COMPILER & GLM_COMPILER_CLANG)
+
+#endif  // _FEATURES_HPP

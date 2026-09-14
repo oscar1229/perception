@@ -1,6 +1,9 @@
 /// @ref simd
 /// @file glm/simd/matrix.h
 
+#ifndef MATRIX_H
+#define MATRIX_H
+
 #pragma once
 
 #include "geometric.h"
@@ -1026,3 +1029,5 @@ GLM_FUNC_QUALIFIER void glm_mat4_outerProduct(__m128 const & c, __m128 const & r
 }
 
 #endif//GLM_ARCH & GLM_ARCH_SSE2_BIT
+
+#endif  // MATRIX_H

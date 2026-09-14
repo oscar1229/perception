@@ -8,6 +8,9 @@
 /// 
 /// These all operate component-wise. The description is per component.
 
+#ifndef FUNC_EXPONENTIAL_HPP
+#define FUNC_EXPONENTIAL_HPP
+
 #pragma once
 
 #include "type_vec1.hpp"
@@ -101,3 +104,5 @@ namespace glm
 }//namespace glm
 
 #include "func_exponential.inl"
+
+#endif  // FUNC_EXPONENTIAL_HPP

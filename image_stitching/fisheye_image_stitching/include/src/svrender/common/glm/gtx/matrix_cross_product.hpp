@@ -11,6 +11,9 @@
 ///
 /// <glm/gtx/matrix_cross_product.hpp> need to be included to use these functionalities.
 
+#ifndef MATRIX_CROSS_PRODUCT_HPP
+#define MATRIX_CROSS_PRODUCT_HPP
+
 #pragma once
 
 // Dependency:
@@ -41,3 +44,5 @@ namespace glm
 }//namespace glm
 
 #include "matrix_cross_product.inl"
+
+#endif  // MATRIX_CROSS_PRODUCT_HPP

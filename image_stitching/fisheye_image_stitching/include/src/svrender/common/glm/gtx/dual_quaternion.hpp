@@ -14,6 +14,9 @@
 ///
 /// <glm/gtx/dual_quaternion.hpp> need to be included to use these functionalities.
 
+#ifndef DUAL_QUATERNION_HPP
+#define DUAL_QUATERNION_HPP
+
 #pragma once
 
 // Dependency:
@@ -264,3 +267,5 @@ namespace glm
 } //namespace glm
 
 #include "dual_quaternion.inl"
+
+#endif  // DUAL_QUATERNION_HPP

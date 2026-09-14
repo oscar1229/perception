@@ -1,6 +1,9 @@
 /// @ref core
 /// @file glm/detail/type_mat2x3.hpp
 
+#ifndef TYPE_MAT2X3_HPP
+#define TYPE_MAT2X3_HPP
+
 #pragma once
 
 #include "../fwd.hpp"
@@ -163,3 +166,5 @@ namespace glm
 #ifndef GLM_EXTERNAL_TEMPLATE
 #include "type_mat2x3.inl"
 #endif
+
+#endif  // TYPE_MAT2X3_HPP

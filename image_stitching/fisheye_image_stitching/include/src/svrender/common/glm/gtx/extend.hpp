@@ -10,6 +10,9 @@
 ///
 /// <glm/gtx/extend.hpp> need to be included to use these functionalities.
 
+#ifndef EXTEND_HPP
+#define EXTEND_HPP
+
 #pragma once
 
 // Dependency:
@@ -36,3 +39,5 @@ namespace glm
 }//namespace glm
 
 #include "extend.inl"
+
+#endif  // EXTEND_HPP

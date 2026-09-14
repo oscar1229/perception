@@ -5,8 +5,8 @@
 *
 */
 
-#ifndef SV_SVM_SVRENDER_VIEWTRANSOFORM_VIEWTRANSFORM_HPP_
-#define SV_SVM_SVRENDER_VIEWTRANSOFORM_VIEWTRANSFORM_HPP_
+#ifndef VIEWTRANSFORM_HPP
+#define VIEWTRANSFORM_HPP
 #pragma once
 #include <pthread.h>
 #include <glog/logging.h>//glog
@@ -132,4 +132,4 @@ private:
 }//end of sv_avm
 }//end of sm
 
-#endif /* SRC_SVRENDER_VIEWTRANSOFORM_VIEWTRANSFORM_HPP_ */
+#endif  // VIEWTRANSFORM_HPP

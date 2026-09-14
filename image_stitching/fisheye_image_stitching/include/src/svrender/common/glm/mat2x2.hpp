@@ -1,6 +1,9 @@
 /// @ref core
 /// @file glm/mat2x2.hpp
 
+#ifndef MAT2X2_HPP
+#define MAT2X2_HPP
+
 #pragma once
 
 #include "detail/type_mat2x2.hpp"
@@ -50,3 +53,5 @@ namespace glm
     typedef tmat2x2<float, highp>		highp_mat2x2;
 
 }//namespace glm
+
+#endif  // MAT2X2_HPP

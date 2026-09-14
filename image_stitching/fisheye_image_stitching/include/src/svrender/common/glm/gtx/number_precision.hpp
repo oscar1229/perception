@@ -12,6 +12,9 @@
 ///
 /// <glm/gtx/number_precision.hpp> need to be included to use these functionalities.
 
+#ifndef NUMBER_PRECISION_HPP
+#define NUMBER_PRECISION_HPP
+
 #pragma once
 
 // Dependency:
@@ -55,3 +58,5 @@ namespace gtx
 }//namespace glm
 
 #include "number_precision.inl"
+
+#endif  // NUMBER_PRECISION_HPP

@@ -1,6 +1,9 @@
 /// @ref core
 /// @file glm/detail/type_vec.hpp
 
+#ifndef TYPE_VEC_HPP
+#define TYPE_VEC_HPP
+
 #pragma once
 
 #include "precision.hpp"
@@ -574,3 +577,5 @@ namespace detail
 
     /// @}
 }//namespace glm
+
+#endif  // TYPE_VEC_HPP

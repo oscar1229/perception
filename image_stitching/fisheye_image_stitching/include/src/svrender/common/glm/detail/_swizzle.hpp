@@ -1,6 +1,9 @@
 /// @ref core
 /// @file glm/detail/_swizzle.hpp
 
+#ifndef _SWIZZLE_HPP
+#define _SWIZZLE_HPP
+
 #pragma once
 
 namespace glm{
@@ -795,3 +798,5 @@ namespace glm
     struct { detail::_swizzle<4, T, P, V, 3,3,3,1> E3 ## E3 ## E3 ## E1; }; \
     struct { detail::_swizzle<4, T, P, V, 3,3,3,2> E3 ## E3 ## E3 ## E2; }; \
     struct { detail::_swizzle<4, T, P, V, 3,3,3,3> E3 ## E3 ## E3 ## E3; };
+
+#endif  // _SWIZZLE_HPP

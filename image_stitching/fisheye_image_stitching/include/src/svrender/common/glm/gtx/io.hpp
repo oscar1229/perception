@@ -17,6 +17,9 @@
 ///
 /// <glm/gtx/io.hpp> needs to be included to use these functionalities.
 
+#ifndef IO_HPP
+#define IO_HPP
+
 #pragma once
 
 // Dependency:
@@ -195,3 +198,5 @@ namespace glm
 }//namespace glm
 
 #include "io.inl"
+
+#endif  // IO_HPP

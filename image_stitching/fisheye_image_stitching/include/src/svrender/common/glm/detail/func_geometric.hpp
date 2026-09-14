@@ -8,6 +8,9 @@
 /// 
 /// These operate on vectors as vectors, not component-wise.
 
+#ifndef FUNC_GEOMETRIC_HPP
+#define FUNC_GEOMETRIC_HPP
+
 #pragma once
 
 #include "type_vec3.hpp"
@@ -111,3 +114,5 @@ namespace glm
 }//namespace glm
 
 #include "func_geometric.inl"
+
+#endif  // FUNC_GEOMETRIC_HPP

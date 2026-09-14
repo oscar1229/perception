@@ -11,6 +11,9 @@
 /// 
 /// <glm/gtx/bit.hpp> need to be included to use these functionalities.
 
+#ifndef BIT_HPP
+#define BIT_HPP
+
 #pragma once
 
 // Dependencies
@@ -92,4 +95,6 @@ namespace glm
 
 
 #include "bit.inl"
+
+#endif  // BIT_HPP
 

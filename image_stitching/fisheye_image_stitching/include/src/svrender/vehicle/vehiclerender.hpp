@@ -3,8 +3,8 @@
 *
 */
 
-#ifndef SV_svm_SVRENDER_VEHICLE_VEHICLE_HPP_
-#define SV_svm_SVRENDER_VEHICLE_VEHICLE_HPP_
+#ifndef VEHICLERENDER_HPP
+#define VEHICLERENDER_HPP
 #pragma once
 #include<vector>
 
@@ -99,4 +99,4 @@ private:
 
 
 
-#endif /* SV_svm_SVRENDER_VEHICLE_VEHICLE_HPP_ */
+#endif  // VEHICLERENDER_HPP

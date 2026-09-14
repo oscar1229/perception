@@ -10,6 +10,9 @@
 ///
 /// <glm/gtx/color_space_YCoCg.hpp> need to be included to use these functionalities.
 
+#ifndef COLOR_SPACE_YCOCG_HPP
+#define COLOR_SPACE_YCOCG_HPP
+
 #pragma once
 
 // Dependency:
@@ -54,3 +57,5 @@ namespace glm
 }//namespace glm
 
 #include "color_space_YCoCg.inl"
+
+#endif  // COLOR_SPACE_YCOCG_HPP

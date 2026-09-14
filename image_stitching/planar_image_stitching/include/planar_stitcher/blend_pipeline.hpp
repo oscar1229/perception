@@ -1,3 +1,6 @@
+#ifndef BLEND_PIPELINE_HPP
+#define BLEND_PIPELINE_HPP
+
 #pragma once
 #include "planar_stitcher/feature_matcher.hpp"
 #include <cstdint>
@@ -34,3 +37,5 @@ bool MultibandBlend(const ProjectedBlendPair&,
                     const BlendMaskPyramid&,
                     std::vector<uint8_t>* output, std::string* error);
 }
+
+#endif  // BLEND_PIPELINE_HPP

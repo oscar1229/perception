@@ -8,6 +8,9 @@
 /// 
 /// These all operate component-wise. The description is per component.
 
+#ifndef FUNC_COMMON_HPP
+#define FUNC_COMMON_HPP
+
 #pragma once
 
 #include "setup.hpp"
@@ -424,4 +427,6 @@ namespace glm
 }//namespace glm
 
 #include "func_common.inl"
+
+#endif  // FUNC_COMMON_HPP
 

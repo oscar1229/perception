@@ -10,6 +10,9 @@
 ///
 /// <glm/gtx/matrix_operation.hpp> need to be included to use these functionalities.
 
+#ifndef MATRIX_OPERATION_HPP
+#define MATRIX_OPERATION_HPP
+
 #pragma once
 
 // Dependency:
@@ -82,3 +85,5 @@ namespace glm
 }//namespace glm
 
 #include "matrix_operation.inl"
+
+#endif  // MATRIX_OPERATION_HPP

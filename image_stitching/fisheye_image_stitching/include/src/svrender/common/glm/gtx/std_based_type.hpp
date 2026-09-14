@@ -10,6 +10,9 @@
 /// @brief Adds vector types based on STL value types.
 /// <glm/gtx/std_based_type.hpp> need to be included to use these functionalities.
 
+#ifndef STD_BASED_TYPE_HPP
+#define STD_BASED_TYPE_HPP
+
 #pragma once
 
 // Dependency:
@@ -61,3 +64,5 @@ namespace glm
 }//namespace glm
 
 #include "std_based_type.inl"
+
+#endif  // STD_BASED_TYPE_HPP

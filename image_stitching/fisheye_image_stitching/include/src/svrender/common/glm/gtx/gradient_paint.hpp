@@ -10,6 +10,9 @@
 /// @brief Functions that return the color of procedural gradient for specific coordinates.
 /// <glm/gtx/gradient_paint.hpp> need to be included to use these functionalities.
 
+#ifndef GRADIENT_PAINT_HPP
+#define GRADIENT_PAINT_HPP
+
 #pragma once
 
 // Dependency:
@@ -46,3 +49,5 @@ namespace glm
 }// namespace glm
 
 #include "gradient_paint.inl"
+
+#endif  // GRADIENT_PAINT_HPP
