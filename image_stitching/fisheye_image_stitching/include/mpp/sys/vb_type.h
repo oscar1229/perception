@@ -1,15 +1,15 @@
 /*
- *------------------------------------------------------------------------------
- * Copyright 2025-2026 SPACEMIT. All rights reserved.
- * Use of this source code is governed by a BSD-style license
- * that can be found in the LICENSE file.
- *
- * @File      :    vb_types.h
- * @Date      :    2026-3-16
- * @Author    :    rmwei(rongmin.wei@spacemit.com)
- * @Brief     :    Media Interface for MPP.
- *------------------------------------------------------------------------------
- */
+*------------------------------------------------------------------------------
+* Copyright 2025-2026 SPACEMIT. All rights reserved.
+* Use of this source code is governed by a BSD-style license
+* that can be found in the LICENSE file.
+*
+* @File      :    vb_types.h
+* @Date      :    2026-3-16
+* @Author    :    rmwei(rongmin.wei@spacemit.com)
+* @Brief     :    Media Interface for MPP.
+*------------------------------------------------------------------------------
+*/
 
 #ifndef VB_TYPE_H
 #define VB_TYPE_H
@@ -53,49 +53,49 @@ typedef enum _FrameType {
 typedef enum _Rotation { ROTATION_0 = 0, ROTATION_90 = 1, ROTATION_180 = 2, ROTATION_270 = 3, ROTATION_MAX } Rotation;
 
 /***
- * @description: pixelformat mpp or some other platform may use.
- */
+* @description: pixelformat mpp or some other platform may use.
+*/
 typedef enum _MppPixelFormat {
     MPP_PIXEL_FORMAT_UNKNOWN = 0,
 
     /***
-     * YYYYYYYYVVUU
-     */
+    * YYYYYYYYVVUU
+    */
     MPP_PIXEL_FORMAT_YV12,
 
     /***
-     * YYYYYYYYUUVV  YU12/YUV420P is the same
-     */
+    * YYYYYYYYUUVV  YU12/YUV420P is the same
+    */
     MPP_PIXEL_FORMAT_I420,
 
     /***
-     * YYYYYYYYVUVU
-     */
+    * YYYYYYYYVUVU
+    */
     MPP_PIXEL_FORMAT_NV21,
 
     /***
-     * YYYYYYYYUVUV
-     */
+    * YYYYYYYYUVUV
+    */
     MPP_PIXEL_FORMAT_NV12,
 
     /***
-     * 11111111 11000000, 16bit only use 10bit
-     */
+    * 11111111 11000000, 16bit only use 10bit
+    */
     MPP_PIXEL_FORMAT_YV12_P010,
 
     /***
-     * 11111111 11000000, 16bit only use 10bit
-     */
+    * 11111111 11000000, 16bit only use 10bit
+    */
     MPP_PIXEL_FORMAT_I420_P010,
 
     /***
-     * 11111111 11000000, 16bit only use 10bit
-     */
+    * 11111111 11000000, 16bit only use 10bit
+    */
     MPP_PIXEL_FORMAT_NV21_P010,
 
     /***
-     * 11111111 11000000, 16bit only use 10bit
-     */
+    * 11111111 11000000, 16bit only use 10bit
+    */
     MPP_PIXEL_FORMAT_NV12_P010,
     MPP_PIXEL_FORMAT_YV12_P016,
     MPP_PIXEL_FORMAT_I420_P016,
@@ -103,23 +103,23 @@ typedef enum _MppPixelFormat {
     MPP_PIXEL_FORMAT_NV12_P016,
 
     /***
-     * YYYYUUVV, YU16 is the same
-     */
+    * YYYYUUVV, YU16 is the same
+    */
     MPP_PIXEL_FORMAT_YUV422P,
 
     /***
-     * YYYYVVUU
-     */
+    * YYYYVVUU
+    */
     MPP_PIXEL_FORMAT_YV16,
 
     /***
-     * YYYYUVUV  NV16 is the same
-     */
+    * YYYYUVUV  NV16 is the same
+    */
     MPP_PIXEL_FORMAT_YUV422SP,
 
     /***
-     * YYYYVUVU
-     */
+    * YYYYVUVU
+    */
     MPP_PIXEL_FORMAT_NV61,
     MPP_PIXEL_FORMAT_YUV422P_P010,
     MPP_PIXEL_FORMAT_YV16_P010,
@@ -127,13 +127,13 @@ typedef enum _MppPixelFormat {
     MPP_PIXEL_FORMAT_NV61_P010,
 
     /***
-     * YYUUVV
-     */
+    * YYUUVV
+    */
     MPP_PIXEL_FORMAT_YUV444P,
 
     /***
-     * YYUVUV
-     */
+    * YYUVUV
+    */
     MPP_PIXEL_FORMAT_YUV444SP,
     MPP_PIXEL_FORMAT_YUYV,
     MPP_PIXEL_FORMAT_YVYU,
@@ -186,16 +186,16 @@ typedef enum _MppPixelFormat {
     MPP_PIXEL_FORMAT_AFBC_YUV422_10,
 
     /***
-     * for usb camera
-     */
+    * for usb camera
+    */
     MPP_PIXEL_FORMAT_H264,
     MPP_PIXEL_FORMAT_MJPEG,
 
     /***
-     * MIPI CSI-2 RAW10 packed (5 bytes per 4 pixels), no stride padding.
-     * Used by K3 raw bayer capture path so the VB pool matches V4L2
-     * sizeimage exactly (= width * 5 / 4 * height).
-     */
+    * MIPI CSI-2 RAW10 packed (5 bytes per 4 pixels), no stride padding.
+    * Used by K3 raw bayer capture path so the VB pool matches V4L2
+    * sizeimage exactly (= width * 5 / 4 * height).
+    */
     MPP_PIXEL_FORMAT_RGB_BAYER_10BITS_PACKED,
 
     MPP_PIXEL_FORMAT_MAX,

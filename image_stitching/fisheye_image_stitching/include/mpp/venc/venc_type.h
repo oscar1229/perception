@@ -1,14 +1,14 @@
 /*
- *------------------------------------------------------------------------------
- * Copyright 2025-2026 SPACEMIT. All rights reserved.
- * Use of this source code is governed by a BSD-style license
- * that can be found in the LICENSE file.
- *
- * @File      :    venc_type.h
- * @Date      :    2026-04-19
- * @Brief     :    VENC module type definitions for MPP.
- *------------------------------------------------------------------------------
- */
+*------------------------------------------------------------------------------
+* Copyright 2025-2026 SPACEMIT. All rights reserved.
+* Use of this source code is governed by a BSD-style license
+* that can be found in the LICENSE file.
+*
+* @File      :    venc_type.h
+* @Date      :    2026-04-19
+* @Brief     :    VENC module type definitions for MPP.
+*------------------------------------------------------------------------------
+*/
 
 #ifndef VENC_TYPE_H
 #define VENC_TYPE_H
@@ -46,8 +46,8 @@ extern "C" {
 /* ======================== Enums ======================== */
 
 /**
- * @brief VENC dynamic parameter commands (passed to AL plugin via al_enc_set_para)
- */
+* @brief VENC dynamic parameter commands (passed to AL plugin via al_enc_set_para)
+*/
 typedef enum _VencCmd {
     VENC_CMD_SET_RATE_CONTROL = 0, /**< param: VencRcAttr */
     VENC_CMD_SET_FRAME_RATE,       /**< param: VencFrameRateAttr */
@@ -60,8 +60,8 @@ typedef enum _VencCmd {
 } VencCmd;
 
 /**
- * @brief Frame buffer input mode for encoder
- */
+* @brief Frame buffer input mode for encoder
+*/
 typedef enum _VencFrameBufMode {
     VENC_FRAME_BUF_DMABUF_INTERNAL = 0, /**< encoder allocates dma-buf internally */
     VENC_FRAME_BUF_NORMAL_INTERNAL,     /**< encoder allocates mmap internally */
@@ -70,8 +70,8 @@ typedef enum _VencFrameBufMode {
 } VencFrameBufMode;
 
 /**
- * @brief Rate control mode
- */
+* @brief Rate control mode
+*/
 typedef enum _VencRcMode {
     VENC_RC_MODE_FIXQP = 0, /**< fixed QP */
     VENC_RC_MODE_CBR,       /**< constant bitrate */
@@ -132,8 +132,8 @@ typedef struct _VencSliceAttr {
 } VencSliceAttr;
 
 /**
- * @brief VENC channel attributes (set before VENC_EnableChn)
- */
+* @brief VENC channel attributes (set before VENC_EnableChn)
+*/
 typedef struct _VencChnAttr {
     MppStreamCodecType eCodecType;    /**< H264 / H265 / MJPEG */
     MppPixelFormat eInputPixelFormat; /**< input frame pixel format */
@@ -155,8 +155,8 @@ typedef struct _VencChnAttr {
 } VencChnAttr;
 
 /**
- * @brief VENC channel status (read-only, queried via VENC_QueryStatus)
- */
+* @brief VENC channel status (read-only, queried via VENC_QueryStatus)
+*/
 typedef struct _VencChnStatus {
     U32 u32LeftInputFrames;   /**< pending input frames */
     U32 u32LeftOutputStreams; /**< encoded streams available for output */

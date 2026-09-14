@@ -63,7 +63,7 @@ bool RegisterHomography(const LumaView& left, const LumaView& right,
                         RegistrationResult* result, std::string* error);
 
 RgbGain EstimateRightRgbGain(const Nv12View& left, const Nv12View& right,
-                             const Mat3& right_to_left);
+                            const Mat3& right_to_left);
 RgbSample ReadNv12Rgb(const Nv12View& view, int x, int y);
 
 }  // namespace planar_stitcher

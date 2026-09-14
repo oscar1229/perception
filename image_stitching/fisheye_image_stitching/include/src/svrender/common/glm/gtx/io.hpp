@@ -187,9 +187,9 @@ namespace glm
 	template <typename CTy, typename CTr, typename T, precision P>
 	GLM_FUNC_DECL std::basic_ostream<CTy,CTr>& operator<<(std::basic_ostream<CTy,CTr>&, tmat4x4<T,P> const&);
 
-  template <typename CTy, typename CTr, typename T, precision P>
+    template <typename CTy, typename CTr, typename T, precision P>
 	GLM_FUNC_DECL std::basic_ostream<CTy,CTr> & operator<<(std::basic_ostream<CTy,CTr> &,
-                                                         std::pair<tmat4x4<T,P> const, tmat4x4<T,P> const> const &);
+                                                        std::pair<tmat4x4<T,P> const, tmat4x4<T,P> const> const &);
 
 	/// @}
 }//namespace glm

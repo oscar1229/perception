@@ -15,9 +15,9 @@ public:
     ~PlanarRenderer();
     bool Initialize(EglWindow& window, std::string* error);
     bool Prepare(const RegistrationResult& registration,
-                 const BlendMaskPyramid& masks, std::string* error);
+                const BlendMaskPyramid& masks, std::string* error);
     bool RenderFrame(const Nv12DmaFrame& left, const Nv12DmaFrame& right,
-                     const ExposureModel& exposure, std::string* error);
+                    const ExposureModel& exposure, std::string* error);
     bool Readback(std::vector<uint8_t>* bgr, std::string* error);
     bool Present(std::string* error);
     int width() const { return width_; }
@@ -55,6 +55,6 @@ private:
 };
 
 std::vector<uint8_t> ConvertBottomUpRgbaToBgr(const uint8_t* rgba,
-                                              int width, int height);
+                                                int width, int height);
 
 }  // namespace planar_stitcher

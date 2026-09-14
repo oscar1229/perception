@@ -1,15 +1,15 @@
 /*
- *------------------------------------------------------------------------------
- * Copyright 2025-2026 SPACEMIT. All rights reserved.
- * Use of this source code is governed by a BSD-style license
- * that can be found in the LICENSE file.
- *
- * @File      :    cpp_type.h
- * @Date      :    2026-4-10
- * @Author    :    SPACEMIT
- * @Brief     :    CPP type definitions for MPP.
- *------------------------------------------------------------------------------
- */
+*------------------------------------------------------------------------------
+* Copyright 2025-2026 SPACEMIT. All rights reserved.
+* Use of this source code is governed by a BSD-style license
+* that can be found in the LICENSE file.
+*
+* @File      :    cpp_type.h
+* @Date      :    2026-4-10
+* @Author    :    SPACEMIT
+* @Brief     :    CPP type definitions for MPP.
+*------------------------------------------------------------------------------
+*/
 
 #ifndef CPP_TYPE_H
 #define CPP_TYPE_H

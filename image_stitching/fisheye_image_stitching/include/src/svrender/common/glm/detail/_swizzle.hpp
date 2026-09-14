@@ -259,7 +259,7 @@ namespace detail
 	{                                                                                                                         \
 		return FUNCTION(a, b(), c);                                                                                           \
 	} 
- 
+
 }//namespace detail 
 }//namespace glm
 

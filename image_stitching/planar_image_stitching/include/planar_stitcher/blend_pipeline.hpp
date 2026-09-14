@@ -25,11 +25,11 @@ struct BlendMaskPyramid {
 bool EstimateExposure(const RgbImage&, const RgbImage&, int, ExposureModel*, std::string*);
 int ChooseBlendBands(int width, int height, int overlap_width);
 bool ProjectPlanarPair(const Nv12View& left, const Nv12View& right,
-                       const RegistrationResult& registration,
-                       const ExposureModel& exposure,
-                       ProjectedBlendPair* pair, std::string* error);
+                        const RegistrationResult& registration,
+                        const ExposureModel& exposure,
+                        ProjectedBlendPair* pair, std::string* error);
 bool BuildGraphCutMaskPyramid(const ProjectedBlendPair& pair, int bands,
-                              BlendMaskPyramid* pyramid, std::string* error);
+                                BlendMaskPyramid* pyramid, std::string* error);
 bool MultibandBlend(const ProjectedBlendPair&,
                     const BlendMaskPyramid&,
                     std::vector<uint8_t>* output, std::string* error);

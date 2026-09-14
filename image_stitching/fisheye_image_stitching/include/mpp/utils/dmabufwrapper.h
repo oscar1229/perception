@@ -1,10 +1,10 @@
 /*
- * Copyright 2022-2023 SPACEMIT. All rights reserved.
- * Use of this source code is governed by a BSD-style license
- * that can be found in the LICENSE file.
- *
- * @Description: DmaBufWrapper - DMA buffer allocation and management
- */
+* Copyright 2022-2023 SPACEMIT. All rights reserved.
+* Use of this source code is governed by a BSD-style license
+* that can be found in the LICENSE file.
+*
+* @Description: DmaBufWrapper - DMA buffer allocation and management
+*/
 
 #ifndef DMABUFWRAPPER_H
 #define DMABUFWRAPPER_H

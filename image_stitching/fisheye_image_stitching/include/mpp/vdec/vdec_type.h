@@ -1,14 +1,14 @@
 /*
- *------------------------------------------------------------------------------
- * Copyright 2025-2026 SPACEMIT. All rights reserved.
- * Use of this source code is governed by a BSD-style license
- * that can be found in the LICENSE file.
- *
- * @File      :    vdec_type.h
- * @Date      :    2026-04-18
- * @Brief     :    VDEC module type definitions for MPP.
- *------------------------------------------------------------------------------
- */
+*------------------------------------------------------------------------------
+* Copyright 2025-2026 SPACEMIT. All rights reserved.
+* Use of this source code is governed by a BSD-style license
+* that can be found in the LICENSE file.
+*
+* @File      :    vdec_type.h
+* @Date      :    2026-04-18
+* @Brief     :    VDEC module type definitions for MPP.
+*------------------------------------------------------------------------------
+*/
 
 #ifndef VDEC_TYPE_H
 #define VDEC_TYPE_H
@@ -49,8 +49,8 @@ extern "C" {
 /* ======================== Structures ======================== */
 
 /**
- * @brief VDEC channel attributes (set before VDEC_EnableChn)
- */
+* @brief VDEC channel attributes (set before VDEC_EnableChn)
+*/
 typedef struct _VdecScale {
     U32 u32Align;      /**< alignment for scaled width/height (e.g. 16) */
     U32 u32Width;      /**< scaled width (0 = no scaling) */
@@ -59,8 +59,8 @@ typedef struct _VdecScale {
 } VdecScale;
 
 /**
- * @brief VDEC channel attributes (set before VDEC_EnableChn)
- */
+* @brief VDEC channel attributes (set before VDEC_EnableChn)
+*/
 typedef struct _VdecChnAttr {
     MppStreamCodecType eCodecType;     /**< H264 / H265 / MJPEG */
     MppPixelFormat eOutputPixelFormat; /**< desired output pixel format */
@@ -75,8 +75,8 @@ typedef struct _VdecChnAttr {
 } VdecChnAttr;
 
 /**
- * @brief VDEC channel status (read-only, queried via VDEC_QueryStatus)
- */
+* @brief VDEC channel status (read-only, queried via VDEC_QueryStatus)
+*/
 typedef struct _VdecChnStatus {
     U32 u32LeftStreamFrames;  /**< pending stream packets in input queue */
     U32 u32LeftDecodedFrames; /**< decoded frames available for output */

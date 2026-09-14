@@ -1,10 +1,10 @@
 /*************************************************************************************************************************
- * svmparam.hpp
- *
- *
- *有关环视标定参数读取保存到XML文件的类的定义
- *
- **************************************************************************************************************************/
+* svmparam.hpp
+*
+*
+*有关环视标定参数读取保存到XML文件的类的定义
+*
+**************************************************************************************************************************/
 
 #ifndef SV_SVAVM_SVMPARAM_HPP
 #define SV_SVAVM_SVMPARAM_HPP
@@ -48,7 +48,7 @@ ISV_ENUM_AVM_XML_FILENODELOST,//文件节点丢失或不存在
 //         ...
 //         InnerSV_s32WriteToXml(_aSvmParam.xml);//保存变更过后的参数，到XML文件，通常只在标定后或加载标定后调用
 class InnerSV_SvmParamClass{
-  public:
+    public:
     explicit InnerSV_SvmParamClass();
 	~InnerSV_SvmParamClass();
 	//@brief 从XML文件中读取整个InnerSV_SvmParamClass对象
@@ -141,9 +141,9 @@ class InnerSV_SvmParamClass{
 	                          const SV_S32& s32Method,
 	                          const SV_S32& s32Ch,
 	                          const SV_VOID* pstPatern);//NotFinished
-  protected:
+    protected:
 	SV_BOOL bInitialized;
-  private:
+    private:
 	//@brief 摄像头参数类型枚举
 	enum
 	{

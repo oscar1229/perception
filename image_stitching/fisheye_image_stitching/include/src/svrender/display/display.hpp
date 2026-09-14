@@ -1,7 +1,7 @@
 /*
- * display.hpp
- *
- */
+* display.hpp
+*
+*/
 
 #ifndef SV_SVM_SVRENDER_DISPLAY_DISPLAY_HPP_
 #define SV_SVM_SVRENDER_DISPLAY_DISPLAY_HPP_
@@ -18,18 +18,18 @@ namespace svrender {
 namespace display {
 
 enum {
-  //键盘事件
-  InnerSV_ENUM_KEY_LEFT_E=0x10,
-  InnerSV_ENUM_KEY_RIGHT_E,
-  InnerSV_ENUM_KEY_UP_E,
-  InnerSV_ENUM_KEY_DOWN_E,
-  InnerSV_ENUM_KEY_QUARD_E,
-  InnerSV_ENUM_KEY_SCAN_E,
-  //鼠标事件
-  InnerSV_ENUM_M_SCROLL_UP_E =0x20,
-  InnerSV_ENUM_M_SCROLL_DOWN_E,
-  InnerSV_ENUM_M_MOVE_E,
-  InnerSV_ENUM_KEY_NONE_E=0xFF,
+    //键盘事件
+    InnerSV_ENUM_KEY_LEFT_E=0x10,
+    InnerSV_ENUM_KEY_RIGHT_E,
+    InnerSV_ENUM_KEY_UP_E,
+    InnerSV_ENUM_KEY_DOWN_E,
+    InnerSV_ENUM_KEY_QUARD_E,
+    InnerSV_ENUM_KEY_SCAN_E,
+    //鼠标事件
+    InnerSV_ENUM_M_SCROLL_UP_E =0x20,
+    InnerSV_ENUM_M_SCROLL_DOWN_E,
+    InnerSV_ENUM_M_MOVE_E,
+    InnerSV_ENUM_KEY_NONE_E=0xFF,
 };
 //@remarks 使用示例如下：
 //#ifdef EGL_USE_X11

@@ -26,12 +26,12 @@ public:
     // Brings up SYS/VB/VI and enables both channels. Returns false when no
     // camera is usable, leaving the caller to fall back to the JPEG inputs.
     bool Open(int device, int width, int height, int timeout_ms,
-              int mipi_lanes, int mbps, std::string* error);
+                int mipi_lanes, int mbps, std::string* error);
 
     // Fills left/right with the newest frame from each channel. Frames stay
     // owned by VI until ReleasePending(); call it once per rendered frame.
     bool CaptureFrames(Nv12DmaFrame* left, Nv12DmaFrame* right,
-                       std::string* error);
+                        std::string* error);
 
     // Returns the frames held since the last CaptureFrames back to VI.
     void ReleasePending() noexcept;

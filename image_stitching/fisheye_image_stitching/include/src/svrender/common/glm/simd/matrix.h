@@ -392,8 +392,8 @@ GLM_FUNC_QUALIFIER glm_vec4 glm_mat4_determinant_lowp(glm_vec4 const m[4])
 	//T SubFactor05 = m[2][0] * m[3][1] - m[3][0] * m[2][1];
 
 	// First 2 columns
- 	__m128 Swp2A = _mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(m[2]), _MM_SHUFFLE(0, 1, 1, 2)));
- 	__m128 Swp3A = _mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(m[3]), _MM_SHUFFLE(3, 2, 3, 3)));
+	__m128 Swp2A = _mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(m[2]), _MM_SHUFFLE(0, 1, 1, 2)));
+	__m128 Swp3A = _mm_castsi128_ps(_mm_shuffle_epi32(_mm_castps_si128(m[3]), _MM_SHUFFLE(3, 2, 3, 3)));
 	__m128 MulA = _mm_mul_ps(Swp2A, Swp3A);
 
 	// Second 2 columns
@@ -455,8 +455,8 @@ GLM_FUNC_QUALIFIER glm_vec4 glm_mat4_determinant(glm_vec4 const m[4])
 	//T SubFactor05 = m[2][0] * m[3][1] - m[3][0] * m[2][1];
 
 	// First 2 columns
- 	__m128 Swp2A = _mm_shuffle_ps(m[2], m[2], _MM_SHUFFLE(0, 1, 1, 2));
- 	__m128 Swp3A = _mm_shuffle_ps(m[3], m[3], _MM_SHUFFLE(3, 2, 3, 3));
+	__m128 Swp2A = _mm_shuffle_ps(m[2], m[2], _MM_SHUFFLE(0, 1, 1, 2));
+	__m128 Swp3A = _mm_shuffle_ps(m[3], m[3], _MM_SHUFFLE(3, 2, 3, 3));
 	__m128 MulA = _mm_mul_ps(Swp2A, Swp3A);
 
 	// Second 2 columns
