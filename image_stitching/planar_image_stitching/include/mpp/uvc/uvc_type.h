@@ -4,7 +4,7 @@
 * Use of this source code is governed by a BSD-style license
 * that can be found in the LICENSE file.
 *
-* @File      :    uvc_types.h
+* @File      :    uvc_type.h
 * @Date      :    2026-3-16
 * @Author    :    SPACEMIT
 * @Brief     :    Media Interface for MPP.

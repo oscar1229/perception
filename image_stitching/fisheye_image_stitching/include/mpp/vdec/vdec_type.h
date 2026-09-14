@@ -49,7 +49,7 @@ extern "C" {
 /* ======================== Structures ======================== */
 
 /**
-* @brief VDEC channel attributes (set before VDEC_EnableChn)
+* @brief VDEC scaling parameters (used by VdecChnAttr)
 */
 typedef struct _VdecScale {
     U32 u32Align;      /**< alignment for scaled width/height (e.g. 16) */

@@ -96,9 +96,9 @@ S32 VENC_GetStream(S32 s32ChnId, StreamBufferInfo *pstStream, U32 u32TimeoutMs);
 
 /**
 * @brief  Release an encoded stream packet back to the encoder.
-*         Must be paired with each successful VENC_RecvStream.
+*         Must be paired with each successful VENC_GetStream.
 * @param  s32ChnId   Channel ID
-* @param  pstStream  Stream packet from VENC_RecvStream
+* @param  pstStream  Stream packet from VENC_GetStream
 * @return 0 on success, error code on failure
 */
 S32 VENC_ReleaseStream(S32 s32ChnId, const StreamBufferInfo *pstStream);
