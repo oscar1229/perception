@@ -12,7 +12,7 @@ enum { //标定方式枚举
     SV_ENUM_CALIMETHOD_UCHESSBORD = 0, //棋盘格式标定
     SV_ENUM_CALIMETHOD_U8POINTS, //8点式标定
     SV_ENUM_CALIMETHOD_BUTT,
-    };
+};
 
 enum {//标定结果枚举
     SV_ENUM_CALI_NOIMAGE,
