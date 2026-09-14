@@ -1,12 +1,12 @@
 /*
- * Copyright 2022-2026 SPACEMIT. All rights reserved.
- * Use of this source code is governed by a BSD-style license
- * that can be found in the LICENSE file.
- *
- * @Description: base definitions of the abstract layer interface.
- *               AL plugins directly consume MPI public structs
- *               (VdecChnAttr / VencChnAttr / VideoFrameInfo / StreamBufferInfo).
- */
+* Copyright 2022-2026 SPACEMIT. All rights reserved.
+* Use of this source code is governed by a BSD-style license
+* that can be found in the LICENSE file.
+*
+* @Description: base definitions of the abstract layer interface.
+*               AL plugins directly consume MPI public structs
+*               (VdecChnAttr / VencChnAttr / VideoFrameInfo / StreamBufferInfo).
+*/
 
 #ifndef AL_INTERFACE_BASE_H
 #define AL_INTERFACE_BASE_H
@@ -83,22 +83,22 @@ extern "C" {
     }
 
 /*
- *                          +----------------+
- *                          |                |
- *                          |  ALBaseContext |
- *                          |                |
- *                          +--------^-------+
- *                                   |
- *                                   |
- *         +-------------------------+-------------------------+
- *         |                         |                         |
- * +-------+-----------     +--------+---------+     +---------+--------+
- * |                  |     |                  |     |                  |
- * | ALDecBaseContext |     | ALEncBaseContext |     | ALG2dBaseContext |
- * |                  |     |                  |     |                  |
- * +------------------+     +------------------+     +------------------+
- *
- */
+*                          +----------------+
+*                          |                |
+*                          |  ALBaseContext |
+*                          |                |
+*                          +--------^-------+
+*                                   |
+*                                   |
+*         +-------------------------+-------------------------+
+*         |                         |                         |
+* +-------+-----------     +--------+---------+     +---------+--------+
+* |                  |     |                  |     |                  |
+* | ALDecBaseContext |     | ALEncBaseContext |     | ALG2dBaseContext |
+* |                  |     |                  |     |                  |
+* +------------------+     +------------------+     +------------------+
+*
+*/
 
 typedef struct _ALBaseContext ALBaseContext;
 typedef struct _ALDecBaseContext ALDecBaseContext;

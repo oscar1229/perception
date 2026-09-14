@@ -1,12 +1,12 @@
 /*
- * Copyright 2022-2023 SPACEMIT. All rights reserved.
- * Use of this source code is governed by a BSD-style license
- * that can be found in the LICENSE file.
- *
- * @Description: para.h - MPP parameter definitions
- *               Ported from mpp1 and adapted for the current mpp project.
- *               MppPixelFormat is defined in vb_type.h, not here.
- */
+* Copyright 2022-2023 SPACEMIT. All rights reserved.
+* Use of this source code is governed by a BSD-style license
+* that can be found in the LICENSE file.
+*
+* @Description: para.h - MPP parameter definitions
+*               Ported from mpp1 and adapted for the current mpp project.
+*               MppPixelFormat is defined in vb_type.h, not here.
+*/
 
 #ifndef PARA_H
 #define PARA_H

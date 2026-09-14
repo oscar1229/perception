@@ -9,7 +9,7 @@
 #include <chrono>
 #include <cmath>
 #include <cstdint>
-#include <filesystem>
+#include <filesystem>  // NOLINT(build/c++17)
 #include <iostream>
 #include <stdexcept>
 #include <string>
@@ -21,8 +21,8 @@ std::vector<float> PrepareInput(
     const cv::Mat& bgr, const spacemit::stereo::ModelInfo& info) {
     cv::Mat resized;
     cv::resize(bgr, resized,
-               cv::Size(info.input_width, info.input_height),
-               0.0, 0.0, cv::INTER_LINEAR);
+        cv::Size(info.input_width, info.input_height),
+        0.0, 0.0, cv::INTER_LINEAR);
     cv::Mat rgb;
     cv::cvtColor(resized, rgb, cv::COLOR_BGR2RGB);
 
@@ -49,7 +49,7 @@ std::vector<float> PrepareInput(
 }
 
 cv::Mat Colorize(const std::vector<float>& disparity,
-                 const spacemit::stereo::ModelInfo& info) {
+    const spacemit::stereo::ModelInfo& info) {
     float maximum = 0.0f;
     for (float value : disparity) {
         if (std::isfinite(value)) maximum = std::max(maximum, value);
@@ -80,8 +80,8 @@ cv::Mat Colorize(const std::vector<float>& disparity,
 int main(int argc, char** argv) {
     if (argc < 4 || argc > 7) {
         std::cerr << "Usage: " << argv[0]
-                  << " <model.onnx> <left.png> <right.png>"
-                     " [output.png] [a100_cores] [instances]\n";
+            << " <model.onnx> <left.png> <right.png>"
+            " [output.png] [a100_cores] [instances]\n";
         return 2;
     }
 
@@ -112,7 +112,7 @@ int main(int argc, char** argv) {
 
         const auto begin = std::chrono::steady_clock::now();
         if (!matcher.infer(left.data(), left.size(), right.data(), right.size(),
-                           disparity.data(), disparity.size())) {
+            disparity.data(), disparity.size())) {
             throw std::runtime_error(matcher.last_error());
         }
         const double inference_ms = std::chrono::duration<double, std::milli>(
@@ -128,9 +128,9 @@ int main(int argc, char** argv) {
         }
 
         std::cout << "input=" << info.input_width << 'x' << info.input_height
-                  << " output=" << info.output_width << 'x' << info.output_height
-                  << " inference_ms=" << inference_ms << '\n'
-                  << "result=" << output << '\n';
+            << " output=" << info.output_width << 'x' << info.output_height
+            << " inference_ms=" << inference_ms << '\n'
+            << "result=" << output << '\n';
         return 0;
     } catch (const std::exception& error) {
         std::cerr << "error: " << error.what() << '\n';

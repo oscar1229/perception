@@ -1,5 +1,5 @@
-#ifndef SPACEMIT_STEREO_MATCHING_H
-#define SPACEMIT_STEREO_MATCHING_H
+#ifndef STEREO_MATCHING_H
+#define STEREO_MATCHING_H
 
 #include <cstddef>
 
@@ -74,12 +74,12 @@ public:
     // Concurrent calls are distributed over available instances and block on
     // semaphores; workers never poll or spin.
     bool infer(const float* left,
-               std::size_t left_elements,
-               const float* right,
-               std::size_t right_elements,
-               float* disparity,
-               std::size_t disparity_elements,
-               int timeout_ms = -1);
+        std::size_t left_elements,
+        const float* right,
+        std::size_t right_elements,
+        float* disparity,
+        std::size_t disparity_elements,
+        int timeout_ms = -1);
 
     ModelInfo model_info() const;
     bool initialized() const;
@@ -93,4 +93,4 @@ private:
 
 }  // namespace spacemit::stereo
 
-#endif
+#endif  // STEREO_MATCHING_H

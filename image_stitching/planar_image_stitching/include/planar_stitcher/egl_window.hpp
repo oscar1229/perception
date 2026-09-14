@@ -1,3 +1,6 @@
+#ifndef EGL_WINDOW_HPP
+#define EGL_WINDOW_HPP
+
 #pragma once
 
 #include <EGL/egl.h>
@@ -22,7 +25,7 @@ public:
     // Opens an on-screen window; falls back to an offscreen pbuffer when no
     // display is available. force_offscreen skips the display attempt entirely.
     bool Open(int width, int height, const char* title, bool force_offscreen,
-              std::string* error);
+                std::string* error);
     bool Open(int width, int height, const char* title, std::string* error) {
         return Open(width, height, title, false, error);
     }
@@ -44,7 +47,7 @@ public:
 private:
     // config_handle is an EGLConfig; kept as void* so the header needs no cast.
     bool FinishOffscreen(void* config_handle, int width, int height,
-                         std::string* error);
+                        std::string* error);
     bool ResolveDmaBufExtensions(std::string* error);
 
     void* x_display_ = nullptr;
@@ -82,3 +85,5 @@ private:
 };
 
 }  // namespace planar_stitcher
+
+#endif  // EGL_WINDOW_HPP

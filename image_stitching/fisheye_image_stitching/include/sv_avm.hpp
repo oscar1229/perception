@@ -1,12 +1,12 @@
 /*
- * sv_avm.hpp
- *
- */
+* sv_avm.hpp
+*
+*/
 
-#ifndef INCLUDE_SV_AVM_HPP_
-#define INCLUDE_SV_AVM_HPP_
+#ifndef SV_AVM_HPP
+#define SV_AVM_HPP
 #include "sv_avmcommon.hpp"
 #include "svmcalibrate.hpp"
 #include "svrender.hpp"
 
-#endif /* INCLUDE_SV_AVM_HPP_ */
+#endif  // SV_AVM_HPP
