@@ -52,7 +52,7 @@ enum {//标定结果枚举
         SV_F32 f32OverLayAngle;
     };
 }  // namespace sv_avm
-}  // namespace sv_avm
+}  // namespace sm
 
 
 #endif  // SV_AVMCOMMON_HPP

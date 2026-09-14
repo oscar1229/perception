@@ -149,7 +149,7 @@ struct SV_MEDIA_STREAM_S {
 inline const SV_S32 s32GetCameraChannelNumber()
 {
     return static_cast<SV_S32>(SV_ENUM_CAMERA_BUTT);
-}  // namespace sm
+}
 
 }  // namespace sm
 
