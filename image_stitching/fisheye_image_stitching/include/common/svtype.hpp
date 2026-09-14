@@ -38,7 +38,7 @@ typedef void SV_VOID;
 
 //摄像头通道号枚举
 enum {
-    SV_ENUM_CAMERA_LEFT =0,
+    SV_ENUM_CAMERA_LEFT = 0,
     SV_ENUM_CAMERA_RIGHT,
     SV_ENUM_CAMERA_FRONT,
     SV_ENUM_CAMERA_BACK,

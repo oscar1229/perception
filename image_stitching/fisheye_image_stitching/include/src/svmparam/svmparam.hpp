@@ -23,7 +23,7 @@ namespace sv_avm {
 namespace svmparam {
 //子模块函数返回代码
 enum ISV_ENUM_AVM_ERR_E{
-ISV_ENUM_SUCCEED =0,
+ISV_ENUM_SUCCEED = 0,
 ISV_ENUM_FAILURED =-1,
 ISV_ENUM_AVM_ERR_OPENED = 0x1010, //重复创建对象
 ISV_ENUM_AVM_MALLOC_FAILED, //内存申请失败
@@ -77,7 +77,7 @@ class InnerSV_SvmParamClass{
     //          SV_CAMERA_PARAMS_S stCamparam=InnerSV_stGetCameraParamsEachChannl(s32Ch)
     inline SV_CAMERA_PARAMS_S InnerSV_stGetCameraParamsEachChannl(const SV_S32& s32Ch) {
         CHECK(SV_TRUE == bInitialized);//断言，防止未从文件读取或初始化时的参数获取及设置
-        CHECK(s32Ch<=SV_ENUM_CAMERA_BACK);
+        CHECK(s32Ch <= SV_ENUM_CAMERA_BACK);
         return stCameraParams[s32Ch];
     }
     //@brief 设置各通道摄像头参数
@@ -87,8 +87,8 @@ class InnerSV_SvmParamClass{
     //@remarks  输入参数s32Ch可选值为sm命名空间的SV_ENUM_CAMERA_LEFT，SV_ENUM_CAMERA_RIGHT,SV_ENUM_CAMERA_FRONT,SV_ENUM_CAMERA_BACK
     inline SV_VOID InnerSV_SetCameraParamEachChannl(const SV_S32& s32Ch, const SV_CAMERA_PARAMS_S& stCameraParam) {
         CHECK(SV_TRUE == bInitialized);
-        CHECK(s32Ch<=SV_ENUM_CAMERA_BACK);
-        stCameraParams[s32Ch]=stCameraParam;
+        CHECK(s32Ch <= SV_ENUM_CAMERA_BACK);
+        stCameraParams[s32Ch] = stCameraParam;
     }
     //@brief 读取车辆尺寸参数
     inline SV_SIZE_S InnerSV_stGetVehicleSize() {
@@ -98,7 +98,7 @@ class InnerSV_SvmParamClass{
     //@brief 设置车辆尺寸参数
     inline SV_VOID InnerSV_SetVehicleSize(const SV_SIZE_S& stVSize) {
         CHECK(SV_TRUE == bInitialized);
-        stVehicleSize=stVSize;
+        stVehicleSize = stVSize;
     }
     //@brief 读取当前摄像头标定方式及对应的标定模板
     //@param in s32Ch 摄像头通道号
@@ -125,7 +125,7 @@ class InnerSV_SvmParamClass{
     //             free(pstU8CaliPatern);
     //           }
     //         }
-    SV_S32 InnerSV_s32GetCalibrateParternChannl (
+    SV_S32 InnerSV_s32GetCalibrateParternChannl(
         const SV_S32& s32Ch,
         SV_VOID** ppstCaliPatern, SV_S32* ps32Method);
     //@brief 根据输入的s32Ch通道摄像头的eMethod值，设置对象的标定模板
@@ -155,8 +155,8 @@ class InnerSV_SvmParamClass{
     };
 
     //定义个参数分量文件节点字符串常量，以保证读写XML时文件节点相同
-    const SV_S8* ks8CameraKNodeStr="K";//摄像头内参文件节点
-    const SV_S8* ks8CameraDistortNodeStr="Distortion";//鱼眼畸变参数
+    const SV_S8* ks8CameraKNodeStr = "K";//摄像头内参文件节点
+    const SV_S8* ks8CameraDistortNodeStr = "Distortion";//鱼眼畸变参数
     const SV_S8* ks8CameraRotateVectNodeStr="Rotate";//旋转向量
     const SV_S8* ks8CameraTranslateVectNodeStr="Translate";//平移向量
     const SV_S8* ks8CameraImageSizeNodeStr="ImageSize";//摄像头图像尺寸
