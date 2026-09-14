@@ -26,11 +26,11 @@ enum ISV_ENUM_AVM_ERR_E{
 ISV_ENUM_SUCCEED =0,
 ISV_ENUM_FAILURED =-1,
 ISV_ENUM_AVM_ERR_OPENED = 0x1010, //重复创建对象
-ISV_ENUM_AVM_MALLOC_FAILED,//内存申请失败
+ISV_ENUM_AVM_MALLOC_FAILED, //内存申请失败
 
-ISV_ENUM_AVM_XML_NOREADPERMISIION = 0x2010,//读方式打开XML文件失败或无读权限
-ISV_ENUM_AVM_XML_NOWRITEPERMISIION,//写方式打开文件失败或无写权限
-ISV_ENUM_AVM_XML_FILENODELOST,//文件节点丢失或不存在
+ISV_ENUM_AVM_XML_NOREADPERMISIION = 0x2010, //读方式打开XML文件失败或无读权限
+ISV_ENUM_AVM_XML_NOWRITEPERMISIION, //写方式打开文件失败或无写权限
+ISV_ENUM_AVM_XML_FILENODELOST, //文件节点丢失或不存在
 
 };
 
@@ -59,7 +59,7 @@ class InnerSV_SvmParamClass{
     //          如果使能标定模板读取，则在读取标定模板的同时，会在函数内部动态申请一块内存空间，该内存空间，在对象析构时自动释放
     //          可能的返回值为：SV_ENUM_AVM_XML_NOREADPERMISIION、SV_ENUM_AVM_XML_FILENODELOST、
     //          SV_ENUM_AVM_MALLOC_FAILED
-    SV_S32 InnerSV_s32ReadFromXml(const SV_S8* ps8XmlFileFulPathName,SV_BOOL& bNeedCaliPaternFlag);
+    SV_S32 InnerSV_s32ReadFromXml(const SV_S8* ps8XmlFileFulPathName, SV_BOOL& bNeedCaliPaternFlag);
     //@brief 写入SvmParamClass到XML文件
     //@param in s8XmlFileFulPathName xml文件全路径名
     //@return 成功：SV_ENUM_SUCCEED 失败 返回SV_ENUM_AVM_XML_NOWRITEPERMISIION
@@ -76,7 +76,7 @@ class InnerSV_SvmParamClass{
     //          使用实例：
     //          SV_CAMERA_PARAMS_S stCamparam=InnerSV_stGetCameraParamsEachChannl(s32Ch)
     inline SV_CAMERA_PARAMS_S InnerSV_stGetCameraParamsEachChannl(const SV_S32& s32Ch) {
-        CHECK(SV_TRUE==bInitialized);//断言，防止未从文件读取或初始化时的参数获取及设置
+        CHECK(SV_TRUE == bInitialized);//断言，防止未从文件读取或初始化时的参数获取及设置
         CHECK(s32Ch<=SV_ENUM_CAMERA_BACK);
         return stCameraParams[s32Ch];
     }
@@ -85,19 +85,19 @@ class InnerSV_SvmParamClass{
     //       in stCameraParam 摄像头参数
     //@return 无
     //@remarks  输入参数s32Ch可选值为sm命名空间的SV_ENUM_CAMERA_LEFT，SV_ENUM_CAMERA_RIGHT,SV_ENUM_CAMERA_FRONT,SV_ENUM_CAMERA_BACK
-    inline SV_VOID InnerSV_SetCameraParamEachChannl(const SV_S32& s32Ch,const SV_CAMERA_PARAMS_S& stCameraParam) {
-        CHECK(SV_TRUE==bInitialized);
+    inline SV_VOID InnerSV_SetCameraParamEachChannl(const SV_S32& s32Ch, const SV_CAMERA_PARAMS_S& stCameraParam) {
+        CHECK(SV_TRUE == bInitialized);
         CHECK(s32Ch<=SV_ENUM_CAMERA_BACK);
         stCameraParams[s32Ch]=stCameraParam;
     }
     //@brief 读取车辆尺寸参数
     inline SV_SIZE_S InnerSV_stGetVehicleSize() {
-        CHECK(SV_TRUE==bInitialized);
+        CHECK(SV_TRUE == bInitialized);
         return stVehicleSize;
     }
     //@brief 设置车辆尺寸参数
     inline SV_VOID InnerSV_SetVehicleSize(const SV_SIZE_S& stVSize) {
-        CHECK(SV_TRUE==bInitialized);
+        CHECK(SV_TRUE == bInitialized);
         stVehicleSize=stVSize;
     }
     //@brief 读取当前摄像头标定方式及对应的标定模板
@@ -114,7 +114,7 @@ class InnerSV_SvmParamClass{
     //          SV_VOID* pCaliPatern=NULL;
     //          SV_S32 s32CaliMethod;
     //         if(SV_SUCCEED == InnerSV_S32GetCalibrateParternChannl(1,&pPatern,&s32CaliMethod)) {
-    //           if (SV_ENUM_CALIMETHOD_UCHESSBORD==eCaliMethod && NULL != pPatern) {
+    //           if (SV_ENUM_CALIMETHOD_UCHESSBORD == eCaliMethod && NULL != pPatern) {
     //             SV_CALI_UCHESSBOARD_PATERN_S* pstChessBoardCaliPatern = reinterpret_cast< SV_CALI_UCHESSBOARD_PATERN_S*>(pPatern);
     //  ...
     //             free(pstChessBoardCaliPatern);
@@ -127,7 +127,7 @@ class InnerSV_SvmParamClass{
     //         }
     SV_S32 InnerSV_s32GetCalibrateParternChannl (
         const SV_S32& s32Ch,
-        SV_VOID** ppstCaliPatern,SV_S32* ps32Method);
+        SV_VOID** ppstCaliPatern, SV_S32* ps32Method);
     //@brief 根据输入的s32Ch通道摄像头的eMethod值，设置对象的标定模板
     //@param in s32Method 标定方式
     //       in s32Ch 摄像头通道号
@@ -147,10 +147,10 @@ class InnerSV_SvmParamClass{
     //@brief 摄像头参数类型枚举
     enum
     {
-        SV_ENUM_CAMERA_K=0, //相机矩阵
-        SV_ENUM_CAMERA_DISTOR,//鱼眼畸变
-        SV_ENUM_CAMERA_ROTATE,//旋转向量
-        SV_ENUM_CAMERA_TRANSLATE,//平移向量
+        SV_ENUM_CAMERA_K = 0, //相机矩阵
+        SV_ENUM_CAMERA_DISTOR, //鱼眼畸变
+        SV_ENUM_CAMERA_ROTATE, //旋转向量
+        SV_ENUM_CAMERA_TRANSLATE, //平移向量
         SV_ENUM_CAMERA_SV_BUTT
     };
 
@@ -168,13 +168,13 @@ class InnerSV_SvmParamClass{
     const SV_S8* ks8U8PaternBoardSize="U8PatternSize";//8点式标定布长度
     const SV_S8* ks8U8ImagePointsNodeStr="ImagePoints";//8点式标定像素坐标节点
     //Init操作初始化参数
-    const SV_F64 kf64CameraK[9]={3.3663932877255422e+02,0.0, 6.3583064178582879e+02,
-        0.0,3.1971130511644719e+02,3.6648115807921403e+02,
-        0.0,0.0,1.0};
-    const SV_F64 kf64CameraDistor[4]={0.0,0.0,0.0,0.0};
-    const SV_F64 kf64CameraTrans[3]={ -2.0406123947224861e-01,1.3088482537645041e+00,3.7495659155705119e-01};
-    const SV_F64 kf64CameraRotate[3]={2.4639143620937900e+00,5.5126125145234184e-02,-1.7706632258495471e-02};
-    const SV_SIZE_S kstImageSize={1280,720};
+    const SV_F64 kf64CameraK[9]={3.3663932877255422e+02, 0.0, 6.3583064178582879e+02,
+        0.0, 3.1971130511644719e+02, 3.6648115807921403e+02,
+        0.0, 0.0, 1.0};
+    const SV_F64 kf64CameraDistor[4]={0.0, 0.0, 0.0, 0.0};
+    const SV_F64 kf64CameraTrans[3]={ -2.0406123947224861e-01, 1.3088482537645041e+00, 3.7495659155705119e-01};
+    const SV_F64 kf64CameraRotate[3]={2.4639143620937900e+00, 5.5126125145234184e-02, -1.7706632258495471e-02};
+    const SV_SIZE_S kstImageSize={1280, 720};
 
     //显式申明移动构造函数和赋值运算符，禁用当前类的复制，只声明，不做定义
     InnerSV_SvmParamClass(const InnerSV_SvmParamClass&);
@@ -210,7 +210,7 @@ class InnerSV_SvmParamClass{
     //@return 成功SV_ENUM_SUCCEED 失败 SV_ENUM_AVM_XML_FILENODELOST
     //@remarks  pCameraParamFileNode不可为NULL
     //          s32CamParamComp 可选值为SV_ENUM_CAMERA_K、SV_ENUM_CAMERA_DISTOR、SV_ENUM_CAMERA_ROTATE、SV_ENUM_CAMERA_TRANSLATE
-    SV_S32 IneerSV_s32ReadCameraParamCompFromXML(const SV_VOID* pCameraParamFileNode,const SV_S32& s32Ch,const SV_S32& s32CamParamComp);
+    SV_S32 IneerSV_s32ReadCameraParamCompFromXML(const SV_VOID* pCameraParamFileNode, const SV_S32& s32Ch, const SV_S32& s32CamParamComp);
     //@brief 从XML文件中读出单一通道摄像头参数，包括内外参
     //@param in s32Ch 摄像头通道号
     //@return 成功SV_ENUM_SUCCEED 失败 SV_ENUM_AVM_XML_FILENODELOST
@@ -230,7 +230,7 @@ class InnerSV_SvmParamClass{
     //@brief 读取某一通道标定模式
     //@param in s32Ch 摄像头通道号
     //@return 成功SV_ENUM_SUCCEED 失败 SV_ENUM_AVM_XML_FILENODELOST
-    SV_S32 InnerSV_s32ReadCaliMethodEachFromXML(const SV_S32& s32Ch,SV_S32* ps32CaliMethod);
+    SV_S32 InnerSV_s32ReadCaliMethodEachFromXML(const SV_S32& s32Ch, SV_S32* ps32CaliMethod);
     //@brief 读取某一通道标定模板
     //@param in s32Ch 摄像头通道号
     //@return 成功SV_ENUM_SUCCEED 失败 SV_ENUM_AVM_XML_FILENODELOST、
@@ -258,8 +258,8 @@ class InnerSV_SvmParamClass{
     SV_S32 s32CaliMethod[static_cast<SV_U32>(SV_ENUM_CAMERA_BUTT)];
     //四通道标定模板结构体指针，SV_VOID*型，在读取XML文件时申请存储空间，析构class时需释放。
     SV_VOID* pstCaliPatern[static_cast<SV_U32>(SV_ENUM_CAMERA_BUTT)];
-    void*  pXmlReadFd;//创建对象时初始化为NULL,调用InnerSV_ReadFromXml创建，指向xml文件对象，InnerSV_ReadFromXml调用结束时销毁
-    void*  pXmlWriteFd;//创建对象时初始化为NULL,调用InnerSV_WriteToXml时创建， 指向xml文件对象，InnerSV_WriteToXml调用结束时销毁
+    void*  pXmlReadFd;//创建对象时初始化为NULL, 调用InnerSV_ReadFromXml创建，指向xml文件对象，InnerSV_ReadFromXml调用结束时销毁
+    void*  pXmlWriteFd;//创建对象时初始化为NULL, 调用InnerSV_WriteToXml时创建， 指向xml文件对象，InnerSV_WriteToXml调用结束时销毁
 };
 
 }//end of namespace svmparam

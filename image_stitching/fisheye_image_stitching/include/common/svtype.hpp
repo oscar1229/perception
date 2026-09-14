@@ -2,7 +2,7 @@
 * sv_type.hpp
 *
 *
-*POD数据类型重定义,及公用数据类型结构体定义
+*POD数据类型重定义, 及公用数据类型结构体定义
 *公用枚举，包括摄像头通道号枚举、图像制式枚举
 *公用数据类型包括：SV_SIZE_S、
                 SV_POINT2S32_S、SV_POINT2F32_S、SV_POINT2F64_S、
@@ -50,8 +50,8 @@ enum {
     SV_IMAGE_TYPE_UYVY, //YUV422 packed: U0 Y0 V0 Y1
     SV_IMAGE_TYPE_YUV420P,
     SV_IMAGE_TYPE_BGR, //RGB类型
-    SV_IMAGE_TYPE_BGRA,//ARGB类型
-    SV_IMAGE_TYPE_NV12,//YUV420SP(NV12):Y平面 + UV交织平面,用于dma_buf零拷贝导入
+    SV_IMAGE_TYPE_BGRA, //ARGB类型
+    SV_IMAGE_TYPE_NV12, //YUV420SP(NV12):Y平面 + UV交织平面, 用于dma_buf零拷贝导入
     SV_IMAGE_TYPE_BUTT,
 };
 //尺寸规格
@@ -119,7 +119,7 @@ struct SV_IMAGE_S
     SV_U32 u32Offset;
     SV_S32 s32BufIdx;
     SV_U64 u64Pts;
-    SV_S32 s32DmaFd;//dma_buf文件描述符,用于零拷贝导入EGLImage;<=0表示无效(走普通拷贝上传)
+    SV_S32 s32DmaFd;//dma_buf文件描述符, 用于零拷贝导入EGLImage;<=0表示无效(走普通拷贝上传)
     SV_U32 u32Stride[2];//dma_buf每个plane的pitch(bytes);0表示按格式默认值推导
     SV_U32 u32PlaneOffset[2];//dma_buf每个plane的offset(bytes);NV12 plane1通常为Y平面大小
 };
@@ -149,9 +149,9 @@ struct SV_MEDIA_STREAM_S {
 inline const SV_S32 s32GetCameraChannelNumber()
 {
     return static_cast<SV_S32>(SV_ENUM_CAMERA_BUTT);
-}
+}  // namespace sm
 
-}
+}  // namespace sm
 
 
 #endif  // SVTYPE_HPP

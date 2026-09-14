@@ -9,17 +9,17 @@ namespace sm {
 namespace sv_avm {
 
 enum { //标定方式枚举
-    SV_ENUM_CALIMETHOD_UCHESSBORD=0,//棋盘格式标定
-    SV_ENUM_CALIMETHOD_U8POINTS,//8点式标定
+    SV_ENUM_CALIMETHOD_UCHESSBORD = 0, //棋盘格式标定
+    SV_ENUM_CALIMETHOD_U8POINTS, //8点式标定
     SV_ENUM_CALIMETHOD_BUTT,
     };
 
 enum {//标定结果枚举
     SV_ENUM_CALI_NOIMAGE,
-    SV_ENUM_CALI_NOCHESSBOARD,//当前通道未提取到棋盘格，只限于棋盘格标定方式
-    SV_ENUM_CALI_CALCFAILED,//当前通道参数计算错误，即计算的参数超出许可的参数范围
-    SV_ENUM_CALI_FAILED,//标定失败，未提取到至少2块棋盘格，只限于棋盘格标定方式
-    SV_ENUM_CALI_SUCCEED,//标定成功
+    SV_ENUM_CALI_NOCHESSBOARD, //当前通道未提取到棋盘格，只限于棋盘格标定方式
+    SV_ENUM_CALI_CALCFAILED, //当前通道参数计算错误，即计算的参数超出许可的参数范围
+    SV_ENUM_CALI_FAILED, //标定失败，未提取到至少2块棋盘格，只限于棋盘格标定方式
+    SV_ENUM_CALI_SUCCEED, //标定成功
     SV_ENUM_CALI_BUTT,
 };
 
@@ -28,7 +28,7 @@ enum {//标定结果枚举
             SV_F64 af64CameraDistort[4];//鱼眼畸变参数
             SV_F64 af64CameraRotateVect[3];//相机旋转向量
             SV_F64 af64CameraTranslateVect[3];//相机平移向量
-            SV_SIZE_S stImageSize;//摄像头图像尺寸，比如1920,1080 或1280,720
+            SV_SIZE_S stImageSize;//摄像头图像尺寸，比如1920, 1080 或1280, 720
     };
 
     struct SV_CALI_UCHESSBOARD_PATERN_S {
@@ -51,8 +51,8 @@ enum {//标定结果枚举
         SV_F32 f32StepX;      /* Step in x axis which is used to define grid points in z axis.                         * Step in z axis: step_z[i] = (i * step_x)^2, i = 1, 2, ... - number of point */
         SV_F32 f32OverLayAngle;
     };
-}
-}
+}  // namespace sv_avm
+}  // namespace sv_avm
 
 
 #endif  // SV_AVMCOMMON_HPP
