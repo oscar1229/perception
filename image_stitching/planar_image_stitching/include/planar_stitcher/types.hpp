@@ -1,6 +1,5 @@
 #ifndef TYPES_HPP
 #define TYPES_HPP
-
 #pragma once
 
 namespace planar_stitcher {

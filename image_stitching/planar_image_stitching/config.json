@@ -7,6 +7,7 @@
     "image": "./output/planar.jpg"
   },
   "camera": {
+    "enable": false,
     "width": 1920,
     "height": 1080,
     "device": 0,
@@ -35,6 +36,6 @@
   "runtime": {
     "frames": 0,
     "sleep_us": 0,
-    "force_offscreen": true
+    "force_offscreen": false
   }
 }

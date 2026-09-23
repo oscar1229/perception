@@ -1,6 +1,5 @@
 #ifndef EGL_WINDOW_HPP
 #define EGL_WINDOW_HPP
-
 #pragma once
 
 #include <EGL/egl.h>
@@ -20,7 +19,7 @@ public:
     EglWindow() = default;
     ~EglWindow();
     EglWindow(const EglWindow&) = delete;
-    EglWindow& operator=(const EglWindow&) = delete;
+    EglWindow& operator = (const EglWindow&) = delete;
 
     // Opens an on-screen window; falls back to an offscreen pbuffer when no
     // display is available. force_offscreen skips the display attempt entirely.
@@ -71,7 +70,7 @@ public:
     ImportedNv12Texture() = default;
     ~ImportedNv12Texture();
     ImportedNv12Texture(const ImportedNv12Texture&) = delete;
-    ImportedNv12Texture& operator=(const ImportedNv12Texture&) = delete;
+    ImportedNv12Texture& operator = (const ImportedNv12Texture&) = delete;
 
     bool Import(EglWindow& window, const Nv12DmaFrame& frame,
                 std::string* error);

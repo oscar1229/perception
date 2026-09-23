@@ -1,17 +1,17 @@
 /*
-*------------------------------------------------------------------------------
-* Copyright 2025-2026 SPACEMIT. All rights reserved.
-* Use of this source code is governed by a BSD-style license
-* that can be found in the LICENSE file.
-*
-* @File      :    mpp_shm.h
-* @Date      :    2026-3-26
-* @Author    :    rmwei(rongmin.wei@spacemit.com)
-* @Brief     :    POSIX shared memory control plane for multi-process MPP.
-*                 All SYS/VB metadata lives here so multiple processes
-*                 can operate on the same pools, blocks, binds, and PTS.
-*------------------------------------------------------------------------------
-*/
+ *------------------------------------------------------------------------------
+ * Copyright 2025-2026 SPACEMIT. All rights reserved.
+ * Use of this source code is governed by a BSD-style license
+ * that can be found in the LICENSE file.
+ *
+ * @File      :    mpp_shm.h
+ * @Date      :    2026-3-26
+ * @Author    :    rmwei(rongmin.wei@spacemit.com)
+ * @Brief     :    POSIX shared memory control plane for multi-process MPP.
+ *                 All SYS/VB metadata lives here so multiple processes
+ *                 can operate on the same pools, blocks, binds, and PTS.
+ *------------------------------------------------------------------------------
+ */
 
 #ifndef MPP_SHM_H
 #define MPP_SHM_H
@@ -179,23 +179,23 @@ typedef struct _MppSharedMem {
 /* ======================== API ======================== */
 
 /**
-* @brief Initialize or attach to MPP shared memory.
-*        First caller creates + initializes; subsequent callers attach.
-* @return 0 on success, negative on failure
-*/
+ * @brief Initialize or attach to MPP shared memory.
+ *        First caller creates + initializes; subsequent callers attach.
+ * @return 0 on success, negative on failure
+ */
 S32 mpp_shm_init(void);
 
 /**
-* @brief Detach from shared memory. Last process also unlinks it.
-* @return 0 on success, negative on failure
-*/
+ * @brief Detach from shared memory. Last process also unlinks it.
+ * @return 0 on success, negative on failure
+ */
 S32 mpp_shm_detach(void);
 
 /**
-* @brief Get pointer to the shared memory structure.
-*        Must call mpp_shm_init() first.
-* @return Pointer to MppSharedMem, or NULL if not attached
-*/
+ * @brief Get pointer to the shared memory structure.
+ *        Must call mpp_shm_init() first.
+ * @return Pointer to MppSharedMem, or NULL if not attached
+ */
 MppSharedMem *mpp_shm_get(void);
 
 #ifdef __cplusplus

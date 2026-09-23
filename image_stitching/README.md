@@ -11,7 +11,7 @@
 | **典型应用** | 车辆环视、机器人导航 | 前向监控、全景摄像 |
 | **投影方式** | 3D 碗面投影 + 2D 鸟瞰 | 平面单应变换 |
 | **输入分辨率** | 4 × 1280x720 | 2 × 1920x1080 |
-| **输出画布** | 可配置（如 1920x1080） | ~3148x1080（取决于重叠区） |
+| **输出画布** | 可配置（如 1920x1080） | 固定 1920x1080（1080P） |
 
 ## 模块详情
 
@@ -40,7 +40,7 @@
 - FAST 特征检测 + RANSAC 单应矩阵求解
 - 曝光补偿（RGB 增益与偏置估计）
 - 多波段融合（拉普拉斯金字塔）
-- 实时 GPU 渲染（12.9 FPS @ 1080P）
+- GPU 渲染（窗口和保存图像固定为 1920x1080）
 
 **典型场景**
 - 前向宽视角监控
@@ -96,7 +96,8 @@ cd fisheye_image_stitching
 
 ```bash
 cd planar_image_stitching
-./run.sh                  # 使用摄像头（自动回退图片）
+cmake -B build && cmake --build build -j8
+./run_planar.sh           # 默认使用回退图片；可在 config.json 中启用摄像头
 ```
 
 配置文件：`config.json`，标定文件：`calib.xml`（可选）
@@ -124,7 +125,7 @@ image_stitching/
     ├── README.md                      # 平面拼接详细文档
     ├── CMakeLists.txt
     ├── config.json                    # 平面拼接配置
-    ├── run.sh
+    ├── run_planar.sh
     ├── lib/
     │   ├── libplanar_stitcher_core.a
     │   └── libmpp.so
@@ -133,5 +134,6 @@ image_stitching/
     │   ├── s0_left.jpg
     │   └── s0_right.jpg
     └── stitcher_test/
+        ├── planar_stitcher_main.cpp  # 程序入口
         └── calib.xml                  # 平面标定文件（可选）
 ```

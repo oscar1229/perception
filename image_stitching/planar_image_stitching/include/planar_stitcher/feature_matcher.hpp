@@ -1,6 +1,5 @@
 #ifndef FEATURE_MATCHER_HPP
 #define FEATURE_MATCHER_HPP
-
 #pragma once
 
 #include "planar_stitcher/types.hpp"

@@ -1,15 +1,15 @@
 /*
-*------------------------------------------------------------------------------
-* Copyright 2025-2026 SPACEMIT. All rights reserved.
-* Use of this source code is governed by a BSD-style license
-* that can be found in the LICENSE file.
-*
-* @File      :    vi_type.h
-* @Date      :    2026-3-24
-* @Author    :    SPACEMIT
-* @Brief     :    VI type definitions for MPP.
-*------------------------------------------------------------------------------
-*/
+ *------------------------------------------------------------------------------
+ * Copyright 2025-2026 SPACEMIT. All rights reserved.
+ * Use of this source code is governed by a BSD-style license
+ * that can be found in the LICENSE file.
+ *
+ * @File      :    vi_type.h
+ * @Date      :    2026-3-24
+ * @Author    :    SPACEMIT
+ * @Brief     :    VI type definitions for MPP.
+ *------------------------------------------------------------------------------
+ */
 
 #ifndef VI_TYPE_H
 #define VI_TYPE_H
@@ -101,7 +101,7 @@ typedef struct _ViChnAttrS {
     U32 u32CropHeight;
     ViStrideAlignE eStrideAlign;
     /* 0 = bind-only (frames auto-pushed via SYS_SendFrame, VI_GetChnFrame unavailable);
-    * >0 = depth-queue size, enables VI_GetChnFrame pull in addition to SYS bind. */
+     * >0 = depth-queue size, enables VI_GetChnFrame pull in addition to SYS bind. */
     U32 u32Depth;
 } ViChnAttrS;
 
