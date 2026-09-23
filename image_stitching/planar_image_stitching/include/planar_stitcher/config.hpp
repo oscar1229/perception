@@ -1,6 +1,5 @@
 #ifndef CONFIG_HPP
 #define CONFIG_HPP
-
 #pragma once
 
 #include <string>
@@ -15,7 +14,10 @@ struct Config {
     // Output
     std::string output;
 
-    // Camera settings (auto-detect and fallback to images)
+    // Camera settings. enable=false skips VI init and reads the images
+    // below; enable=true tries the camera and falls back to them if it
+    // is unavailable.
+    bool camera_enable = true;
     int camera_width = 1920;
     int camera_height = 1080;
     int camera_device = 0;

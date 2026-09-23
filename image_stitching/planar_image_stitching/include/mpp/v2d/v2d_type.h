@@ -1,7 +1,7 @@
 /*
-* SPDX-License-Identifier: Apache-2.0
-* Copyright (C) 2026 Spacemit Co., Ltd.
-*/
+ * SPDX-License-Identifier: Apache-2.0
+ * Copyright (C) 2026 Spacemit Co., Ltd.
+ */
 
 #ifndef V2D_TYPE_H
 #define V2D_TYPE_H
@@ -21,8 +21,8 @@ extern "C" {
 #endif
 
 /*
-* V2D error codes
-*/
+ * V2D error codes
+ */
 #define V2D_OK 0
 
 /* -1 ~ -19: handle / generic parameter errors */

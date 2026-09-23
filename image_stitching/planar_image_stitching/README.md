@@ -13,10 +13,10 @@
 ## 目录结构
 
 ```
-stitcher_lib/
+image_stitching/planar_image_stitching/
 ├── CMakeLists.txt                    # 编译脚本
-├── config.json                       # 运行配置（唯一配置入口）
-├── run.sh                            # 启动脚本
+├── config.json                       # 默认运行配置
+├── run_planar.sh                     # 启动脚本
 ├── lib/                              # 预编译库
 │   ├── libplanar_stitcher_core.a     # 拼接核心静态库
 │   └── libmpp.so*                    # MPP 硬件编解码库
@@ -26,8 +26,9 @@ stitcher_lib/
 ├── assets/                           # 回退图片
 │   ├── s0_left.jpg
 │   └── s0_right.jpg
+├── output/                           # 运行时生成的拼接图片与标定文件
 └── stitcher_test/
-    ├── planar_stitcher_test.cpp      # 完整的 API 调用示例
+    ├── planar_stitcher_main.cpp      # 程序入口
     └── calib.xml                     # 预生成的标定文件
 ```
 
@@ -52,7 +53,8 @@ sudo apt install libx11-dev libegl-dev libgles2
 ## 编译
 
 ```bash
-cmake -B build -S .
+cd image_stitching/planar_image_stitching  # 从仓库根目录进入
+cmake -B build
 cmake --build build -j8
 ```
 
@@ -62,10 +64,10 @@ cmake --build build -j8
 
 ## 运行
 
-在 **stitcher_lib 根目录**执行启动脚本：
+在 **image_stitching/planar_image_stitching 目录**执行启动脚本（脚本会切换到自身目录并启动 `build/planar_stitcher`）：
 
 ```bash
-./run.sh
+./run_planar.sh
 ```
 
 按 **Ctrl+C** 终止；退出时自动将最后一帧保存到 `output.image` 配置的路径，输出目录不存在时自动创建。
@@ -74,7 +76,7 @@ cmake --build build -j8
 
 ## 配置说明
 
-所有运行参数统一在 **stitcher_lib 根目录**的 `config.json` 中配置，程序以此为唯一来源。
+所有运行参数统一在 **image_stitching/planar_image_stitching 目录**的 `config.json` 中配置；也可通过 `./run_planar.sh /path/to/config.json` 指定配置文件。
 
 | 配置项 | 类型 | 说明 |
 |---|---|---|
@@ -118,6 +120,8 @@ cmake --build build -j8
 - **有显示器**：渲染到屏幕，每帧交换缓冲区，支持 Esc / 关闭窗口退出。
 - **无显示器**：自动切换为 EGL Pbuffer 离屏渲染。
 
+渲染窗口和离屏表面固定为 **1920x1080（1080P）**，退出时保存的图片也为 1920x1080；输入图像尺寸仍由 `camera.width` / `camera.height` 指定。
+
 程序会先尝试 `DISPLAY` 环境变量指定的显示器，未设置时自动回退尝试 `:0`，因此 SSH 会话下无需手动 `export DISPLAY=:0`。
 
 > **注意**：关闭显示器电源不等于无显示器。X Server 仍在运行时，程序会尝试创建窗口表面，创建失败才退化为离屏模式。需要主动强制离屏渲染时，请将 `force_offscreen` 设为 `true`。
@@ -159,8 +163,7 @@ cmake --build build -j8
 
 ## 性能指标
 
-测试条件：2 路 1920x1080 输入，`registration.mode="file"`（配准不计入帧率），`num_bands=5`，Release 构建（`-O3`）。
-输出条件：画布 3148x1080，重叠区宽度 692 px。
+以下是旧版可变画布（3148x1080，重叠区宽度 692 px）的历史测试数据，**不代表当前固定 1920x1080 输出版本的帧率**。测试条件：2 路 1920x1080 输入，`registration.mode="file"`（配准不计入帧率），`num_bands=5`，Release 构建（`-O3`）。
 
 | 指标 | 平面拼接 |
 |------|---------|
@@ -170,6 +173,6 @@ cmake --build build -j8
 
 ### 影响性能的参数
 
-拼接的每帧开销基本由**画布像素总量**决定，实测约 **23 ms/Mpix**。
+旧版测试中，拼接的每帧开销主要由**画布像素总量**决定，约 **23 ms/Mpix**；当前版本需要重新测量。
 
 测试硬件：SpacemiT X100（RISC-V，8 核）+ PowerVR B-Series BXM-4-64，OpenGL ES 3.2 (Mesa 24.2)，内核 6.18.3，opencv-spacemit 4.14.0，MPP 硬件解码。

@@ -35,7 +35,8 @@ cd image_stitching/fisheye_image_stitching
 
 # 平面拼接（双目宽幅全景）
 cd image_stitching/planar_image_stitching
-./run.sh
+cmake -B build && cmake --build build -j8
+./run_planar.sh
 
 # 双目匹配（Middlebury 图片）
 cd stereo_matching

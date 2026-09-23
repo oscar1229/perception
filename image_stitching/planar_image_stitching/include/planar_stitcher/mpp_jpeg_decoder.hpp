@@ -1,6 +1,5 @@
 #ifndef MPP_JPEG_DECODER_HPP
 #define MPP_JPEG_DECODER_HPP
-
 #pragma once
 
 #include <array>
@@ -28,7 +27,7 @@ public:
     ~MppJpegDecoder();
 
     MppJpegDecoder(const MppJpegDecoder&) = delete;
-    MppJpegDecoder& operator=(const MppJpegDecoder&) = delete;
+    MppJpegDecoder& operator = (const MppJpegDecoder&) = delete;
 
     bool Open(std::string* error);
     bool DecodeFile(const std::string& path, Nv12DmaFrame* frame,

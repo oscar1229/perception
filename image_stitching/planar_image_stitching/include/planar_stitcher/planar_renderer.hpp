@@ -1,6 +1,5 @@
 #ifndef PLANAR_RENDERER_HPP
 #define PLANAR_RENDERER_HPP
-
 #pragma once
 
 #include "planar_stitcher/blend_pipeline.hpp"
@@ -15,6 +14,8 @@ namespace planar_stitcher {
 
 class PlanarRenderer {
 public:
+    static constexpr int kOutputWidth = 1920;
+    static constexpr int kOutputHeight = 1080;
     ~PlanarRenderer();
     bool Initialize(EglWindow& window, std::string* error);
     bool Prepare(const RegistrationResult& registration,
@@ -25,6 +26,8 @@ public:
     bool Present(std::string* error);
     int width() const { return width_; }
     int height() const { return height_; }
+    int output_width() const { return kOutputWidth; }
+    int output_height() const { return kOutputHeight; }
     int bands() const { return static_cast<int>(levels_.size()); }
 
 private:

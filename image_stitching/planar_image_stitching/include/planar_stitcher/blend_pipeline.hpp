@@ -1,6 +1,5 @@
 #ifndef BLEND_PIPELINE_HPP
 #define BLEND_PIPELINE_HPP
-
 #pragma once
 #include "planar_stitcher/feature_matcher.hpp"
 #include <cstdint>
@@ -8,7 +7,7 @@
 #include <vector>
 namespace planar_stitcher {
 struct RgbImage { int width = 0; int height = 0; std::vector<uint8_t> pixels; };
-struct ExposureModel { double gain[3]={1.0, 1.0, 1.0}; double bias[3]={0.0, 0.0, 0.0}; };
+struct ExposureModel { double gain[3] = {1.0, 1.0, 1.0}; double bias[3] = {0.0, 0.0, 0.0}; };
 struct ProjectedBlendPair {
     RgbImage left;
     RgbImage right;

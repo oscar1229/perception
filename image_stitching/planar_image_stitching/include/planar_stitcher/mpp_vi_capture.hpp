@@ -1,6 +1,5 @@
 #ifndef MPP_VI_CAPTURE_HPP
 #define MPP_VI_CAPTURE_HPP
-
 #pragma once
 
 #include "planar_stitcher/mpp_jpeg_decoder.hpp"
@@ -24,7 +23,7 @@ public:
     MppViCapture() = default;
     ~MppViCapture();
     MppViCapture(const MppViCapture&) = delete;
-    MppViCapture& operator=(const MppViCapture&) = delete;
+    MppViCapture& operator = (const MppViCapture&) = delete;
 
     // Brings up SYS/VB/VI and enables both channels. Returns false when no
     // camera is usable, leaving the caller to fall back to the JPEG inputs.
