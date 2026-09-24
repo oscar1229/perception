@@ -1,10 +1,10 @@
 /*************************************************************************************************************************
-* svmparam.hpp
-*
-*
-*有关环视标定参数读取保存到XML文件的类的定义
-*
-**************************************************************************************************************************/
+ * svmparam.hpp
+ *
+ *
+ *有关环视标定参数读取保存到XML文件的类的定义
+ *
+ **************************************************************************************************************************/
 
 #ifndef SVMPARAM_HPP
 #define SVMPARAM_HPP
@@ -24,7 +24,7 @@ namespace svmparam {
 //子模块函数返回代码
 enum ISV_ENUM_AVM_ERR_E{
 ISV_ENUM_SUCCEED = 0,
-ISV_ENUM_FAILURED =-1,
+ISV_ENUM_FAILURED = -1,
 ISV_ENUM_AVM_ERR_OPENED = 0x1010, //重复创建对象
 ISV_ENUM_AVM_MALLOC_FAILED, //内存申请失败
 
@@ -48,7 +48,7 @@ ISV_ENUM_AVM_XML_FILENODELOST, //文件节点丢失或不存在
 //         ...
 //         InnerSV_s32WriteToXml(_aSvmParam.xml);//保存变更过后的参数，到XML文件，通常只在标定后或加载标定后调用
 class InnerSV_SvmParamClass{
-    public:
+public:
     explicit InnerSV_SvmParamClass();
     ~InnerSV_SvmParamClass();
     //@brief 从XML文件中读取整个InnerSV_SvmParamClass对象
@@ -114,7 +114,7 @@ class InnerSV_SvmParamClass{
     //          SV_VOID* pCaliPatern=NULL;
     //          SV_S32 s32CaliMethod;
     //         if(SV_SUCCEED == InnerSV_S32GetCalibrateParternChannl(1,&pPatern,&s32CaliMethod)) {
-    //           if (SV_ENUM_CALIMETHOD_UCHESSBORD == eCaliMethod && NULL != pPatern) {
+    //           if (SV_ENUM_CALIMETHOD_UCHESSBORD==eCaliMethod && NULL != pPatern) {
     //             SV_CALI_UCHESSBOARD_PATERN_S* pstChessBoardCaliPatern = reinterpret_cast< SV_CALI_UCHESSBOARD_PATERN_S*>(pPatern);
     //  ...
     //             free(pstChessBoardCaliPatern);
@@ -141,9 +141,9 @@ class InnerSV_SvmParamClass{
                                 const SV_S32& s32Method,
                                 const SV_S32& s32Ch,
                                 const SV_VOID* pstPatern);//NotFinished
-    protected:
+protected:
     SV_BOOL bInitialized;
-    private:
+private:
     //@brief 摄像头参数类型枚举
     enum
     {
@@ -168,12 +168,12 @@ class InnerSV_SvmParamClass{
     const SV_S8* ks8U8PaternBoardSize = "U8PatternSize";//8点式标定布长度
     const SV_S8* ks8U8ImagePointsNodeStr = "ImagePoints";//8点式标定像素坐标节点
     //Init操作初始化参数
-    const SV_F64 kf64CameraK[9]={3.3663932877255422e+02, 0.0, 6.3583064178582879e+02,
+    const SV_F64 kf64CameraK[9] = {3.3663932877255422e+02, 0.0, 6.3583064178582879e+02,
         0.0, 3.1971130511644719e+02, 3.6648115807921403e+02,
         0.0, 0.0, 1.0};
-    const SV_F64 kf64CameraDistor[4]={0.0, 0.0, 0.0, 0.0};
-    const SV_F64 kf64CameraTrans[3]={ -2.0406123947224861e-01, 1.3088482537645041e+00, 3.7495659155705119e-01};
-    const SV_F64 kf64CameraRotate[3]={2.4639143620937900e+00, 5.5126125145234184e-02, -1.7706632258495471e-02};
+    const SV_F64 kf64CameraDistor[4] = {0.0, 0.0, 0.0, 0.0};
+    const SV_F64 kf64CameraTrans[3] = { -2.0406123947224861e-01, 1.3088482537645041e+00, 3.7495659155705119e-01};
+    const SV_F64 kf64CameraRotate[3] = {2.4639143620937900e+00, 5.5126125145234184e-02, -1.7706632258495471e-02};
     const SV_SIZE_S kstImageSize = {1280, 720};
 
     //显式申明移动构造函数和赋值运算符，禁用当前类的复制，只声明，不做定义
@@ -258,11 +258,11 @@ class InnerSV_SvmParamClass{
     SV_S32 s32CaliMethod[static_cast<SV_U32>(SV_ENUM_CAMERA_BUTT)];  // NOLINT(runtime/arrays)
     //四通道标定模板结构体指针，SV_VOID*型，在读取XML文件时申请存储空间，析构class时需释放。
     SV_VOID* pstCaliPatern[static_cast<SV_U32>(SV_ENUM_CAMERA_BUTT)];
-    void*  pXmlReadFd;//创建对象时初始化为NULL, 调用InnerSV_ReadFromXml创建，指向xml文件对象，InnerSV_ReadFromXml调用结束时销毁
-    void*  pXmlWriteFd;//创建对象时初始化为NULL, 调用InnerSV_WriteToXml时创建， 指向xml文件对象，InnerSV_WriteToXml调用结束时销毁
+    void*  pXmlReadFd;//创建对象时初始化为NULL,调用InnerSV_ReadFromXml创建，指向xml文件对象，InnerSV_ReadFromXml调用结束时销毁
+    void*  pXmlWriteFd;//创建对象时初始化为NULL,调用InnerSV_WriteToXml时创建， 指向xml文件对象，InnerSV_WriteToXml调用结束时销毁
 };
 
-}//end of namespace svmparam
-}//end of namespace sv_avm
-}//end of namespace sm
+}  // namespace svmparam
+}  // namespace sv_avm
+}  // namespace sm
 #endif  // SVMPARAM_HPP

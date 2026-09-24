@@ -1,7 +1,7 @@
 /*
-* sv_avm.hpp
-*
-*/
+ * sv_avm.hpp
+ *
+ */
 
 #ifndef SV_AVM_HPP
 #define SV_AVM_HPP
