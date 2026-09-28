@@ -31,7 +31,7 @@ fisheye_image_stitching/
 
 ## MPP 源码
 
-MPP 源码的默认路径是相对于本目录的 `../../../multimedia/mpp/`。如果 MPP 源码位于其他位置，配置编译时指定路径：
+MPP 以源码方式编译，配置时默认按本目录的相对路径 `../../../multimedia/mpp/` 查找，CMake 会将其解析为绝对路径。如果 MPP 源码位于其他位置，配置编译时指定路径：
 
 ```bash
 cmake -S . -B build -DMPP_ROOT=/path/to/mpp
