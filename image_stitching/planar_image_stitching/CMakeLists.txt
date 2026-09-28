@@ -17,34 +17,50 @@ find_package(Threads REQUIRED)
 
 set(LIB_DIR ${CMAKE_SOURCE_DIR}/lib)
 set(STITCHER_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include)
-set(MPP_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include/mpp)
+set(MPP_ROOT "${CMAKE_SOURCE_DIR}/../../../multimedia/mpp/" CACHE PATH "MPP source directory")
+get_filename_component(MPP_ROOT "${MPP_ROOT}" ABSOLUTE)
+if(NOT EXISTS "${MPP_ROOT}/CMakeLists.txt")
+  message(FATAL_ERROR "MPP source tree not found at ${MPP_ROOT}")
+endif()
+set(BUILD_TESTS OFF CACHE BOOL "Build MPP tests" FORCE)
+add_subdirectory("${MPP_ROOT}" "${CMAKE_BINARY_DIR}/mpp" EXCLUDE_FROM_ALL)
+
+# MPP is a subproject here, so CMAKE_SOURCE_DIR points at this project, not MPP.
+# mpi/mux/CMakeLists.txt uses ${CMAKE_SOURCE_DIR}/mpi/demux to find codec/h264_utils.h
+# and other demux helpers; that path resolves to a non-existent directory and
+# breaks the build. Add the real path here to avoid patching the shared MPP checkout.
+if(TARGET mpp_mux)
+  target_include_directories(mpp_mux PRIVATE "${MPP_ROOT}/mpi/demux")
+else()
+  message(FATAL_ERROR "mpp_mux target missing: MPP layout changed")
+endif()
 
 add_library(planar_stitcher_core STATIC IMPORTED)
 set_target_properties(planar_stitcher_core PROPERTIES
   IMPORTED_LOCATION ${LIB_DIR}/libplanar_stitcher_core.a)
 
-if(NOT EXISTS ${LIB_DIR}/libmpp.so OR
-   NOT EXISTS ${MPP_INCLUDE_DIR}/vdec/vdec_api.h)
-  message(FATAL_ERROR "Installed MPP library or headers are missing")
-endif()
-
 add_executable(planar_stitcher stitcher_test/planar_stitcher_main.cpp)
+if(TARGET vi_k3_cam_plugin)
+  add_dependencies(planar_stitcher vi_k3_cam_plugin)
+elseif(TARGET vi_k1_cam_plugin)
+  add_dependencies(planar_stitcher vi_k1_cam_plugin)
+endif()
 target_include_directories(planar_stitcher PRIVATE
   ${STITCHER_INCLUDE_DIR}
   ${OpenCV_INCLUDE_DIRS}
-  ${MPP_INCLUDE_DIR}
-  ${MPP_INCLUDE_DIR}/sys
-  ${MPP_INCLUDE_DIR}/vi
-  ${MPP_INCLUDE_DIR}/vdec
-  ${MPP_INCLUDE_DIR}/venc
-  ${MPP_INCLUDE_DIR}/v2d
+  ${MPP_ROOT}/include
+  ${MPP_ROOT}/include/sys
+  ${MPP_ROOT}/include/vi
+  ${MPP_ROOT}/include/vdec
+  ${MPP_ROOT}/include/venc
+  ${MPP_ROOT}/include/v2d
   ${EGL_INCLUDE_DIRS}
   ${GLES_INCLUDE_DIRS}
   ${X11_INCLUDE_DIR})
 target_link_libraries(planar_stitcher PRIVATE
   planar_stitcher_core
   ${OpenCV_LIBS}
-  ${LIB_DIR}/libmpp.so
+  mpp
   ${EGL_LIBRARIES}
   ${GLES_LIBRARIES}
   ${X11_LIBRARIES}

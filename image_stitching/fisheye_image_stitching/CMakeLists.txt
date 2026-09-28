@@ -30,6 +30,16 @@ if(NOT EXISTS "${MPP_ROOT}/CMakeLists.txt")
 endif()
 set(BUILD_TESTS OFF CACHE BOOL "Build MPP tests" FORCE)
 add_subdirectory("${MPP_ROOT}" "${CMAKE_BINARY_DIR}/mpp" EXCLUDE_FROM_ALL)
+
+# MPP is a subproject here, so CMAKE_SOURCE_DIR points at this project, not MPP.
+# mpi/mux/CMakeLists.txt uses ${CMAKE_SOURCE_DIR}/mpi/demux to find codec/h264_utils.h
+# and other demux helpers; that path resolves to a non-existent directory and
+# breaks the build. Add the real path here to avoid patching the shared MPP checkout.
+if(TARGET mpp_mux)
+  target_include_directories(mpp_mux PRIVATE "${MPP_ROOT}/mpi/demux")
+else()
+  message(FATAL_ERROR "mpp_mux target missing: MPP layout changed")
+endif()
 add_definitions(-DSV_AVM_ENABLE_MPP)
 
 include_directories(
