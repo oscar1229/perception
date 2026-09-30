@@ -4,45 +4,52 @@
 
 ## 功能简介
 
-- 特征配准：FAST 特征检测 + RANSAC 求解左右图之间的单应矩阵，支持在线估计与读取标定文件两种模式
-- 曝光补偿：估计右图相对左图的 RGB 增益与偏置，消除两路相机的亮度/色温差异
-- 拼接缝求解：Voronoi seam finder 在重叠区内求解拼接缝，生成多波段融合掩膜金字塔
-- 多波段融合：拉普拉斯金字塔融合，消除拼接缝两侧的亮度跳变
-- 全景输出：采用 GPU 渲染生成拼接结果，支持两种渲染模式：离屏渲染，直接渲染到屏幕
+- 特征配准：FAST 特征检测 + RANSAC 求解左右图之间的单应矩阵，支持在线估计与读取标定文件
+- 曝光补偿：估计右图相对左图的 RGB 增益与偏置
+- 拼接缝求解：Voronoi seam finder 求解重叠区拼接缝
+- 多波段融合：拉普拉斯金字塔融合，消除亮度跳变
+- 全景输出：支持屏幕显示与离屏渲染
 
 ## 目录结构
 
-```
-image_stitching/planar_image_stitching/
-├── CMakeLists.txt                    # 编译脚本
-├── config.json                       # 默认运行配置
-├── run_planar.sh                     # 启动脚本
-├── lib/                              # 预编译库
-│   ├── libplanar_stitcher_core.a     # 拼接核心静态库
-│   └── libmpp.so*                    # MPP 硬件编解码库
-├── include/                          # 头文件
-│   ├── planar_stitcher/              # 拼接库 API
-│   └── mpp/                          # MPP API
-├── assets/                           # 回退图片
-│   ├── s0_left.jpg
-│   └── s0_right.jpg
-├── output/                           # 运行时生成的拼接图片与标定文件
+```text
+planar_image_stitching/
+├── CMakeLists.txt
+├── README.md
+├── config.json
+├── run_planar.sh
+├── lib/
+│   └── libplanar_stitcher_core.a
+├── include/planar_stitcher/
+├── assets/                 # 回退图片
+├── output/                 # 运行时生成的图片和标定文件
 └── stitcher_test/
-    ├── planar_stitcher_main.cpp      # 程序入口
-    └── calib.xml                     # 预生成的标定文件
+    ├── planar_stitcher_main.cpp
+    └── calib.xml
 ```
+
+## MPP 源码
+
+MPP 源码的默认路径是相对于本目录的 `../../../multimedia/mpp/`。如果 MPP 源码位于其他位置，配置编译时指定路径：
+
+```bash
+cmake -S . -B build -DMPP_ROOT=/path/to/mpp
+cmake --build build -j8
+```
+
+MPP 仓库：https://github.com/spacemit-com/mpp.git
 
 ## 环境依赖
 
 **OpenCV**
 
-预编译库已链接 opencv-spacemit 4.14，必须安装同版本运行时：
+预编译库链接 opencv-spacemit 4.14，运行时需要兼容版本：
 
 ```bash
 sudo apt install opencv-spacemit=4.14.0-2bb4
 ```
 
-> **注意**：安装其他版本会导致符号版本不匹配，启动时报 `symbol lookup error`。
+安装其他版本可能导致 `symbol lookup error`。
 
 **其余依赖**
 
@@ -50,129 +57,86 @@ sudo apt install opencv-spacemit=4.14.0-2bb4
 sudo apt install libx11-dev libegl-dev libgles2
 ```
 
-## 编译
+## 构建与运行
+
+在本目录构建示例，然后运行：
 
 ```bash
-cd image_stitching/planar_image_stitching  # 从仓库根目录进入
-cmake -B build
+cmake -S . -B build
 cmake --build build -j8
-```
-
-库的搜索路径已写入可执行文件的 RPATH，无需设置 `LD_LIBRARY_PATH`。
-
----
-
-## 运行
-
-在 **image_stitching/planar_image_stitching 目录**执行启动脚本（脚本会切换到自身目录并启动 `build/planar_stitcher`）：
-
-```bash
 ./run_planar.sh
 ```
 
-按 **Ctrl+C** 终止；退出时自动将最后一帧保存到 `output.image` 配置的路径，输出目录不存在时自动创建。
+也可以直接运行：
 
----
+```bash
+./build/planar_stitcher [path/to/config.json]
+```
+
+按 Ctrl+C 终止；离屏模式退出时保存最后一帧。
 
 ## 配置说明
 
-所有运行参数统一在 **image_stitching/planar_image_stitching 目录**的 `config.json` 中配置；也可通过 `./run_planar.sh /path/to/config.json` 指定配置文件。
+运行参数统一在本目录的 `config.json` 中配置，也可通过启动脚本指定配置文件。
 
 | 配置项 | 类型 | 说明 |
 |---|---|---|
-| `input.left_image` / `input.right_image` | string | 回退图片路径，摄像头关闭或不可用时使用 |
+| `input.left_image` / `input.right_image` | string | 回退图片路径 |
 | `output.image` | string | 拼接结果保存路径 |
-| `camera.enable` | bool | 启用摄像头输入。`false` 跳过摄像头初始化直接用回退图片；`true` 时摄像头不可用会自动回退 |
-| `camera.width` / `camera.height` | int | 摄像头分辨率（像素），同时用于校验输入图片尺寸 |
+| `camera.enable` | bool | `false` 跳过摄像头直接用图片；`true` 时失败自动回退 |
+| `camera.width` / `camera.height` | int | 摄像头和输入图片尺寸 |
 | `camera.device` | int | VI 设备编号 |
 | `camera.timeout_ms` | int | 单帧采集超时（毫秒） |
-| `camera.mipi_lanes` | int | MIPI 通道数 |
-| `camera.mipi_mbps` | int | MIPI 带宽（Mbps） |
-| `registration.mode` | string | `"auto"` 在线估计单应矩阵；`"file"` 从标定文件读取，跳过特征检测 |
-| `registration.file` | string | `mode="file"` 时读取的标定文件路径 |
-| `registration.save_to` | string | 非空时将配准结果保存到此路径，父目录不存在时自动创建 |
-| `feature_detection.work_max_width` | int | 特征检测降采样宽度，越小越快、精度越低 |
-| `feature_detection.fast_threshold` | int | FAST 角点响应阈值 |
-| `feature_detection.max_features` | int | 每图最大特征点数 |
-| `ransac.iterations` | int | RANSAC 迭代次数 |
-| `ransac.threshold_px` | double | RANSAC 内点判定阈值（像素） |
-| `ransac.max_reprojection_rmse_px` | double | 配准结果验收阈值，重投影 RMSE 超过则判定配准失败 |
-| `blending.num_bands` | int | 多波段融合波段数，`0` 表示按重叠区宽度自动选择（3~5） |
-| `runtime.frames` | int | 渲染帧数，`0` 表示持续运行直到 Ctrl+C |
-| `runtime.sleep_us` | int | 每帧节流睡眠，单位微秒，`0` 表示不限速 |
-| `runtime.force_offscreen` | bool | `true` 强制离屏渲染，即使显示器可用 |
+| `camera.mipi_lanes` / `camera.mipi_mbps` | int | MIPI 参数 |
+| `registration.mode` | string | `auto` 在线估计；`file` 读取标定文件 |
+| `registration.file` | string | `mode=file` 时读取的标定文件 |
+| `registration.save_to` | string | 保存配准结果的路径 |
+| `feature_detection.*` | - | 特征检测参数 |
+| `ransac.*` | - | RANSAC 参数 |
+| `blending.num_bands` | int | 融合波段数，`0` 自动选择 |
+| `runtime.frames` | int | 渲染帧数，`0` 持续运行 |
+| `runtime.sleep_us` | int | 每帧节流睡眠（微秒） |
+| `runtime.force_offscreen` | bool | `true` 强制离屏渲染 |
 
----
+## 输入与离屏渲染
 
-## 输入源与回退逻辑
-
-- `camera.enable: true`：程序先尝试打开摄像头，失败时自动回退为 `input.left_image` / `input.right_image` 指定的图片。
+- `camera.enable: true`：先尝试摄像头，失败后读取配置中的两张图片。
 - `camera.enable: false`：直接读取图片，跳过摄像头初始化。
-
-无论走哪条路径，输入尺寸都必须与 `camera.width` / `camera.height` 一致，否则报错退出。
-
----
-
-## 显示器与离屏渲染
-
-程序会自动检测显示器是否可用：
-
-- **有显示器**：渲染到屏幕，每帧交换缓冲区，支持 Esc / 关闭窗口退出。
-- **无显示器**：自动切换为 EGL Pbuffer 离屏渲染。
-
-渲染窗口和离屏表面固定为 **1920x1080（1080P）**，退出时保存的图片也为 1920x1080；输入图像尺寸仍由 `camera.width` / `camera.height` 指定。
-
-程序会先尝试 `DISPLAY` 环境变量指定的显示器，未设置时自动回退尝试 `:0`，因此 SSH 会话下无需手动 `export DISPLAY=:0`。
-
-> **注意**：关闭显示器电源不等于无显示器。X Server 仍在运行时，程序会尝试创建窗口表面，创建失败才退化为离屏模式。需要主动强制离屏渲染时，请将 `force_offscreen` 设为 `true`。
-
----
+- 输入尺寸必须与 `camera.width` / `camera.height` 一致。
+- 有显示器时渲染到屏幕；无显示器时自动切换为 EGL Pbuffer 离屏渲染。
+- 渲染目标固定为 1920x1080；输出目录不存在时自动创建。
 
 ## 典型场景
 
-**摄像头 + 显示器（默认）**
-
-```json
-"camera": { "enable": true },
-"runtime": { "frames": 0, "force_offscreen": false }
-```
-
-**无摄像头，用图片调试**
+无摄像头，用图片调试：
 
 ```json
 "camera": { "enable": false },
 "input": { "left_image": "./assets/s0_left.jpg", "right_image": "./assets/s0_right.jpg" }
 ```
 
-**无显示器，离屏渲染保存图片**
+无显示器，离屏保存：
 
 ```json
 "runtime": { "force_offscreen": true },
-"output": { "image": "./out/planar.jpg" }
+"output": { "image": "./output/planar.jpg" }
 ```
 
-**固定帧数渲染（用于自动化测试）**
+固定帧数测试：
 
 ```json
 "camera": { "enable": false },
-"registration": { "mode": "file", "file": "./out/calib.xml" },
+"registration": { "mode": "file", "file": "./stitcher_test/calib.xml" },
 "runtime": { "frames": 200, "force_offscreen": true }
 ```
 
----
-
 ## 性能指标
 
-以下是旧版可变画布（3148x1080，重叠区宽度 692 px）的历史测试数据，**不代表当前固定 1920x1080 输出版本的帧率**。测试条件：2 路 1920x1080 输入，`registration.mode="file"`（配准不计入帧率），`num_bands=5`，Release 构建（`-O3`）。
+1080P 输出下的实测帧率：
 
-| 指标 | 平面拼接 |
-|------|---------|
-| 帧率 离屏渲染(FPS) | 12.9 |
-| 帧率 直接渲染(FPS) | 12.1 |
+| 指标 | 帧率 (FPS) |
+|---|---|
+| 屏幕渲染 | 29 |
+| 离屏渲染 | 31 |
 
-
-### 影响性能的参数
-
-旧版测试中，拼接的每帧开销主要由**画布像素总量**决定，约 **23 ms/Mpix**；当前版本需要重新测量。
-
-测试硬件：SpacemiT X100（RISC-V，8 核）+ PowerVR B-Series BXM-4-64，OpenGL ES 3.2 (Mesa 24.2)，内核 6.18.3，opencv-spacemit 4.14.0，MPP 硬件解码。
+以上为既有测量值，实际性能取决于输入尺寸、配准模式、融合波段数和目标硬件。

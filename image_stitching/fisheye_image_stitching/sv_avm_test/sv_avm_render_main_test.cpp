@@ -1,10 +1,10 @@
 /*
-* sv_avm_render_main_test.cpp
-*
-* SV AVM render demo.
-* Static mode keeps the original JPG/NV12 dma-buf benchmark.
-* Live VI mode pulls MPP VI dma-buf frames and replaces missing channels with all-zero dma-bufs.
-*/
+ * sv_avm_render_main_test.cpp
+ *
+ * SV AVM render demo.
+ * Static mode keeps the original JPG/NV12 dma-buf benchmark.
+ * Live VI mode pulls MPP VI dma-buf frames and replaces missing channels with all-zero dma-bufs.
+ */
 #include <unistd.h>
 #include <signal.h>
 #include <pthread.h>
@@ -16,6 +16,8 @@
 #include <sys/time.h>
 #include <sys/ioctl.h>
 #include <sys/mman.h>
+#include <sys/stat.h>
+#include <linux/dma-buf.h>
 #include <linux/dma-heap.h>
 #include <set>
 #include <string>
@@ -56,10 +58,13 @@ struct SvRunConfig {
     SV_S32 s32LiveViTimeoutMs = 5;
     SV_S32 s32LiveViMipiLanes = 4;
     SV_S32 s32LiveViMbps = 800;
+    SV_S32 s32OffscreenWidth = 1920;
+    SV_S32 s32OffscreenHeight = 1080;
     // SV_TRUE forces the fallback images even when the camera is available.
     SV_BOOL bUseFallbackImage = SV_FALSE;
     // Fallback JPG dir used when the camera is unavailable; relative to repo root.
     std::string strFallbackImageDir = "sv_avm_test/res";
+    std::string strCalibrationImageDir = "";
     // SV_TRUE forces offscreen rendering even when a display is available.
     SV_BOOL bForceOffscreen = SV_FALSE;
     // Offscreen output path used when no display is present; empty disables it.
@@ -155,6 +160,8 @@ static void LoadConfigJson(const char* s8Path, SvRunConfig* pstCfg) {
     parseInt("live_vi_timeout_ms", &pstCfg->s32LiveViTimeoutMs, SV_TRUE);
     parseInt("live_vi_mipi_lanes", &pstCfg->s32LiveViMipiLanes);
     parseInt("live_vi_mbps", &pstCfg->s32LiveViMbps);
+    parseInt("offscreen_width", &pstCfg->s32OffscreenWidth);
+    parseInt("offscreen_height", &pstCfg->s32OffscreenHeight);
 
     auto parseStr = [&](const char* key, std::string* out) {
         std::string v;
@@ -164,6 +171,7 @@ static void LoadConfigJson(const char* s8Path, SvRunConfig* pstCfg) {
     parseBool("force_offscreen", &pstCfg->bForceOffscreen);
     parseStr("fallback_image_dir", &pstCfg->strFallbackImageDir);
     parseStr("offscreen_output_path", &pstCfg->strOffscreenOutputPath);
+    parseStr("calibration_image_save_dir", &pstCfg->strCalibrationImageDir);
 }
 
 static void ApplyArgs(int argc, char* argv[], SvRunConfig* pstCfg) {
@@ -389,6 +397,47 @@ static SV_BOOL LoadJPGImageUYVYDma(const char* s8JPGFileName, SV_IMAGE_S* pstIma
 
 // Fills stOwnedFrames with 4 UYVY fallback frames from imagech0..3.jpg,
 // substituting an all-zero frame for any image that fails to load.
+static void SaveCalibrationImages(const std::vector<SV_IMAGE_S>& images, const std::string& dir) {
+    if (dir.empty()) return;
+    if (mkdir(dir.c_str(), 0755) != 0 && errno != EEXIST) {
+        LOG(ERROR) << "Unable to create calibration image directory: " << dir << ": " << strerror(errno);
+        return;
+    }
+    for (SV_S32 ch = 0; ch < 4 && ch < (SV_S32)images.size(); ++ch) {
+        const SV_IMAGE_S& image = images[ch];
+        const SV_S32 width = image.stImageSize.s32Width, height = image.stImageSize.s32Height;
+        if (width <= 0 || height <= 0) continue;
+        cv::Mat bgr;
+        if (image.s32ImageType == SV_IMAGE_TYPE_UYVY && image.s32DmaFd >= 0) {
+            const size_t stride = image.u32Stride[0] ? image.u32Stride[0] : (size_t)width * 2;
+            const size_t length = stride * height;
+            struct dma_buf_sync sync = {};
+            sync.flags = DMA_BUF_SYNC_START | DMA_BUF_SYNC_READ;
+            ioctl(image.s32DmaFd, DMA_BUF_IOCTL_SYNC, &sync);
+            SV_U8* mapped = (SV_U8*)mmap(NULL, length, PROT_READ, MAP_SHARED, image.s32DmaFd, 0);
+            if (mapped == MAP_FAILED) {
+                LOG(WARNING) << "Unable to map calibration frame ch" << ch << ": " << strerror(errno);
+                sync.flags = DMA_BUF_SYNC_END | DMA_BUF_SYNC_READ;
+                ioctl(image.s32DmaFd, DMA_BUF_IOCTL_SYNC, &sync);
+                continue;
+            }
+            cv::Mat uyvy(height, width, CV_8UC2, mapped, stride);
+            cv::cvtColor(uyvy, bgr, cv::COLOR_YUV2BGR_UYVY);
+            munmap(mapped, length);
+            sync.flags = DMA_BUF_SYNC_END | DMA_BUF_SYNC_READ;
+            ioctl(image.s32DmaFd, DMA_BUF_IOCTL_SYNC, &sync);
+        } else if (image.s32ImageType == SV_IMAGE_TYPE_BGR && image.dataPtr != NULL) {
+            cv::Mat(height, width, CV_8UC3, image.dataPtr).copyTo(bgr);
+        } else {
+            LOG(WARNING) << "Unsupported calibration image format for ch" << ch;
+            continue;
+        }
+        const std::string path = dir + "/imagech" + std::to_string(ch) + ".jpg";
+        if (!cv::imwrite(path, bgr)) LOG(ERROR) << "Failed to save calibration image: " << path;
+        else LOG(INFO) << "Saved calibration image: " << path;
+    }
+}
+
 static void LoadFallbackUYVYFrames(const SvRunConfig& stCfg, std::vector<SV_IMAGE_S>* pstFrames) {
     const std::string strDir = ResolveRepoPath(stCfg.strFallbackImageDir);
     LOG(INFO) << "Loading fallback images from: " << strDir;
@@ -753,7 +802,7 @@ int main(int argc, char* argv[]) {
     if (!stCfg.strOffscreenOutputPath.empty()) {
         svrender::display::InnerSV_SetOffscreenConfig(
             ResolveRepoPath(stCfg.strOffscreenOutputPath).c_str(),
-            stCfg.s32LiveViWidth, stCfg.s32LiveViHeight);
+            stCfg.s32OffscreenWidth, stCfg.s32OffscreenHeight);
         svrender::display::InnerSV_SetForceOffscreen(stCfg.bForceOffscreen);
     } else if (SV_TRUE == stCfg.bForceOffscreen) {
         LOG(ERROR) << "force_offscreen=true but offscreen_output_path is empty; ignoring force_offscreen";
@@ -823,6 +872,12 @@ int main(int argc, char* argv[]) {
         }
     }
 
+    if (!stCfg.strCalibrationImageDir.empty()) {
+        if (SV_TRUE == bCameraLive) stLiveSource.CaptureFrames(&stImageVect);
+        SaveCalibrationImages(stImageVect, ResolveRepoPath(stCfg.strCalibrationImageDir));
+        if (SV_TRUE == bCameraLive) stLiveSource.ReleasePending();
+    }
+
     const SV_S32 s32ScreenW = stSize.s32Width;
     const SV_S32 s32ScreenH = stSize.s32Height;
     const SV_S32 s32View3DW = s32ScreenH;
@@ -872,9 +927,8 @@ int main(int argc, char* argv[]) {
         if (stCfg.s32SleepUs > 0) usleep(stCfg.s32SleepUs);
         SV_NOW(t5);
 
-        SV_F64 f64Tex = SV_MS(t0, t1), f64Submit = SV_MS(t1, t2),
-            f64GpuWait = SV_MS(t2, t3),
-            f64Swap = SV_MS(t3, t4), f64Frame = SV_MS(t0, t4);
+        SV_F64 f64Tex = SV_MS(t0, t1), f64Submit = SV_MS(t1, t2), f64GpuWait = SV_MS(t2, t3),
+                f64Swap = SV_MS(t3, t4), f64Frame = SV_MS(t0, t4);
         vTexMs.push_back(f64Tex); vSubmitMs.push_back(f64Submit); vGpuWaitMs.push_back(f64GpuWait);
         vSwapMs.push_back(f64Swap); vFrameMs.push_back(f64Frame);
         f64WinTexSum += f64Tex;
@@ -933,7 +987,7 @@ int main(int argc, char* argv[]) {
         const std::vector<SV_F64>& v = *it.v;
         if (v.empty()) continue;
         SV_F64 sum = 0, mn = v[0], mx = v[0];
-        for (SV_F64 x : v) { sum += x; if (x < mn) mn = x; if (x > mx) mx = x; }
+        for (SV_F64 x : v) { sum+=x; if (x < mn)mn = x; if (x > mx)mx = x; }
         LOG(INFO) << "  " << it.name << ": avg=" << (sum/v.size()) << " ms, min=" << mn << " ms, max=" << mx << " ms";
     }
 

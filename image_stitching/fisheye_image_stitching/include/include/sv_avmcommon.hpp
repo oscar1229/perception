@@ -1,7 +1,7 @@
 /*
-* sv_avmcommon.hpp
-*
-*/
+ * sv_avmcommon.hpp
+ *
+ */
 
 #ifndef SV_AVMCOMMON_HPP
 #define SV_AVMCOMMON_HPP
@@ -12,7 +12,7 @@ enum { //标定方式枚举
     SV_ENUM_CALIMETHOD_UCHESSBORD = 0, //棋盘格式标定
     SV_ENUM_CALIMETHOD_U8POINTS, //8点式标定
     SV_ENUM_CALIMETHOD_BUTT,
-};
+    };
 
 enum {//标定结果枚举
     SV_ENUM_CALI_NOIMAGE,
@@ -24,11 +24,11 @@ enum {//标定结果枚举
 };
 
     struct SV_CAMERA_PARAMS_S {
-            SV_F64 af64CameraK[9];//摄像头内参矩阵
-            SV_F64 af64CameraDistort[4];//鱼眼畸变参数
-            SV_F64 af64CameraRotateVect[3];//相机旋转向量
-            SV_F64 af64CameraTranslateVect[3];//相机平移向量
-            SV_SIZE_S stImageSize;//摄像头图像尺寸，比如1920, 1080 或1280, 720
+        SV_F64 af64CameraK[9];//摄像头内参矩阵
+        SV_F64 af64CameraDistort[4];//鱼眼畸变参数
+        SV_F64 af64CameraRotateVect[3];//相机旋转向量
+        SV_F64 af64CameraTranslateVect[3];//相机平移向量
+        SV_SIZE_S stImageSize;//摄像头图像尺寸，比如1920,1080 或1280,720
     };
 
     struct SV_CALI_UCHESSBOARD_PATERN_S {
@@ -43,7 +43,7 @@ enum {//标定结果枚举
         SV_POINT2F32_S stf32ImagePoints[8];//选取的8个顶点的像素坐标
     };
 
-    //摄像头纹理网格参数
+     //摄像头纹理网格参数
     struct SV_BOWL_GRID_PARAM_S {      /* Parameters of grid */
         SV_F32 f32GroundRadiusScal;//车模矩形对角线一半的f32GroundRadiusScal倍长度为碗面地面区域半径
         SV_S32 s32Angles;     /*  碗面1+2象限角度个数，比如以1°为阶梯，则s32GridAngles为180*/
