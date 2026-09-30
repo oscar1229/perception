@@ -17,6 +17,7 @@
 #include <sys/ioctl.h>
 #include <sys/mman.h>
 #include <sys/stat.h>
+#include <linux/dma-buf.h>
 #include <linux/dma-heap.h>
 #include <set>
 #include <string>
@@ -410,14 +411,21 @@ static void SaveCalibrationImages(const std::vector<SV_IMAGE_S>& images, const s
         if (image.s32ImageType == SV_IMAGE_TYPE_UYVY && image.s32DmaFd >= 0) {
             const size_t stride = image.u32Stride[0] ? image.u32Stride[0] : (size_t)width * 2;
             const size_t length = stride * height;
+            struct dma_buf_sync sync = {};
+            sync.flags = DMA_BUF_SYNC_START | DMA_BUF_SYNC_READ;
+            ioctl(image.s32DmaFd, DMA_BUF_IOCTL_SYNC, &sync);
             SV_U8* mapped = (SV_U8*)mmap(NULL, length, PROT_READ, MAP_SHARED, image.s32DmaFd, 0);
             if (mapped == MAP_FAILED) {
                 LOG(WARNING) << "Unable to map calibration frame ch" << ch << ": " << strerror(errno);
+                sync.flags = DMA_BUF_SYNC_END | DMA_BUF_SYNC_READ;
+                ioctl(image.s32DmaFd, DMA_BUF_IOCTL_SYNC, &sync);
                 continue;
             }
             cv::Mat uyvy(height, width, CV_8UC2, mapped, stride);
             cv::cvtColor(uyvy, bgr, cv::COLOR_YUV2BGR_UYVY);
             munmap(mapped, length);
+            sync.flags = DMA_BUF_SYNC_END | DMA_BUF_SYNC_READ;
+            ioctl(image.s32DmaFd, DMA_BUF_IOCTL_SYNC, &sync);
         } else if (image.s32ImageType == SV_IMAGE_TYPE_BGR && image.dataPtr != NULL) {
             cv::Mat(height, width, CV_8UC3, image.dataPtr).copyTo(bgr);
         } else {

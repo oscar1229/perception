@@ -57,6 +57,8 @@ private:
     bool offscreen_ = false;
     int width_ = 0;
     int height_ = 0;
+    int gbm_fd_ = -1;
+    void* gbm_device_ = nullptr;
     EGLDisplay display_ = EGL_NO_DISPLAY;
     EGLContext context_ = EGL_NO_CONTEXT;
     EGLSurface surface_ = EGL_NO_SURFACE;

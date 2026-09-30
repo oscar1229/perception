@@ -65,7 +65,7 @@ target_link_libraries(planar_stitcher PRIVATE
   ${GLES_LIBRARIES}
   ${X11_LIBRARIES}
   Threads::Threads
-  dl)
+  dl gbm)
 
 get_filename_component(_opencv_libdir "${OpenCV_DIR}/../.." ABSOLUTE)
 set_target_properties(planar_stitcher PROPERTIES
