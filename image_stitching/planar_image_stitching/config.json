@@ -21,9 +21,20 @@
     "save_to": "./output/calib.xml"
   },
   "feature_detection": {
+    "detector": "superpoint_lightglue",
     "work_max_width": 960,
     "fast_threshold": 20,
     "max_features": 2000
+  },
+  "superpoint_lightglue": {
+    "superpoint_model": "./assets/model/superpoint_360x640.q.onnx",
+    "lightglue_model": "./assets/model/lightglue_for_superpoint_512_depth9.fp16.onnx",
+    "num_keypoints": 512,
+    "nms_radius": 4,
+    "remove_borders": 4,
+    "filter_threshold": 0.1,
+    "num_threads": 4,
+    "provider": "SpaceMITExecutionProvider"
   },
   "ransac": {
     "iterations": 2000,

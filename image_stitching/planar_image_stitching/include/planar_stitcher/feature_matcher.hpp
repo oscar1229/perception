@@ -17,9 +17,25 @@ struct LumaView {
 };
 
 struct RegistrationOptions {
+    // "orb" or "superpoint_lightglue" (default)
+    std::string detector = "superpoint_lightglue";
+
+    // ORB / FAST path
     int work_max_width = 960;
     int fast_threshold = 20;
     int max_features = 2000;
+
+    // SuperPoint + LightGlue path
+    std::string sp_model;
+    std::string lg_model;
+    int sp_num_keypoints = 512;
+    int sp_nms_radius = 4;
+    int sp_remove_borders = 4;
+    float lg_filter_threshold = 0.1f;
+    int sp_num_threads = 4;
+    std::string sp_provider = "SpaceMITExecutionProvider";
+
+    // Shared RANSAC
     int ransac_iterations = 2000;
     double ransac_threshold_px = 2.0;
     double max_reprojection_rmse_px = 2.0;

@@ -115,9 +115,18 @@ int main(int argc, char** argv) {
 
     RegistrationResult registration;
     RegistrationOptions options;
+    options.detector = config.detector;
     options.work_max_width = config.work_max_width;
     options.fast_threshold = config.fast_threshold;
     options.max_features = config.max_features;
+    options.sp_model = config.sp_model;
+    options.lg_model = config.lg_model;
+    options.sp_num_keypoints = config.sp_num_keypoints;
+    options.sp_nms_radius = config.sp_nms_radius;
+    options.sp_remove_borders = config.sp_remove_borders;
+    options.lg_filter_threshold = config.lg_filter_threshold;
+    options.sp_num_threads = config.sp_num_threads;
+    options.sp_provider = config.sp_provider;
     options.ransac_iterations = config.ransac_iterations;
     options.ransac_threshold_px = config.ransac_threshold_px;
     options.max_reprojection_rmse_px = config.max_reprojection_rmse_px;

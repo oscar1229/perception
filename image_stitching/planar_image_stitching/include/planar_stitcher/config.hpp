@@ -30,10 +30,23 @@ struct Config {
     std::string registration_file;             // read from this when mode="file"
     std::string registration_save_to;          // save to this if non-empty
 
-    // Feature detection
+    // Feature detection — "orb" or "superpoint_lightglue" (default)
+    std::string detector = "superpoint_lightglue";
+
+    // ORB / FAST path
     int work_max_width = 960;
     int fast_threshold = 20;
     int max_features = 2000;
+
+    // SuperPoint + LightGlue path
+    std::string sp_model;   // required when detector="superpoint_lightglue"
+    std::string lg_model;   // required when detector="superpoint_lightglue"
+    int sp_num_keypoints = 512;
+    int sp_nms_radius = 4;
+    int sp_remove_borders = 4;
+    float lg_filter_threshold = 0.1f;
+    int sp_num_threads = 4;
+    std::string sp_provider = "SpaceMITExecutionProvider";
 
     // RANSAC
     int ransac_iterations = 2000;
