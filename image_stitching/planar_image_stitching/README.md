@@ -96,7 +96,7 @@ sudo apt install spacemit-onnxruntime
 ls /usr/lib/libonnxruntime.so /usr/lib/libspacemit_ep.so
 ```
 
-若使用 `orb` 模式可通过 `-DENABLE_SUPERPOINT_LIGHTGLUE=OFF` 关闭该依赖。
+若 ONNX Runtime 未安装，configure 时会报错并提示安装命令。
 
 **其余依赖**
 

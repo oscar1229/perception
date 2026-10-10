@@ -35,21 +35,16 @@ else()
   message(FATAL_ERROR "mpp_mux target missing: MPP layout changed")
 endif()
 
+# The prebuilt libplanar_stitcher_core.a always contains the SuperPoint+LightGlue
+# translation units. ONNX Runtime must therefore always be linked regardless of
+# any feature switch — there is no separate ORB-only library variant.
 set(ONNXRUNTIME_INCLUDE_DIR "/usr/include" CACHE PATH "ONNXRuntime include directory")
-option(ENABLE_SUPERPOINT_LIGHTGLUE "Build with SuperPoint+LightGlue support" ON)
-if(ENABLE_SUPERPOINT_LIGHTGLUE)
-  if(NOT EXISTS "${ONNXRUNTIME_INCLUDE_DIR}/onnxruntime_cxx_api.h")
-    message(WARNING "onnxruntime_cxx_api.h not found at ${ONNXRUNTIME_INCLUDE_DIR}. "
-                    "Install with: sudo apt install spacemit-onnxruntime\n"
-                    "Or disable SuperPoint+LightGlue: cmake -DENABLE_SUPERPOINT_LIGHTGLUE=OFF")
-    set(ENABLE_SUPERPOINT_LIGHTGLUE OFF CACHE BOOL "Build with SuperPoint+LightGlue support" FORCE)
-    message(STATUS "SuperPoint+LightGlue: disabled (ONNXRuntime not found)")
-  else()
-    message(STATUS "SuperPoint+LightGlue: enabled (ONNX Runtime headers: ${ONNXRUNTIME_INCLUDE_DIR})")
-  endif()
-else()
-  message(STATUS "SuperPoint+LightGlue: disabled")
+if(NOT EXISTS "${ONNXRUNTIME_INCLUDE_DIR}/onnxruntime_cxx_api.h")
+  message(FATAL_ERROR
+    "onnxruntime_cxx_api.h not found at ${ONNXRUNTIME_INCLUDE_DIR}.\n"
+    "Install with: sudo apt install spacemit-onnxruntime")
 endif()
+message(STATUS "ONNX Runtime headers: ${ONNXRUNTIME_INCLUDE_DIR}")
 
 # planar_stitcher_core is a prebuilt IMPORTED library.
 # mpp cannot be listed in INTERFACE_LINK_LIBRARIES here because mpp's own
@@ -70,18 +65,14 @@ target_include_directories(planar_stitcher_core INTERFACE
   ${MPP_ROOT}/include/v2d
   ${EGL_INCLUDE_DIRS}
   ${GLES_INCLUDE_DIRS}
-  ${X11_INCLUDE_DIR})
-if(ENABLE_SUPERPOINT_LIGHTGLUE)
-  target_include_directories(planar_stitcher_core INTERFACE ${ONNXRUNTIME_INCLUDE_DIR})
-  target_compile_definitions(planar_stitcher_core INTERFACE HAVE_SUPERPOINT_LIGHTGLUE)
-endif()
+  ${X11_INCLUDE_DIR}
+  ${ONNXRUNTIME_INCLUDE_DIR})
+target_compile_definitions(planar_stitcher_core INTERFACE HAVE_SUPERPOINT_LIGHTGLUE)
 # Propagate all link deps except mpp (see note above).
 target_link_libraries(planar_stitcher_core INTERFACE
   ${OpenCV_LIBS}
-  ${EGL_LIBRARIES} ${GLES_LIBRARIES} ${X11_LIBRARIES} Threads::Threads dl gbm)
-if(ENABLE_SUPERPOINT_LIGHTGLUE)
-  target_link_libraries(planar_stitcher_core INTERFACE onnxruntime spacemit_ep)
-endif()
+  ${EGL_LIBRARIES} ${GLES_LIBRARIES} ${X11_LIBRARIES} Threads::Threads dl gbm
+  onnxruntime spacemit_ep)
 
 add_executable(planar_stitcher stitcher_test/planar_stitcher_main.cpp)
 if(TARGET vi_k3_cam_plugin)
