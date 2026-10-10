@@ -1,10 +1,10 @@
 /**
- * @file lightglue.h
+ * @file lightglue.hpp
  * @brief LightGlue feature matcher — ONNX inference wrapper
  */
 
-#ifndef PLANAR_STITCHER_LIGHTGLUE_HPP
-#define PLANAR_STITCHER_LIGHTGLUE_HPP
+#ifndef LIGHTGLUE_HPP
+#define LIGHTGLUE_HPP
 
 #include <string>
 #include <vector>
@@ -29,7 +29,7 @@ public:
 
     /// Run ONNX inference. Returns scores (B, N, N) flattened, and B/N.
     std::vector<float> inference(const float* norm_kpts, const float* descriptors,
-                                 int B, int N, int& out_B, int& out_N) const;
+        int B, int N, int& out_B, int& out_N) const;
 
     MatchResult postprocess(const float* scores, int B, int N) const;
 
@@ -39,4 +39,4 @@ private:
     std::unique_ptr<Ort::Session> session_;
 };
 
-#endif // PLANAR_STITCHER_LIGHTGLUE_HPP
+#endif  // LIGHTGLUE_HPP

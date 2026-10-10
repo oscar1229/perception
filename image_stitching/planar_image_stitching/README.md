@@ -23,8 +23,6 @@ planar_image_stitching/
 ├── README.md
 ├── config.json
 ├── run_planar.sh
-├── lib/
-│   └── libplanar_stitcher_core.a
 ├── include/planar_stitcher/
 ├── assets/
 │   ├── s0_left.jpg             # 回退图片
@@ -43,14 +41,14 @@ planar_image_stitching/
 SuperPoint + LightGlue 的 ONNX 模型体积较大，不随源码仓库分发，首次使用前需执行一次下载脚本：
 
 ```bash
-./assets/model/downland_model.sh
+./assets/model/download_model.sh
 ```
 
 脚本会自动定位自身所在目录，无论从哪个路径调用，模型都会下载到 `assets/model/` 下：
 
 ```text
 assets/model/
-├── downland_model.sh
+├── download_model.sh
 ├── superpoint_360x640.q.onnx
 └── lightglue_for_superpoint_512_depth9.fp16.onnx
 ```
@@ -61,7 +59,7 @@ assets/model/
 
 ## MPP 源码
 
-MPP 以源码方式编译，配置时默认按本目录的相对路径 `../../../multimedia/mpp/` 查找，CMake 会将其解析为绝对路径。如果 MPP 源码位于其他位置，配置编译时指定路径：
+MPP 配置时默认按本目录的相对路径 `../../../multimedia/mpp/` 查找，CMake 会将其解析为绝对路径。如果 MPP 源码位于其他位置，配置时指定路径：
 
 ```bash
 cmake -S . -B build -DMPP_ROOT=/path/to/mpp
@@ -84,10 +82,15 @@ sudo apt install opencv-spacemit=4.14.0-2bb4
 
 **ONNX Runtime（仅 superpoint_lightglue 模式需要）**
 
-`libplanar_stitcher_core.a` 已包含 SuperPoint/LightGlue 目标文件，运行时链接系统中的 ONNXRuntime 和 SpaceMIT EP：
+SuperPoint/LightGlue 模式需要链接系统中的 ONNXRuntime 和 SpaceMIT EP：
 
 ```bash
-# 确认已安装
+sudo apt install spacemit-onnxruntime
+```
+
+安装后确认库文件存在：
+
+```bash
 ls /usr/lib/libonnxruntime.so /usr/lib/libspacemit_ep.so
 ```
 
@@ -149,6 +152,27 @@ cmake --build build -j8
 | `runtime.frames` | int | 渲染帧数，`0` 持续运行 |
 | `runtime.sleep_us` | int | 每帧节流睡眠（微秒） |
 | `runtime.force_offscreen` | bool | `true` 强制离屏渲染 |
+
+## 输入与离屏渲染
+
+**输入约束**
+
+- `camera.enable=false` 时读取 `input.left_image` 和 `input.right_image`，图片尺寸须与 `camera.width` × `camera.height` 一致
+- `camera.enable=true` 时打开摄像头设备（`camera.device_left`/`device_right`），失败自动回退到图片输入
+- 所有输入帧经 MPP JPEG 解码或 VI 捕获后统一转为 NV12 格式送入拼接流水线
+
+**渲染目标**
+
+输出画布固定为 **1920×1080**（横向平面拼接），输入尺寸通过 letterbox 或 crop 适配：
+
+- 输入 ≤ 1920×1080：保持宽高比，居中 letterbox，黑边填充
+- 输入 > 1920×1080：保持宽高比，crop 到 1920×1080
+
+**离屏渲染**
+
+- 无显示器或 `DISPLAY` 环境变量为空时，自动切换到 EGL Pbuffer 离屏渲染
+- 手动强制：`runtime.force_offscreen=true`
+- 离屏模式下仍可通过 `output.image` 保存结果图片
 
 ## 切换检测器
 

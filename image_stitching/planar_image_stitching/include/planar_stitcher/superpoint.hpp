@@ -1,10 +1,10 @@
 /**
- * @file superpoint.h
+ * @file superpoint.hpp
  * @brief SuperPoint feature extractor — ONNX inference wrapper
  */
 
-#ifndef PLANAR_STITCHER_SUPERPOINT_HPP
-#define PLANAR_STITCHER_SUPERPOINT_HPP
+#ifndef SUPERPOINT_HPP
+#define SUPERPOINT_HPP
 
 #include <string>
 #include <vector>
@@ -51,21 +51,21 @@ public:
 
     /// Model coords -> original image coords. kpts has N*2 elements.
     std::vector<double> keypoints_to_original(const int* kpts, int N,
-                                              float scale, int pad_left, int pad_top,
-                                              int orig_w = 0, int orig_h = 0) const;
+        float scale, int pad_left, int pad_top,
+        int orig_w = 0, int orig_h = 0) const;
 
     int input_h() const { return input_h_; }
     int input_w() const { return input_w_; }
 
     /// Set current detection result as reference (first frame)
     void set_reference(const cv::Mat& image, const PreprocessResult& pre,
-                       const std::vector<int>& keypoints,
-                       const std::vector<float>& descriptors, int num_keypoints);
+        const std::vector<int>& keypoints,
+        const std::vector<float>& descriptors, int num_keypoints);
 
     /// Update reference from current frame (call after matching)
     void update_reference(const cv::Mat& image, const PreprocessResult& pre,
-                          const std::vector<int>& keypoints,
-                          const std::vector<float>& descriptors, int num_keypoints);
+        const std::vector<int>& keypoints,
+        const std::vector<float>& descriptors, int num_keypoints);
 
     bool has_reference() const { return has_ref_; }
     const cv::Mat& ref_image() const { return ref_image_; }
@@ -100,4 +100,4 @@ private:
     bool has_ref_ = false;
 };
 
-#endif // PLANAR_STITCHER_SUPERPOINT_HPP
+#endif  // SUPERPOINT_HPP
