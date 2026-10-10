@@ -38,11 +38,15 @@ endif()
 # The prebuilt libplanar_stitcher_core.a always contains the SuperPoint+LightGlue
 # translation units. ONNX Runtime must therefore always be linked regardless of
 # any feature switch — there is no separate ORB-only library variant.
-set(ONNXRUNTIME_INCLUDE_DIR "/usr/include" CACHE PATH "ONNXRuntime include directory")
-if(NOT EXISTS "${ONNXRUNTIME_INCLUDE_DIR}/onnxruntime_cxx_api.h")
+find_path(ONNXRUNTIME_INCLUDE_DIR
+  NAMES onnxruntime_cxx_api.h
+  PATHS /usr/include /usr/local/include
+  DOC "ONNX Runtime include directory")
+if(NOT ONNXRUNTIME_INCLUDE_DIR)
   message(FATAL_ERROR
-    "onnxruntime_cxx_api.h not found at ${ONNXRUNTIME_INCLUDE_DIR}.\n"
-    "Install with: sudo apt install spacemit-onnxruntime")
+    "ONNX Runtime headers not found.\n"
+    "Install with: sudo apt install spacemit-onnxruntime\n"
+    "Or set manually: cmake -DONNXRUNTIME_INCLUDE_DIR=<path>")
 endif()
 message(STATUS "ONNX Runtime headers: ${ONNXRUNTIME_INCLUDE_DIR}")
 

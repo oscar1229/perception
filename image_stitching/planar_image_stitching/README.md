@@ -139,16 +139,16 @@ cmake --build build -j8
 | `registration.file` | string | `mode=file` 时读取的标定文件 |
 | `registration.save_to` | string | 保存配准结果的路径 |
 | `feature_detection.detector` | string | `superpoint_lightglue`（默认）或 `orb` |
-| `feature_detection.work_max_width` | int | ORB 路径缩放宽度 |
-| `feature_detection.fast_threshold` / `max_features` | int | ORB 路径参数 |
-| `superpoint_lightglue.superpoint_model` | string | SP 模型路径 |
-| `superpoint_lightglue.lightglue_model` | string | LightGlue 模型路径 |
-| `superpoint_lightglue.num_keypoints` | int | 最大关键点数（默认 512） |
-| `superpoint_lightglue.nms_radius` | int | NMS 半径 |
-| `superpoint_lightglue.remove_borders` | int | 边缘剔除像素数 |
-| `superpoint_lightglue.filter_threshold` | float | LightGlue 置信度阈值 |
-| `superpoint_lightglue.num_threads` | int | 推理线程数 |
-| `superpoint_lightglue.provider` | string | 推理后端（`SpaceMITExecutionProvider` 或 `CPUExecutionProvider`） |
+| `feature_detection.orb.work_max_width` | int | ORB 路径缩放宽度 |
+| `feature_detection.orb.fast_threshold` / `max_features` | int | ORB 路径参数 |
+| `feature_detection.superpoint_lightglue.superpoint_model` | string | SP 模型路径 |
+| `feature_detection.superpoint_lightglue.lightglue_model` | string | LightGlue 模型路径 |
+| `feature_detection.superpoint_lightglue.num_keypoints` | int | 最大关键点数（默认 512） |
+| `feature_detection.superpoint_lightglue.nms_radius` | int | NMS 半径 |
+| `feature_detection.superpoint_lightglue.remove_borders` | int | 边缘剔除像素数 |
+| `feature_detection.superpoint_lightglue.filter_threshold` | float | LightGlue 置信度阈值 |
+| `feature_detection.superpoint_lightglue.num_threads` | int | 推理线程数 |
+| `feature_detection.superpoint_lightglue.provider` | string | 推理后端（`SpaceMITExecutionProvider` 或 `CPUExecutionProvider`） |
 | `ransac.*` | - | RANSAC 参数 |
 | `blending.num_bands` | int | 融合波段数，`0` 自动选择 |
 | `runtime.frames` | int | 渲染帧数，`0` 持续运行 |
@@ -181,17 +181,26 @@ cmake --build build -j8
 使用 SuperPoint+LightGlue（默认）：
 
 ```json
-"feature_detection": { "detector": "superpoint_lightglue" },
-"superpoint_lightglue": {
+"feature_detection": {
+  "detector": "superpoint_lightglue",
+  "superpoint_lightglue": {
     "superpoint_model": "./assets/model/superpoint_360x640.q.onnx",
     "lightglue_model": "./assets/model/lightglue_for_superpoint_512_depth9.fp16.onnx"
+  }
 }
 ```
 
 使用 ORB：
 
 ```json
-"feature_detection": { "detector": "orb", "work_max_width": 960, "fast_threshold": 20, "max_features": 2000 }
+"feature_detection": {
+  "detector": "orb",
+  "orb": {
+    "work_max_width": 960,
+    "fast_threshold": 20,
+    "max_features": 2000
+  }
+}
 ```
 
 ## 典型场景
