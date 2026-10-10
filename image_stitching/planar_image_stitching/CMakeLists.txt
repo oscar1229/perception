@@ -51,6 +51,11 @@ else()
   message(STATUS "SuperPoint+LightGlue: disabled")
 endif()
 
+# planar_stitcher_core is a prebuilt IMPORTED library.
+# mpp cannot be listed in INTERFACE_LINK_LIBRARIES here because mpp's own
+# INTERFACE_INCLUDE_DIRECTORIES contains include/vo which does not exist on
+# disk — CMake validates all INTERFACE paths on IMPORTED targets and fails.
+# mpp is therefore linked directly on the executable target below.
 add_library(planar_stitcher_core STATIC IMPORTED)
 set_target_properties(planar_stitcher_core PROPERTIES
   IMPORTED_LOCATION ${LIB_DIR}/libplanar_stitcher_core.a)
@@ -70,6 +75,7 @@ if(ENABLE_SUPERPOINT_LIGHTGLUE)
   target_include_directories(planar_stitcher_core INTERFACE ${ONNXRUNTIME_INCLUDE_DIR})
   target_compile_definitions(planar_stitcher_core INTERFACE HAVE_SUPERPOINT_LIGHTGLUE)
 endif()
+# Propagate all link deps except mpp (see note above).
 target_link_libraries(planar_stitcher_core INTERFACE
   ${OpenCV_LIBS}
   ${EGL_LIBRARIES} ${GLES_LIBRARIES} ${X11_LIBRARIES} Threads::Threads dl gbm)
@@ -83,18 +89,11 @@ if(TARGET vi_k3_cam_plugin)
 elseif(TARGET vi_k1_cam_plugin)
   add_dependencies(planar_stitcher vi_k1_cam_plugin)
 endif()
+# planar_stitcher_core propagates includes and most libs via INTERFACE.
+# mpp is added here explicitly because it cannot be in INTERFACE (see above).
 target_link_libraries(planar_stitcher PRIVATE
   planar_stitcher_core
-  ${OpenCV_LIBS}
-  mpp
-  ${EGL_LIBRARIES}
-  ${GLES_LIBRARIES}
-  ${X11_LIBRARIES}
-  Threads::Threads
-  dl gbm)
-if(ENABLE_SUPERPOINT_LIGHTGLUE)
-  target_link_libraries(planar_stitcher PRIVATE onnxruntime spacemit_ep)
-endif()
+  mpp)
 
 get_filename_component(_opencv_libdir "${OpenCV_DIR}/../.." ABSOLUTE)
 set_target_properties(planar_stitcher PROPERTIES

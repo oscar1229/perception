@@ -23,6 +23,8 @@ planar_image_stitching/
 ├── README.md
 ├── config.json
 ├── run_planar.sh
+├── lib/
+│   └── libplanar_stitcher_core.a
 ├── include/planar_stitcher/
 ├── assets/
 │   ├── s0_left.jpg             # 回退图片
