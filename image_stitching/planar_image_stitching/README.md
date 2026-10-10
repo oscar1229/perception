@@ -5,7 +5,7 @@
 特征检测支持两种模式，可在 `config.json` 中切换：
 
 - `superpoint_lightglue`（默认）：基于 SuperPoint 关键点检测 + LightGlue 匹配，精度更高
-- `orb`：基于 ORB 特征检测 + 比值测试互匹配，速度更快，无需 ONNX Runtime
+- `orb`：基于 ORB 特征检测 + 比值测试互匹配，速度更快
 
 ## 功能简介
 
@@ -82,9 +82,9 @@ sudo apt install opencv-spacemit=4.14.0-2bb4
 
 安装其他版本可能导致 `symbol lookup error`。
 
-**ONNX Runtime（仅 superpoint_lightglue 模式需要）**
+**ONNX Runtime**
 
-SuperPoint/LightGlue 模式需要链接系统中的 ONNXRuntime 和 SpaceMIT EP：
+预编译库包含 SuperPoint+LightGlue 代码路径，必须链接 ONNX Runtime（即使只使用 ORB 模式）：
 
 ```bash
 sudo apt install spacemit-onnxruntime
@@ -93,10 +93,9 @@ sudo apt install spacemit-onnxruntime
 安装后确认库文件存在：
 
 ```bash
+ls /usr/include/onnxruntime_cxx_api.h
 ls /usr/lib/libonnxruntime.so /usr/lib/libspacemit_ep.so
 ```
-
-若 ONNX Runtime 未安装，configure 时会报错并提示安装命令。
 
 **其余依赖**
 
@@ -139,8 +138,9 @@ cmake --build build -j8
 | `registration.file` | string | `mode=file` 时读取的标定文件 |
 | `registration.save_to` | string | 保存配准结果的路径 |
 | `feature_detection.detector` | string | `superpoint_lightglue`（默认）或 `orb` |
-| `feature_detection.orb.work_max_width` | int | ORB 路径缩放宽度 |
-| `feature_detection.orb.fast_threshold` / `max_features` | int | ORB 路径参数 |
+| `feature_detection.orb.work_max_width` | int | ORB 检测前的图像缩放宽度 |
+| `feature_detection.orb.fast_threshold` | int | ORB FAST 角点阈值 |
+| `feature_detection.orb.max_features` | int | ORB 最大特征点数 |
 | `feature_detection.superpoint_lightglue.superpoint_model` | string | SP 模型路径 |
 | `feature_detection.superpoint_lightglue.lightglue_model` | string | LightGlue 模型路径 |
 | `feature_detection.superpoint_lightglue.num_keypoints` | int | 最大关键点数（默认 512） |
@@ -177,6 +177,8 @@ cmake --build build -j8
 - 离屏模式下仍可通过 `output.image` 保存结果图片
 
 ## 切换检测器
+
+检测器通过 `config.json` 切换，修改后直接运行即可（无需重新编译）：
 
 使用 SuperPoint+LightGlue（默认）：
 

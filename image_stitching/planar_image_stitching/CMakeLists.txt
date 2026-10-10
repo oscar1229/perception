@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.19)
 project(planar_stitcher_demo LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -35,9 +35,7 @@ else()
   message(FATAL_ERROR "mpp_mux target missing: MPP layout changed")
 endif()
 
-# The prebuilt libplanar_stitcher_core.a always contains the SuperPoint+LightGlue
-# translation units. ONNX Runtime must therefore always be linked regardless of
-# any feature switch — there is no separate ORB-only library variant.
+# ONNX Runtime is always required
 find_path(ONNXRUNTIME_INCLUDE_DIR
   NAMES onnxruntime_cxx_api.h
   PATHS /usr/include /usr/local/include
