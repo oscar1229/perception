@@ -57,7 +57,7 @@ assets/model/
 
 模型下载地址：https://archive.spacemit.com/spacemit-ai/model_zoo/vision/
 
-`config.json` 中通过相对路径 `./assets/model/` 引用，因此需在本目录下运行程序。
+`config.json` 中通过相对路径 `./assets/model/` 引用，该路径相对于**程序运行时的当前工作目录**解析，因此需在本目录下启动（见下方"构建与运行"）。
 
 ## MPP 源码
 
@@ -108,15 +108,17 @@ sudo apt install libx11-dev libegl-dev libgles2
 在本目录构建示例，然后运行：
 
 ```bash
+cd /path/to/planar_image_stitching  # 替换为实际安装路径
 cmake -S . -B build
 cmake --build build -j8
 ./run_planar.sh
 ```
 
-也可以直接运行：
+也可以直接运行可执行文件（同样需要在本目录下，因为 config.json 中模型路径是相对路径）：
 
 ```bash
-./build/planar_stitcher [path/to/config.json]
+cd /path/to/planar_image_stitching
+./build/planar_stitcher [config.json]
 ```
 
 按 Ctrl+C 终止；离屏模式退出时保存最后一帧。
