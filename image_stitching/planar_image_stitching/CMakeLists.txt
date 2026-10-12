@@ -35,7 +35,8 @@ else()
   message(FATAL_ERROR "mpp_mux target missing: MPP layout changed")
 endif()
 
-# ONNX Runtime is always required
+# ONNX Runtime is always required: the prebuilt library contains SuperPoint+LightGlue
+# code paths. Switching between detectors happens at runtime via config.json.
 find_path(ONNXRUNTIME_INCLUDE_DIR
   NAMES onnxruntime_cxx_api.h
   PATHS /usr/include /usr/local/include
@@ -48,15 +49,23 @@ if(NOT ONNXRUNTIME_INCLUDE_DIR)
 endif()
 message(STATUS "ONNX Runtime headers: ${ONNXRUNTIME_INCLUDE_DIR}")
 
-# planar_stitcher_core is a prebuilt IMPORTED library.
-# mpp cannot be listed in INTERFACE_LINK_LIBRARIES here because mpp's own
-# INTERFACE_INCLUDE_DIRECTORIES contains include/vo which does not exist on
-# disk — CMake validates all INTERFACE paths on IMPORTED targets and fails.
-# mpp is therefore linked directly on the executable target below.
+# planar_stitcher_core is a prebuilt IMPORTED library. CMake validates every path
+# listed in INTERFACE_INCLUDE_DIRECTORIES on IMPORTED targets; some paths (e.g.
+# MPP's include/vo, or subdirectories absent in certain environments) may not
+# exist on disk and cause configure failures. Keep the IMPORTED target minimal —
+# only IMPORTED_LOCATION — and set all includes and links PRIVATE on the
+# executable target below so no path validation is triggered on the library.
 add_library(planar_stitcher_core STATIC IMPORTED)
 set_target_properties(planar_stitcher_core PROPERTIES
   IMPORTED_LOCATION ${LIB_DIR}/libplanar_stitcher_core.a)
-target_include_directories(planar_stitcher_core INTERFACE
+
+add_executable(planar_stitcher stitcher_test/planar_stitcher_main.cpp)
+if(TARGET vi_k3_cam_plugin)
+  add_dependencies(planar_stitcher vi_k3_cam_plugin)
+elseif(TARGET vi_k1_cam_plugin)
+  add_dependencies(planar_stitcher vi_k1_cam_plugin)
+endif()
+target_include_directories(planar_stitcher PRIVATE
   ${STITCHER_INCLUDE_DIR}
   ${OpenCV_INCLUDE_DIRS}
   ${MPP_ROOT}/include
@@ -69,24 +78,13 @@ target_include_directories(planar_stitcher_core INTERFACE
   ${GLES_INCLUDE_DIRS}
   ${X11_INCLUDE_DIR}
   ${ONNXRUNTIME_INCLUDE_DIR})
-target_compile_definitions(planar_stitcher_core INTERFACE HAVE_SUPERPOINT_LIGHTGLUE)
-# Propagate all link deps except mpp (see note above).
-target_link_libraries(planar_stitcher_core INTERFACE
+target_compile_definitions(planar_stitcher PRIVATE HAVE_SUPERPOINT_LIGHTGLUE)
+target_link_libraries(planar_stitcher PRIVATE
+  planar_stitcher_core
+  mpp
   ${OpenCV_LIBS}
   ${EGL_LIBRARIES} ${GLES_LIBRARIES} ${X11_LIBRARIES} Threads::Threads dl gbm
   onnxruntime spacemit_ep)
-
-add_executable(planar_stitcher stitcher_test/planar_stitcher_main.cpp)
-if(TARGET vi_k3_cam_plugin)
-  add_dependencies(planar_stitcher vi_k3_cam_plugin)
-elseif(TARGET vi_k1_cam_plugin)
-  add_dependencies(planar_stitcher vi_k1_cam_plugin)
-endif()
-# planar_stitcher_core propagates includes and most libs via INTERFACE.
-# mpp is added here explicitly because it cannot be in INTERFACE (see above).
-target_link_libraries(planar_stitcher PRIVATE
-  planar_stitcher_core
-  mpp)
 
 get_filename_component(_opencv_libdir "${OpenCV_DIR}/../.." ABSOLUTE)
 set_target_properties(planar_stitcher PROPERTIES

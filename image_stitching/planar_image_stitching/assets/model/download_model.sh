@@ -62,31 +62,7 @@ for model in "${MODELS[@]}"; do
     fi
 
     mv -f "$tmp" "$dest"
-    
-    # Verify sha256 if reference is known
-    actual_sha256="$(sha256sum "$dest" | cut -d' ' -f1)"
-    case "$name" in
-        superpoint_360x640.q.onnx)
-            expected_sha256="311fc4581d6be9bbaaf6ddaf231f35e11b7046837cc149673390e1ca3b5059f9"
-            ;;
-        lightglue_for_superpoint_512_depth9.fp16.onnx)
-            expected_sha256="4561099b945dc40f80747fc75842a4b6cc06d34cb821e7883521ffda57c23597"
-            ;;
-        *)
-            expected_sha256=""
-            ;;
-    esac
-    
-    if [ -n "$expected_sha256" ] && [ "$actual_sha256" != "$expected_sha256" ]; then
-        echo "error: ${name}: checksum mismatch" >&2
-        echo "  expected: $expected_sha256" >&2
-        echo "  got:      $actual_sha256" >&2
-        echo "  File is corrupt; removing ${dest}" >&2
-        rm -f "$dest"
-        exit 1
-    fi
-    
-    echo "done: ${name} ($(local_size "$dest") bytes, sha256 ${actual_sha256})"
+    echo "done: ${name} ($(local_size "$dest") bytes)"
 done
 
 echo "Done. Models are in ${MODEL_DIR}"

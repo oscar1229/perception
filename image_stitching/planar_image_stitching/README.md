@@ -114,11 +114,12 @@ cmake --build build -j8
 ./run_planar.sh
 ```
 
-也可以直接运行可执行文件（同样需要在本目录下，因为 config.json 中模型路径是相对路径）：
+也可以直接运行可执行文件，配置文件路径可任意指定，但 config.json 中的相对路径（如模型路径 `./assets/model/`）是相对于**程序运行时的当前工作目录**解析的，而不是相对于配置文件本身所在目录。因此推荐在本目录下运行，或使用绝对路径：
 
 ```bash
 cd /path/to/planar_image_stitching
-./build/planar_stitcher [config.json]
+./build/planar_stitcher                    # 使用默认 config.json
+./build/planar_stitcher /other/config.json # 使用其他配置文件（模型路径需为绝对路径）
 ```
 
 按 Ctrl+C 终止；离屏模式退出时保存最后一帧。
