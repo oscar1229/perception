@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.19)
 project(planar_stitcher_demo LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -35,6 +35,26 @@ else()
   message(FATAL_ERROR "mpp_mux target missing: MPP layout changed")
 endif()
 
+# ONNX Runtime is always required: the prebuilt library contains SuperPoint+LightGlue
+# code paths. Switching between detectors happens at runtime via config.json.
+find_path(ONNXRUNTIME_INCLUDE_DIR
+  NAMES onnxruntime_cxx_api.h
+  PATHS /usr/include /usr/local/include
+  DOC "ONNX Runtime include directory")
+if(NOT ONNXRUNTIME_INCLUDE_DIR)
+  message(FATAL_ERROR
+    "ONNX Runtime headers not found.\n"
+    "Install with: sudo apt install spacemit-onnxruntime\n"
+    "Or set manually: cmake -DONNXRUNTIME_INCLUDE_DIR=<path>")
+endif()
+message(STATUS "ONNX Runtime headers: ${ONNXRUNTIME_INCLUDE_DIR}")
+
+# planar_stitcher_core is a prebuilt IMPORTED library. CMake validates every path
+# listed in INTERFACE_INCLUDE_DIRECTORIES on IMPORTED targets; some paths (e.g.
+# MPP's include/vo, or subdirectories absent in certain environments) may not
+# exist on disk and cause configure failures. Keep the IMPORTED target minimal —
+# only IMPORTED_LOCATION — and set all includes and links PRIVATE on the
+# executable target below so no path validation is triggered on the library.
 add_library(planar_stitcher_core STATIC IMPORTED)
 set_target_properties(planar_stitcher_core PROPERTIES
   IMPORTED_LOCATION ${LIB_DIR}/libplanar_stitcher_core.a)
@@ -56,16 +76,15 @@ target_include_directories(planar_stitcher PRIVATE
   ${MPP_ROOT}/include/v2d
   ${EGL_INCLUDE_DIRS}
   ${GLES_INCLUDE_DIRS}
-  ${X11_INCLUDE_DIR})
+  ${X11_INCLUDE_DIR}
+  ${ONNXRUNTIME_INCLUDE_DIR})
+target_compile_definitions(planar_stitcher PRIVATE HAVE_SUPERPOINT_LIGHTGLUE)
 target_link_libraries(planar_stitcher PRIVATE
   planar_stitcher_core
-  ${OpenCV_LIBS}
   mpp
-  ${EGL_LIBRARIES}
-  ${GLES_LIBRARIES}
-  ${X11_LIBRARIES}
-  Threads::Threads
-  dl gbm)
+  ${OpenCV_LIBS}
+  ${EGL_LIBRARIES} ${GLES_LIBRARIES} ${X11_LIBRARIES} Threads::Threads dl gbm
+  onnxruntime spacemit_ep)
 
 get_filename_component(_opencv_libdir "${OpenCV_DIR}/../.." ABSOLUTE)
 set_target_properties(planar_stitcher PROPERTIES
