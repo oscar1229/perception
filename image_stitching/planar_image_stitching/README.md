@@ -252,13 +252,16 @@ cd /path/to/planar_image_stitching
 
 输入图像（`config.json` 中 `input.left_image` / `input.right_image`）：
 
-![左路输入](assets/s0_left.jpg)
-
-![右路输入](assets/s0_right.jpg)
+<table><tr>
+<td><img src="assets/s0_left.jpg" width="480" alt="左路输入"></td>
+<td><img src="assets/s0_right.jpg" width="480" alt="右路输入"></td>
+</tr></table>
 
 渲染输出（`output.image`）：
 
-![拼接输出](assets/images/planar_output.jpg)
+<table><tr>
+<td><img src="assets/images/planar_output.jpg" width="960" alt="拼接输出"></td>
+</tr></table>
 
 ## 性能指标
 

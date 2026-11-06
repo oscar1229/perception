@@ -151,13 +151,19 @@ cmake --build build -j8
 
 输入图像（`fallback_image_dir` 目录下的四路鱼眼图，即 `sv_avm_test/res/imagech0.jpg` 至 `imagech3.jpg`）：
 
-![ch0](sv_avm_test/res/imagech0.jpg) ![ch1](sv_avm_test/res/imagech1.jpg)
-
-![ch2](sv_avm_test/res/imagech2.jpg) ![ch3](sv_avm_test/res/imagech3.jpg)
+<table><tr>
+<td><img src="sv_avm_test/res/imagech0.jpg" width="320" alt="ch0"></td>
+<td><img src="sv_avm_test/res/imagech1.jpg" width="320" alt="ch1"></td>
+</tr><tr>
+<td><img src="sv_avm_test/res/imagech2.jpg" width="320" alt="ch2"></td>
+<td><img src="sv_avm_test/res/imagech3.jpg" width="320" alt="ch3"></td>
+</tr></table>
 
 渲染输出（`offscreen_output_path`）：
 
-![AVM 渲染输出](assets/images/avm_output.jpg)
+<table><tr>
+<td><img src="assets/images/avm_output.jpg" width="960" alt="AVM 渲染输出"></td>
+</tr></table>
 
 ## 性能指标
 
